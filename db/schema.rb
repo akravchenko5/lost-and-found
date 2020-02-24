@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_140801) do
+ActiveRecord::Schema.define(version: 2020_02_24_160200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "keeper_id", null: false
+    t.bigint "seeker_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_conversations_on_item_id"
+    t.index ["keeper_id"], name: "index_conversations_on_keeper_id"
+    t.index ["seeker_id"], name: "index_conversations_on_seeker_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.integer "state"
+    t.text "description"
+    t.string "category"
+    t.string "address"
+    t.integer "reward"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +57,17 @@ ActiveRecord::Schema.define(version: 2020_02_24_140801) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversations", "items"
+  add_foreign_key "conversations", "users", column: "keeper_id"
+  add_foreign_key "conversations", "users", column: "seeker_id"
+  add_foreign_key "items", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
 end
