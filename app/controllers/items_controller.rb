@@ -1,6 +1,20 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :map]
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
+
+  def map
+
+
+    @items = Item.geocoded #returns flats with coordinates
+
+    @markers = @items.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+  end
+
   def home
   end
 
