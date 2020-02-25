@@ -17,6 +17,14 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def lost
+    @items = Item.lost
+  end
+
+  def found
+    @items = Item.found
+  end
+
   def show
     @item = Item.find(params[:id])
   end

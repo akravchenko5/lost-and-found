@@ -1,0 +1,45 @@
+<% if params[:action] == 'lost' %>
+
+  <% items.each do |item| %>
+    <div class="show-card lost">
+      <div class="show-card-content lost">
+        <h5><%= item.title %></h5>
+        <div class="show-drescription lost">
+           <%= item.description %>
+        </div>
+      </div>
+
+      <div class="show-card-distance">
+        <div class="show-card-map">
+          <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
+        </div>
+        <div class="show-distance">
+          2 km
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <% items.each do |item| %>
+    <div class="show-card">
+      <div class="show-card-content">
+        <h5><%= item.title %></h5>
+        <div class="show-drescription">
+           <%= item.description %>
+        </div>
+      </div>
+
+      <div class="show-card-distance">
+        <div class="show-card-map">
+          <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
+          </div>
+        <div class="show-distance">
+           2 km
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
