@@ -1,8 +1,11 @@
-<% if params[:action] == 'lost' %>
+<% if params[:action] == 'lost' || params[:action] == 'map'  %>
 
   <div class="top-menu-wrap">
     <div class="menu-item">
         <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
+    </div>
+    <div class="menu-item">
+        <%= link_to image_tag("logo_white.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
       <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
@@ -11,9 +14,12 @@
 
 <% else %>
 
-  <div class="top-menu-wrap">
+  <div class="top-menu-wrap-white">
     <div class="menu-item">
         <%= image_tag 'settings_black.svg', class: 'menu-settings' %>
+    </div>
+    <div class="menu-item">
+      <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
         <%= image_tag 'chat_black.svg', class: 'menu-chat' %>

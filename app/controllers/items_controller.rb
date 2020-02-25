@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    set_map(@item);
   end
 
   def home
@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
