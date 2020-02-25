@@ -21,11 +21,18 @@ ADDRESS = [
   'Sofies Plass 3b, Oslo',
   'Akersgata 55, Oslo',
   'Lakkegata 32, Oslo',
-  'Hertug Skules vei 6, Fredrikstad',
   'Henrik Ibsensgate 2, Oslo',
   'Akersbakken 2, Oslo',
   'Konowsgate 3, Oslo',
-  'Oddahagen 5B, Stavanger',
+  'Galgeberg 3F, 0657 Oslo',
+  'Stjerneblokkveien 5, 1083 Oslo',
+  'Mortensrudveien 38, 1283 Oslo',
+  'Christoffer Hellums vei 29, 0950 Oslo',
+  'Freserveien 21, 0195 Oslo',
+  'Ensjøveien 21D, 0655 Oslo',
+  'Smedgata 35A, 0651 Oslo',
+  'Dronning Eufemias gate 65, 0194 Oslo',
+  'Rubina Ranas gate 7, 0190 Oslo'
 ]
 
 CATEGORIES = [
@@ -83,8 +90,10 @@ User.create!(users_attributes)
 
 puts 'Creating items...'
 
-User.all.each do |user|
-  25.times do
+
+  sum = 0
+
+  17.times do
 
     item = Item.new(
       title: Faker::Commerce.product_name,
@@ -93,13 +102,14 @@ User.all.each do |user|
       reward: rand(50..400),
       user: User.all.sample,
       category: CATEGORIES.sample,
-      address: ADDRESS.sample
+      address: ADDRESS[sum]
     )
+
+    sum += 1
 
     item.save!
   end
 
-end
 
 
 puts 'Finished!'

@@ -40,6 +40,16 @@
     color: $lost-green;
   }
 
+  a {
+    color: $lost-dark;
+
+    &:hover {
+      text-decoration: none;
+      color: $lost-green;
+    }
+  }
+
+
 }
 
 .menu-button {
