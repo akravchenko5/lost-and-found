@@ -2,12 +2,31 @@
 
   <div class="show-container">
     <h2><span class="green">34</span> results</h2>
-    <p>in Oslo</p>
 
     <div class="show-card-wrap">
+
       <% @items.each do |item| %>
-      <h4><%= item.title %></h4>
+        <div class="show-card">
+
+          <div class="show-card-content">
+            <h5><%= item.title %></h5>
+            <div class="show-drescription">
+               <%= item.description %>
+            </div>
+          </div>
+
+          <div class="show-card-distance">
+            <div class="show-card-map">
+              <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
+              </div>
+            <div class="show-distance">
+               2 km
+            </div>
+          </div>
+
+        </div>
       <% end %>
+
     </div>
   </div>
 

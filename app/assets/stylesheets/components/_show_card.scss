@@ -1,0 +1,57 @@
+.show-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px solid $light-gray;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+
+  &:hover h5 {
+    color: $lost-green;
+  }
+}
+
+.show-card-content {
+  width: 80%;
+
+  h5 {
+    margin-bottom: 5px;
+    color: $lost-dark;
+    transition: color 0.5s ease;
+
+  }
+}
+
+.show-drescription {
+    height: 24px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.9rem;
+    color: $medium-gray;
+
+}
+
+.show-map-pointer {
+  height: 22px;
+  width: 22px;
+  margin-bottom: 5px;
+}
+
+.show-distance {
+    font-size: 0.9rem;
+    color: $green;
+
+}
+
+@media screen and (min-width: 780px) {
+  .show-card {
+    padding: 30px 20px;
+  }
+}

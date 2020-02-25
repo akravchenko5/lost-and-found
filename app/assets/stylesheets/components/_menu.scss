@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 999;
 }
@@ -20,7 +20,7 @@
   font-family: $headers-font;
   letter-spacing: 0.3rem;
   font-size: 0.8rem;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 999;
 

@@ -1,3 +1,30 @@
-show-card-wrap {
+.show-page-wrap {
+  min-height: 100vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show-container {
+  margin-top: 60px;
+  width: 85%;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.show-card-wrap {
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+
+@media screen and (min-width: 780px) {
+
+  .show-container {
+    width: 50%;
+    margin-top: 100px;
+  }
 }
