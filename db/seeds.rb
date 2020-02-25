@@ -90,11 +90,11 @@ User.create!(users_attributes)
 
 puts 'Creating items...'
 
-User.all.each do |user|
 
   sum = 0
 
   17.times do
+
     item = Item.new(
       title: Faker::Commerce.product_name,
       description: Faker::Hipster.paragraphs(number: 1).join(" "),
@@ -110,7 +110,6 @@ User.all.each do |user|
     item.save!
   end
 
-end
 
 
 puts 'Finished!'
