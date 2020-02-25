@@ -60,8 +60,9 @@
 </div>
 
 <div class="menu-background-green">
-  <div class="button-dark-menu">Lost?</div>
-  <div class="button-white-menu">Found?</div>
+  <%= link_to 'Lost?', new_item_path(state: :lost), class: 'button-lost-menu' %>
+  <%= link_to 'Found?', new_item_path(state: :found), class: 'button-found-menu' %>
+
   <div class="menu-wrap-green">
       <div class="menu-button-back">
       <%= image_tag 'arrow_green.svg', class: 'menu-plus' %>

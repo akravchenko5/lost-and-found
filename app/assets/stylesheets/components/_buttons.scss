@@ -31,7 +31,7 @@
   align-items: center;
 }
 
-.button-dark-menu {
+.button-lost-menu {
   width: 150px;
   color: $lost-green;
   background-color: $lost-dark;
@@ -42,9 +42,14 @@
   align-items: center;
   margin-bottom: 30px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
-.button-white-menu {
+.button-found-menu {
   width: 150px;
   color: $lost-green;
   background-color: white;
@@ -54,4 +59,9 @@
   justify-content: center;
   align-items: center;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+
+   &:hover {
+    text-decoration: none;
+    color: $lost-dark;
+  }
 }
