@@ -3,6 +3,12 @@
   <div class="show-container">
     <h2><span class="green">34</span> results</h2>
     <p>in Oslo</p>
+
+    <div class="show-card-wrap">
+      <% @items.each do |item| %>
+      <h4><%= item.title %></h4>
+      <% end %>
+    </div>
   </div>
 
 </div>
