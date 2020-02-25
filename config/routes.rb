@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   resources :items, except: :home do
+    collection do
+      get 'lost'
+      get 'found'
+    end
     resources :conversations, only: [:create]
   end
 

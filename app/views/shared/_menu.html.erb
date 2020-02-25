@@ -1,14 +1,26 @@
-<top class="top-menu-wrap">
+<% if params[:action] == 'lost' %>
 
+  <div class="top-menu-wrap">
+    <div class="menu-item">
+        <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
+    </div>
+    <div class="menu-item">
+      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="top-menu-wrap">
     <div class="menu-item">
         <%= image_tag 'settings_black.svg', class: 'menu-settings' %>
-  </div>
-
-  <div class="menu-item">
+    </div>
+    <div class="menu-item">
         <%= image_tag 'chat_black.svg', class: 'menu-chat' %>
+    </div>
   </div>
 
-</top>
+<% end %>
 
 <div class="menu-wrap">
 
