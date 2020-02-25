@@ -8,18 +8,18 @@
   ></div>
 
   <div class="show-container">
-    <h3><%= @item.title %></h3>
+    <h3><%= @item.first.title %></h3>
     <div class="show-item-details">
       <div class="item-details-user">
         <i class="fas fa-user"></i>
-        <%= @item.user.first_name %>
+        <%= @item.first.user.first_name %>
       </div>
       <div class="item-details-time">
-      <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
+      <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
       </div>
     </div>
     <div class="show-item-description">
-      <%= @item.description %>
+      <%= @item.first.description %>
     </div>
 
     <div class="button-wrap">

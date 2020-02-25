@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map]
 
   def map
-    @items = Item.where('address ILIKE?', "%oslo%")
-    set_map(@items);
+    items = Item.where('address ILIKE?', "%oslo%")
+    set_map(items);
   end
 
   def home
@@ -24,18 +24,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.where(id: params[:id])
     set_map(@item);
-  end
-
-  def home
-    @items = Item.all
-  end
-
-  def index
-    @items = Item.all
-  end
-
-  def show
   end
 
   def new
