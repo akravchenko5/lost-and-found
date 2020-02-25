@@ -1,10 +1,20 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show, :map]
+
+  def map
+    @items = Item.where('address ILIKE?', "%oslo%")
+    set_map(@items);
+     #returns flats with coordinates
+
+  end
+
   def home
+    @items = Item.all
   end
 
   def index
+    @items = Item.all
   end
 
   def show
@@ -58,10 +68,28 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def item_params
     params.require(:item).permit(:title, :state, :description, :category, :address, :reward, :photo)
+  end
+
+  def set_map(items)
+    @map_items = items.geocoded #returns flats with coordinates
+
+    @markers = @map_items.map do |item|
+      if item.state == 'lost'
+        pointer = 'pointer_black'
+      else
+        pointer = 'pointer_white'
+      end
+      {
+        lat: item.latitude,
+        lng: item.longitude,
+        infoWindow: render_to_string(partial: "map_info_window", locals: { item: item }),
+        image_url: helpers.asset_url(pointer)
+      }
+    end
   end
 end
