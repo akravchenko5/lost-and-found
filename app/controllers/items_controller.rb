@@ -88,10 +88,13 @@ class ItemsController < ApplicationController
 
     @markers = @map_items.map do |item|
       if item.state == 'lost'
-        pointer = 'pointer_black'
+        pointer = 'pointer_black.svg'
       else
-        pointer = 'pointer_white'
+        pointer = 'pointer_white.svg'
       end
+
+      puts ">>>> #{helpers.asset_url(pointer)}"
+
       {
         lat: item.latitude,
         lng: item.longitude,
