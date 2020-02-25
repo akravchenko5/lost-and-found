@@ -13,6 +13,14 @@
 
   &:hover h5 {
     color: $lost-green;
+    text-decoration: none;
+  }
+
+  &:hover .show-drescription{
+    color: $lost-green;
+    text-decoration: none;
+    transition: color 0.5s ease;
+
   }
 }
 
