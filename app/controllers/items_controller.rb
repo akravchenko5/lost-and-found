@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home, :index, :show, :map]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
 
   def map
     items = Item.where('address ILIKE?', "%oslo%")

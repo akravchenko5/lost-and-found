@@ -1,10 +1,19 @@
-<div class="map-shop-card">
-    <img src="https://picsum.photos/seed/picsum/200/300" />
-  <div class="map-title">
-    <p><%= item.category %></p>
-    <%= link_to item.title, item, class: "text-decoration-none" %>
-  </div >
-  <div class="map-cta">
-    <div class="map-price">Reward: <%= item.reward %> kr </div>
+<% if item.state == "lost" %>
+  <div class="map-popup-black">
+      <%= image_tag "pointer_black" %>
+    <div class="map-title">
+      <h6><%= link_to item.title, item, class: "text-decoration-none" %></h6>
+      <p><%= item.category %></p>
+      <h6 class="reward">Reward: <%= item.reward %> kr </h6>
+    </div >
   </div>
-</div>
+<% else %>
+  <div class="map-popup-white">
+    <%= image_tag "pointer_white_1" %>
+    <div class="map-title">
+      <h6><%= link_to item.title, item, class: "text-decoration-none" %></h6>
+      <p><%= item.category %></p>
+      <h6 class="reward">Reward: <%= item.reward %> kr </h6>
+    </div >
+  </div>
+<% end %>
