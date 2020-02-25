@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
   def home
   end
 
@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  end
 
   def home
     @items = Item.all
