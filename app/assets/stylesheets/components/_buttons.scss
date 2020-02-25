@@ -1,0 +1,32 @@
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-space {
+  width: 20px;
+  height: 100%;
+}
+
+.button-dark {
+  color: white;
+  background-color: $lost-dark;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-green {
+  color: white;
+  background-color: $lost-green;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

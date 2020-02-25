@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    set_map(@item);
   end
 
   def home

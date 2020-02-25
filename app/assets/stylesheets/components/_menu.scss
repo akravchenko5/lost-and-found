@@ -9,6 +9,18 @@
   z-index: 999;
 }
 
+.top-menu-wrap-white {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: white;
+}
+
 .menu-wrap {
   background-color: white;
   height: 60px;
@@ -19,7 +31,8 @@
   align-items: center;
   font-family: $headers-font;
   letter-spacing: 0.3rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-family: 'Moderat-Medium';
   position: fixed;
   bottom: 0;
   z-index: 999;
@@ -82,6 +95,11 @@
 .menu-settings {
   width: 28px;
   height: 29px;
+}
+
+.menu-logo {
+  width: 28px;
+  height: 28px;
 }
 
 .menu-chat {
