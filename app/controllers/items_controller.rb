@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :map]
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show, :map]
 
   def map
-
+    @items = Item.all
 
     @items = Item.geocoded #returns flats with coordinates
 
@@ -16,9 +16,11 @@ class ItemsController < ApplicationController
   end
 
   def home
+    @items = Item.all
   end
 
   def index
+    @items = Item.all
   end
 
   def show
@@ -72,7 +74,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def item_params
