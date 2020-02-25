@@ -25,11 +25,11 @@
 <div class="menu-wrap">
 
   <div class="menu-item item-left">
-    <%= image_tag 'map_black.svg', class: 'menu-map' %>
+    <%= link_to image_tag("map_black.svg", class: "menu-map"), map_path %>
   </div>
 
   <div class="menu-item">
-    LOST
+    <%= link_to 'LOST', lost_items_path%>
   </div>
 
   <div class="menu-item">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="menu-item">
-    FIND
+    <%= link_to 'FOUND', found_items_path%>
   </div>
 
   <div class="menu-item item-right">
