@@ -5,8 +5,6 @@ class ItemsController < ApplicationController
   def map
     @items = Item.where('address ILIKE?', "%oslo%")
     set_map(@items);
-     #returns flats with coordinates
-
   end
 
   def home
@@ -26,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def home
@@ -76,7 +73,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
@@ -92,8 +89,6 @@ class ItemsController < ApplicationController
       else
         pointer = 'pointer_white.svg'
       end
-
-      puts ">>>> #{helpers.asset_url(pointer)}"
 
       {
         lat: item.latitude,
