@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'items/home'
-  get 'items/index'
-  get 'items/show'
-  get 'items/new'
-  get 'items/create'
-  get 'items/edit'
-  get 'items/update'
-  get 'items/destroy'
+
+  resources :items, except: :home do
+    resources :conversations, only: [:create]
+  end
+
   devise_for :users
-  root to: 'pages#home'
+  root to: 'items#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
