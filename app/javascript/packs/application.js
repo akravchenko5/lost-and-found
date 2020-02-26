@@ -7,8 +7,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { createItem, foundNew } from '../components/init_create_item'
+import { count } from '../plugins/init_counter';
 
 initMapbox();
 createItem();
 foundNew();
-
+count();

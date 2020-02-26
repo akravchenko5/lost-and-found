@@ -1,4 +1,24 @@
-<div class="page-wrap">
-  <h1>3657 lost</h1>
-  <h1>3657 found</h1>
+<div class="home-page-wrap">
+
+  <div class="home-content-wrap">
+
+    <div class="home-loaction-info">
+      <%= image_tag 'map_green.svg', class: 'home-map-marker' %>
+      <h3>Oslo</h3>
+    </div>
+    <h1><span class="counter green">3657</span> lost</h1>
+    <h1><span class="counter green">2356</span> found</h1>
+
+          <%= form_tag items_path, method: :get, class: "home-form" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              id: "home-input",
+              placeholder: "Search nearby ..."
+            %>
+            <%= submit_tag ' ', id: "home-search-button" %>
+          <% end %>
+
+  </div>
+
+
 </div>
