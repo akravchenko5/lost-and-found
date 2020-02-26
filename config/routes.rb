@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     collection do
       get 'lost'
       get 'found'
+      get 'new_lost'
+      get 'new_found'
     end
     resources :conversations, only: [:create]
   end

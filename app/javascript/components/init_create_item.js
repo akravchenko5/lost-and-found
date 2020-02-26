@@ -29,9 +29,26 @@ const createItem = () => {
     }
   });
   }
-
-
-
 };
 
-export { createItem }
+const foundNew = () => {
+  const page =document.querySelector('.new-item-page-background');
+  const buttonBack = document.querySelector('.menu-button-back');
+  const backgroundGreen = document.querySelector('.new-found-background-green');
+  const backgroundWhite = document.querySelector('.new-found-background-white');
+
+  if (page) {
+    window.addEventListener('load', (event) => {
+      if (backgroundGreen) {
+        backgroundGreen.classList.add('show-new-item');
+        console.log('test 1');
+      }
+      if (backgroundWhite) {
+        backgroundWhite.classList.add('show-new-item');
+        console.log('test 2');
+      }
+    });
+  }
+};
+
+export { createItem, foundNew }
