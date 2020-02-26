@@ -31,6 +31,17 @@
   align-items: center;
 }
 
+.button-white {
+  color: $lost-green;
+  background-color: white;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button-lost-menu {
   width: 150px;
   color: $lost-green;

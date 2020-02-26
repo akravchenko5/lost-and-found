@@ -1,4 +1,3 @@
-
 <div class="new-item-page-background">
 
 </div>
@@ -6,14 +5,14 @@
 <div class="new-found-background-green">
 
   <div class="menu-title">
-    <h2>New found item</h2>
+    <h2>New lost item</h2>
   </div>
 
 </div>
 
-<div class="new-found-background-white">
+<div class="new-lost-background-dark">
 
-  <div class="new-item-form">
+  <div class="new-item-form-lost">
 
     <%= simple_form_for @item, :url => url_for(:action => 'create', :controller => 'items'), :method => 'post' do |f| %>
       <%= f.input :state, as: :hidden, input_html: { value: params[:state] } %>
@@ -21,10 +20,11 @@
       <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' } %>
       <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
       <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have found ... '} %>
+      <%= f.input :reward, :input_html => { placeholder: 'Do you want to give a finders fee?' } %>
       <div class="button-wrap">
       <%= f.button :submit, class:"button-green" %>
       <div class="button-space"></div>
-      <%= link_to "Go to Founds", found_items_path, class:"button-dark"  %>
+      <%= link_to "Go to Losts", lost_items_path, class:"button-white"  %>
       </div>
     <% end %>
 
