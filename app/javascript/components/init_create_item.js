@@ -36,6 +36,7 @@ const foundNew = () => {
   const buttonBack = document.querySelector('.menu-button-back');
   const backgroundGreen = document.querySelector('.new-found-background-green');
   const backgroundWhite = document.querySelector('.new-found-background-white');
+  const backgroundDark = document.querySelector('.new-lost-background-dark');
 
   if (page) {
     window.addEventListener('load', (event) => {
@@ -45,6 +46,10 @@ const foundNew = () => {
       }
       if (backgroundWhite) {
         backgroundWhite.classList.add('show-new-item');
+        console.log('test 2');
+      }
+      if (backgroundDark) {
+        backgroundDark.classList.add('show-new-item');
         console.log('test 2');
       }
     });

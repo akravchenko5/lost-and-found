@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def new_lost
+    @item = Item.new
+  end
+
   def show
     @item = Item.where(id: params[:id])
     set_map(@item);

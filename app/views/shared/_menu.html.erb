@@ -1,4 +1,4 @@
-<% if params[:action] == 'new_found' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new_lost' %>
 
 <% elsif params[:action] == 'lost' || params[:action] == 'map' %>
 
@@ -66,7 +66,7 @@
   </div>
 
   <div class="menu-background-green">
-    <%= link_to 'Lost?', new_item_path(state: :lost), class: 'button-lost-menu' %>
+    <%= link_to 'Lost?', new_lost_items_path(state: :lost), class: 'button-lost-menu' %>
     <%= link_to 'Found?', new_found_items_path(state: :found), class: 'button-found-menu' %>
 
     <div class="menu-wrap-green">

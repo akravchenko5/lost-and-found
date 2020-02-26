@@ -18,8 +18,6 @@
   align-items: center;
 }
 
-
-
 .menu-title {
   height: 30vh;
   width: 100%;
@@ -31,6 +29,7 @@
     color: white;
   }
 }
+
 .new-found-background-green {
   display: flex;
   justify-content: center;
@@ -59,6 +58,21 @@
   border-radius: 30px 30px 0px 0px;
 }
 
+.new-lost-background-dark {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 70vh;
+  background-color: $lost-dark;
+  position: absolute;
+  top: 30vh;
+  z-index: 250;
+  transform: translate(0px, 100vh);
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 30px 30px 0px 0px;
+}
+
 .show-new-item {
   transform: translate(0px, 0px);
 }
@@ -78,40 +92,78 @@
   width: 80%;
   padding: 30px 0px;
   margin-bottom: 50px;
-}
 
-
-
-// For the form
-label {
-  color: $lost-green;
-  margin-bottom: 5px;
-}
-
-#item_title, #item_address, #item_description, #item_reward, #item_category {
-  border: none;
-  border-bottom: 1px solid $lost-green;
-  padding: 5px 0px;
-  margin-bottom: 20px;
-
-  &:focus {
-    outline: none;
-    box-shadow: none;
-    border-bottom: 1px solid $lost-dark;
-    color: $lost-dark;
+  // For the form
+  label {
+    color: $lost-green;
+    margin-bottom: 5px;
   }
 
-  &::placeholder {
+  #item_title, #item_address, #item_description, #item_reward, #item_category {
+    border: none;
+    border-bottom: 1px solid $lost-green;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-bottom: 1px solid $lost-dark;
+      color: $lost-dark;
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  #item_description {
+    margin-bottom: 50px;
+  }
+
+  #item_category {
     color: rgba(0, 0, 0, 0.2);
   }
 
-
 }
 
-#item_description {
+
+.new-item-form-lost {
+  width: 80%;
+  padding: 30px 0px;
   margin-bottom: 50px;
-}
 
-#item_category {
-  color: rgba(0, 0, 0, 0.2);
+  // For the form
+  label {
+    color: $lost-green;
+    margin-bottom: 5px;
+  }
+
+  #item_title, #item_address, #item_description, #item_reward, #item_category {
+    border: none;
+    border-bottom: 1px solid $lost-green;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+    background-color: $lost-dark;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-bottom: 1px solid white;
+      color: white;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  #item_reward {
+    margin-bottom: 50px;
+  }
+
+  #item_category {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
 }
