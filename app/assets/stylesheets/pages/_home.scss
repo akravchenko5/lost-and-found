@@ -1,1 +1,90 @@
-// Specific CSS for your home-page
+.home-page-wrap {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-content-wrap {
+  width: 80%;
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 0px;
+  }
+}
+
+.home-loaction-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+}
+
+.home-map-marker {
+  height: 25px;
+  width: 25px;
+  margin-top: -6px;
+  margin-right: 5px;
+}
+
+.home-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  input[type="submit"]
+  {
+    background:url(search_green.svg);
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+  }
+}
+
+#home-search-button {
+  border: 1px solid $lost-green;
+  border-left: none;
+  width: 70px;
+  height: 50px;
+  border-radius: 0px 25px 25px 0px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+#home-input {
+  flex-grow: 1;
+  border: 1px solid $lost-green;
+  border-right: none;
+  height: 50px;
+  padding-left: 20px;
+  border-radius: 25px 0px 0px 25px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    color: $lost-dark;
+  }
+
+  &::placeholder {
+    color: $lost-green;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .home-content-wrap {
+    width: 50%;
+
+    h1 {
+      font-size: 120px;
+      margin-bottom: 0px;
+    }
+  }
+}
