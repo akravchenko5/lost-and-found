@@ -1,0 +1,37 @@
+
+<div class="new-item-page-background">
+
+
+</div>
+
+
+
+<div class="new-found-background-green">
+
+  <div class="menu-title">
+    <h2>New found item</h2>
+  </div>
+
+
+</div>
+
+
+<div class="new-found-background-white">
+
+  <div class="new-item-form">
+
+    <%= simple_form_for @item, :url => url_for(:action => 'create', :controller => 'items'), :method => 'post' do |f| %>
+      <%= f.input :state, as: :hidden, input_html: { value: params[:state] } %>
+      <%= f.input :title, :input_html => { placeholder: 'What have you found?' } %>
+      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' } %>
+      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
+      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have found ... '} %>
+      <div class="button-wrap">
+      <%= f.button :submit, class:"button-green" %>
+      <div class="button-space"></div>
+      <%= link_to "Go to Founds", found_items_path, class:"button-dark"  %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
