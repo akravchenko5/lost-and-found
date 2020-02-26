@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  #has_many: :conversations
 
   enum state: [:lost, :found, :solved]
 
