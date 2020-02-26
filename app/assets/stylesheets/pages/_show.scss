@@ -64,11 +64,23 @@
   }
 }
 
+.show-finders-fee {
+  color: $lost-green;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+
+    i {
+    margin-right: 10px;
+  }
+}
+
 .show-item-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .show-item-description {
@@ -77,6 +89,10 @@
 
 .item-details-time {
   color: rgba(0, 0, 0, 0.2);
+}
+
+.item-details-time-lost {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .item-details-user {
