@@ -1,0 +1,38 @@
+<div class="settings-page-wrap">
+
+  <div class="top-menu-wrap">
+    <div class="menu-item">
+        <%= image_tag 'simple_arrow_white.svg', class: 'settings-back' %>
+    </div>
+    <div class="menu-item">
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
+    </div>
+    <div class="menu-item">
+      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+    </div>
+  </div>
+
+
+  <div class="settings-wrap">
+
+    <div class="settings-user-wrap">
+      <%= image_tag 'placeholder.jpg', class: 'settings-placeholder' %>
+      <div class="settings-user-details">
+        <h4><%= current_user.first_name %></h4>
+        <h4> <%= current_user.last_name %></h4>
+      </div>
+    </div>
+
+    <div class="settings-account">
+      <div class="account-items">
+        Account settings
+        <%= link_to 'Edit profile', '#', class: 'settings-links' %>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
