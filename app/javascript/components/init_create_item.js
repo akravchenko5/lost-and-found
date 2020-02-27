@@ -32,7 +32,7 @@ const createItem = () => {
 };
 
 const foundNew = () => {
-  const page =document.querySelector('.new-item-page-background');
+  const page = document.querySelector('.new-item-page-background');
   const buttonBack = document.querySelector('.menu-button-back');
   const backgroundGreen = document.querySelector('.new-found-background-green');
   const backgroundWhite = document.querySelector('.new-found-background-white');
@@ -56,4 +56,26 @@ const foundNew = () => {
   }
 };
 
-export { createItem, foundNew }
+const displaySettings = () => {
+  const button = document.querySelector('.menu-settings');
+  const menu = document.querySelector('.settings-page-wrap');
+  const body = document.body
+  const back = document.querySelector('.settings-back')
+
+  if (button) {
+    button.addEventListener('click', (event) => {
+      menu.classList.add('show-settings');
+      body.classList.add('noscroll');
+    });
+  }
+  if (back) {
+    back.addEventListener('click', (event) => {
+      console.log('what');
+      menu.classList.remove('show-settings');
+      body.classList.remove('noscroll');
+    });
+  }
+
+};
+
+export { createItem, foundNew, displaySettings }

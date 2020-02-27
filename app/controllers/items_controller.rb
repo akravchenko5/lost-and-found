@@ -67,9 +67,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
     if @item.update(item_params)
       flash[:notice] = "You've updated your item! "
       redirect_to @item
@@ -79,7 +76,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    redirect_to home_path
+    @item.destroy
+    redirect_to root_path
   end
 
   private
