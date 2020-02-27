@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'items#home'
   get 'items/map', to: 'items#map', as: :map
   resources :items, except: :home do
@@ -12,5 +11,9 @@ Rails.application.routes.draw do
     resources :conversations, only: [:create]
   end
   devise_for :users
+   resources :users, only: [:show] do
+    resources :reviews, only: [:new, :create, :index]
+    end
+    resources :reviews, only: [:show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,4 @@
-<% if params[:action] == 'new_found' || params[:action] == 'new_lost' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new_lost' || params[:action] == 'new' %>
 
 <% elsif params[:action] == 'lost' || params[:action] == 'map' %>
 
@@ -7,21 +7,21 @@
         <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
     </div>
     <div class="menu-item">
-        <%= link_to image_tag("logo_white.svg", class: "menu-logo"), root_path %>
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
       <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
     </div>
   </div>
 
-<% elsif params[:action] == 'show' && @item.first.lost? %>
+<% elsif params[:action] == 'show' && params[:controller] == 'items' && @item.first.lost? %>
 
   <div class="top-menu-wrap-dark">
     <div class="menu-item">
         <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
     </div>
     <div class="menu-item">
-        <%= link_to image_tag("logo_white.svg", class: "menu-logo"), root_path %>
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
       <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
@@ -45,7 +45,7 @@
 <% end %>
 
 
-<% if params[:action] == 'new_found' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new' %>
 
 <% else %>
   <div class="menu-wrap">

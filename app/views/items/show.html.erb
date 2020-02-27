@@ -15,7 +15,7 @@
       <div class="show-item-details">
         <div class="item-details-user">
           <i class="fas fa-user"></i>
-          <%= @item.first.user.first_name %>
+          <%= link_to user_path(@item.first.user.first_name) %>
         </div>
         <div class="item-details-time-lost">
         <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
@@ -26,7 +26,7 @@
 
         <div class="show-finders-fee">
           <i class="fas fa-coins"></i>
-          Finders fee: <%= @item.first.reward %> kr.
+          <%= @item.first.reward %> kr finders fee
         </div>
 
       <% end %>
@@ -60,7 +60,7 @@
       <div class="show-item-details">
         <div class="item-details-user">
           <i class="fas fa-user"></i>
-          <%= @item.first.user.first_name %>
+          <%= link_to "#{@item.first.user.first_name}", user_path(@item.first.user.id) %>
         </div>
         <div class="item-details-time">
         <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
