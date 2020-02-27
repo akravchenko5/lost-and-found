@@ -36,7 +36,11 @@
       </div>
 
       <div class="button-wrap">
-        <%= link_to 'Send message', '#', class: 'button-white' %>
+        <% if current_user.conversation_for(@item).present? %>
+          <%= link_to 'Send message', current_user.conversation_for(@item), class: 'button-white' %>
+        <% else %>
+          <%= link_to 'Send message', new_item_conversation_path(@item), class: 'button-white' %>
+        <% end %>
         <div class="button-space"></div>
         <%= link_to 'Mark as solved', '#', class: 'button-green' %>
       </div>
