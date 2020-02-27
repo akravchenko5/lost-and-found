@@ -132,29 +132,29 @@
   .settings-item-content {
     padding-bottom: 15px;
     border-bottom: 1px solid $lost-green;
-    height: 0px;
+    max-height: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
-    transition: height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: max-height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     margin-bottom: 30px;
   }
 
    .settings-item-content-found {
     padding-bottom: 15px;
     border-bottom: 1px solid $lost-green;
-    height: 0px;
+    max-height: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
-    transition: height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: max-height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     margin-bottom: 30px;
   }
 
   .show-settings-item-content {
-    height: 200px;
+    max-height: 100vh;
   }
 
   .show-button-rotate {

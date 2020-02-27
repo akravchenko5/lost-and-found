@@ -19,4 +19,14 @@ class User < ApplicationRecord
   def conversation_for(item)
     conversations.find_by(item: item)
   end
+
+  def average_rating
+    return 0 unless reviews_as_reviewed.any?
+
+    sum = reviews_as_reviewed.sum(:rating)
+
+    rating = sum / reviews_as_reviewed.count
+
+    (rating * 2.0).round / 2.0
+  end
 end

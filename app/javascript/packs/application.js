@@ -9,6 +9,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { createItem, foundNew, displaySettings } from '../components/init_create_item';
 import { toggleSettings } from '../components/init_toggle_settings';
 import { toggleForm } from '../components/init_sign_in';
+import { review } from '../components/init_reviews';
 import { count } from '../plugins/init_counter';
 
 initMapbox();
@@ -18,3 +19,4 @@ count();
 displaySettings();
 toggleSettings();
 toggleForm();
+review();

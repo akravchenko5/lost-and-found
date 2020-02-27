@@ -1,17 +1,136 @@
-<h1><%= @user.first_name %></h1>
+<div class="show-page-wrap">
 
-<% if @reviews %>
-<ul>
-  <% @reviews.each do |r| %>
-  <li>
-    <p>Review:<%= r.content %></p>
-    <p>Rating:  <%= r.rating %> </p>
-    <p>Author: <%= User.find(r.reviewer_id).first_name %></p>
-  </li>
-<% end  %>
-</ul>
-<% end %>
+  <div class="top-menu-wrap">
+    <div class="menu-item">
+        <%= image_tag 'simple_arrow_white.svg', class: 'settings-back' %>
+    </div>
+    <div class="menu-item">
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
+    </div>
+    <div class="menu-item">
+      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+
+    <div class="settings-wrap">
+
+      <!-- profile picture and name -->
+
+      <div class="settings-user-wrap">
+        <%= image_tag 'placeholder.jpg', class: 'settings-placeholder' %>
+        <div class="settings-user-details">
+          <h4><%= current_user.first_name %></h4>
+          <h4> <%= current_user.last_name %></h4>
+          <p>Add profile picture</p>
+        </div>
+      </div>
+
+      <!-- Account information -->
+
+      <div class="settings-account">
+        <div class="account-items account-header">
+          Account settings
+          <%= link_to 'Edit profile', '#', class: 'settings-links' %>
+        </div>
+        <div class="account-items">
+          <p>Email</p>
+          <p><%= current_user.email %></p>
+        </div>
+        <div class="account-items">
+          <p>Phone number</p>
+          <p><%= current_user.phone_number %></p>
+        </div>
+      </div>
+
+      <!-- Display lost and found items -->
+
+      <% if current_user.items.lost %>
+
+        <div class="settings-items-wrap">
+          <div class="settings-items-header">
+            <h4>Your lost items</h4>
+            <%= image_tag 'simple_arrow_green.svg', class: 'settings-arrow' %>
+          </div>
+          <div class="settings-item-content">
+            <% current_user.items.lost.each do |item| %>
+              <div class="settings-item-details">
+                <p><%= link_to item.title, item_path(item) %></p>
+                <%= link_to item_path(item),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <% if current_user.items.found %>
+
+        <div class="settings-items-wrap">
+          <div class="settings-items-header">
+            <h4>Your found items</h4>
+            <%= image_tag 'simple_arrow_green.svg', class: 'settings-arrow-found' %>
+          </div>
+          <div class="settings-item-content-found">
+            <% current_user.items.found.each do |item| %>
+              <div class="settings-item-details">
+                <p><%= link_to item.title, item_path(item) %></p>
+                <%= link_to item_path(item),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <div class="settings-sign-out">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </div>
+
+    </div>
+
+  <% else %>
+
+  <div class="settings-sign-in">
+    <%= link_to 'Sign in', new_user_session_path, class: 'button-green' %>
+  </div>
+
+  <% end %>
+
+
+</div>
+
+
+<div class="show-page-wrap">
+
+  <div class="show-container">
+
+    <h1><%= @user.first_name %></h1>
+
+    <% if @reviews %>
+    <ul>
+      <% @reviews.each do |r| %>
+      <li>
+        <p>Review:<%= r.content %></p>
+        <p>Rating:  <%= r.rating %> </p>
+        <p>Author: <%= User.find(r.reviewer_id).first_name %></p>
+      </li>
+    <% end  %>
+    </ul>
+    <% end %>
 
 
 
-<%= link_to 'Create Review', new_user_review_path(@user)  %>
+    <%= link_to 'Create Review', new_user_review_path(@user)  %>
+
+  </div>
+</div>
