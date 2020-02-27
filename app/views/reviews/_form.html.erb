@@ -1,4 +1,4 @@
-<%= simple_form_for [user, review] do |f| %>
+  <%= simple_form_for [user, review] do |f| %>
   <%= f.label :content %>
   <%= f.input :content %>
   <%= f.input :rating, collection: 0..5 %>
