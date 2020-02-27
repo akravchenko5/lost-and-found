@@ -12,7 +12,9 @@
   <body>
     <%= render 'shared/menu' %>
     <%= render 'shared/flashes' %>
+    <% if current_user %>
     <%= render 'shared/user_settings' %>
+    <% end %>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
   </body>

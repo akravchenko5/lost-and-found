@@ -1,6 +1,9 @@
 
 <div>
+<p> Review for: <%= @reviewed.first_name %> </p>
 <p> Content: <%= @review.content %> </p>
-<p> User: <%= @reviewed.first_name %> </p>
 <p> Author: <%= @reviewer.first_name %> </p>
+<p> Rating: <%= @review.rating %></p>
 </div>
+
+<%= link_to "View user ratings", user_reviews_path(@reviewed) %>

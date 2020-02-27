@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
-    #scope method?
+    @user = User.find(params[:user_id])
+    @reviews = @user.reviews_as_reviewed
   end
 
   def show

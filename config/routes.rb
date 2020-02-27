@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'reviews/new'
-  get 'reviews/create'
-  get 'reviews/show'
-  get 'reviews/index'
-  get 'reviews/edit'
-  get 'reviews/update'
-  get 'reviews/delete'
-  get 'reviews/destroy'
   root to: 'items#home'
   get 'items/map', to: 'items#map', as: :map
   resources :items, except: :home do

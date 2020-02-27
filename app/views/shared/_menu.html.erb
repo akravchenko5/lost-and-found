@@ -14,7 +14,7 @@
     </div>
   </div>
 
-<% elsif params[:action] == 'show' && @item.first.lost? %>
+<% elsif params[:action] == 'show' && params[:controller] == 'items' && @item.first.lost? %>
 
   <div class="top-menu-wrap-dark">
     <div class="menu-item">
