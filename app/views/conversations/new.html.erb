@@ -1,4 +1,8 @@
 <h1>Conversations#new</h1>
 <p>Find me in app/views/conversations/new.html.erb</p>
 
-<!---%= render: messages/_new_message_form %--->
+<%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
+  <%= f.input :content %>
+<% end  %>
+
+

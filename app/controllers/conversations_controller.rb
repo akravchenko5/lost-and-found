@@ -1,20 +1,44 @@
 class ConversationsController < ApplicationController
+  before_action :find_item, only: %i[new create]
+
   def new
-    #need to pass a message with blank body
+    @message = Message.new
+    # need to pass a new message
+    # nested in items
   end
 
   def create
-    #pass a mesage with body (message_params)
+    @conversation = Conversation.create(
+      item: @item,
+      seeker: current_user,
+      keeper: @item.user
+    )
+
+    @message = Message.new(conversation_params)
+    @message.conversation = @conversation
+    @message.user = current_user
+    @message.save
+
+    redirect_to @conversation
+  end
+
+  def show
+    @conversation = Conversation.find(params[:id])
+    @message = Message.new
   end
 
 
   def index
+    @conversations = current_user.conversations
   end
-end
 
+  private
 
-private
+  def find_item
+    @item = Item.find(params[:item_id])
+  end
 
-def message_params
-  params.require(:message).permit(:content, :user_id)
+  def conversation_params
+    params.require(:message).permit(:content)
+  end
 end

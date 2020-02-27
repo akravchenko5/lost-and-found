@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
 
   def map
-    items = Item.where('address ILIKE?', "%oslo%")
+    items = Item.where('address ILIKE?', "%oslo%").geocoded
     set_map(items);
   end
 
@@ -32,7 +32,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.where(id: params[:id])
+    @item = Item.find(params[:id])
+
     set_map(@item);
   end
 
@@ -81,9 +82,8 @@ class ItemsController < ApplicationController
   end
 
   def set_map(items)
-    @map_items = items.geocoded #returns flats with coordinates
-
-    @markers = @map_items.map do |item|
+    # Always convert items to array because if can be one item only!
+    @markers = Array(@map_items).map do |item|
       if item.state == 'lost'
         pointer = 'pointer_black.svg'
       else

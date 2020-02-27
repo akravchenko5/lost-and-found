@@ -1,0 +1,20 @@
+CONVERSATION
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<% @conversation.messages.each do |message| %>
+  <%= message.user.email %> | <%= message.content %>
+<% end %>
+
+
+<%= simple_form_for [@conversation, @message] do |f| %>
+  <%= f.input :content %>
+<% end %>

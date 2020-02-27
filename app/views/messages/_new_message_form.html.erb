@@ -1,2 +1,4 @@
-<%= simple_form_for %>
-<%=  %>
+<%= simple_form_for [item, message] do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end  %>
