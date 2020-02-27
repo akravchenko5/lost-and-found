@@ -1,163 +1,53 @@
 <div class="user-page-wrap">
+  <div class="user-user-wrap">
 
+    <!-- profile picture, name and rating -->
 
+    <div class="user-wrap">
+      <%= image_tag 'placeholder.jpg', class: 'user-placeholder' %>
+      <div class="user-details">
+        <h2><%= @user.first_name %></h2>
+        <%= render 'reviews/rating', user_rating: @user.average_rating %>
+        Average rating <%= @user.average_rating %>
+      </div>
+    </div>
 
-    <div class="user-user-wrap">
+    <!-- Display reviews -->
 
-      <!-- profile picture, name and rating -->
+      <div class="user-items-wrap">
+        <div class="user-items-header">
+          <h4><%= @user.first_name %>'s reviews</h4>
+          <%= image_tag 'simple_arrow_green.svg', class: 'user-arrow' %>
+        </div>
+        <div class="user-item-content">
+          <% if @user.reviews_as_reviewed %>
+            <% @user.reviews_as_reviewed.each do |r| %>
+              <div class="user-review-wrap">
+                <%= render 'reviews/rating', user_rating: r.rating %>
 
-      <div class="user-wrap">
-        <%= image_tag 'placeholder.jpg', class: 'user-placeholder' %>
-        <div class="user-details">
-          <h2><%= @user.first_name %></h2>
-          <div class="user_average_rating">
-            <% if @user_rating == 0 %>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 0.5 %>
-              <i class="fas fa-star-half star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 1 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 1.5 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star-half star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 2 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 2.5 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star-half star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 3 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 3.5 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star-half star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 4 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 4.5 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star-half star-green"></i>
-              <i class="fas fa-star star-gray"></i>
-            <% elsif @user_rating == 5 %>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-              <i class="fas fa-star star-green"></i>
-            <% end %>
-          </div>
-          Average rating
+                <div class="user-review-content">
+                  <%= r.content %>
+                </div>
+
+                <div class="user-review-author">
+                  <%= User.find(r.reviewer_id).first_name %>
+                </div>
+
+              </div>
+            <% end  %>
+          <% end %>
         </div>
       </div>
 
+      <div class="button-wrap">
+        <div class="user-send-review button-green">Write review</div>
+        <div class="button-space"></div>
+        <div class="user-send-message button-green">Send message</div>
+      </div>
 
-      <!-- Display reviews -->
+      <div class="user-new-review">
+        <%= render 'reviews/form', user: @user, review: @review %>
+      </div>
 
-        <div class="user-items-wrap">
-          <div class="user-items-header">
-            <h4><%= @user.first_name %>'s reviews</h4>
-            <%= image_tag 'simple_arrow_green.svg', class: 'user-arrow' %>
-          </div>
-          <div class="user-item-content">
-            <% if @user.reviews_as_reviewed %>
-
-              <% @user.reviews_as_reviewed.each do |r| %>
-                <div class="user-review-wrap">
-                  <div class="user_average_rating">
-                    <% if r.rating == 0 %>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                    <% elsif r.rating == 1 %>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                    <% elsif r.rating == 2 %>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                    <% elsif r.rating == 3 %>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-gray"></i>
-                      <i class="fas fa-star star-gray"></i>
-                    <% elsif r.rating == 4 %>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-gray"></i>
-                    <% elsif r.rating == 5 %>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                      <i class="fas fa-star star-green"></i>
-                    <% end %>
-                  </div>
-
-                  <div class="user-review-content">
-                    <%= r.content %>
-                  </div>
-
-                  <div class="user-review-author">
-                    <%= User.find(r.reviewer_id).first_name %>
-                  </div>
-
-                </div>
-              <% end  %>
-            <% end %>
-
-          </div>
-        </div>
-
-    </div>
-
+  </div>
 </div>
-
-
-
-
-
-
-    <%= link_to 'Create Review', new_user_review_path(@user)  %>

@@ -1,8 +1,7 @@
-  <%= simple_form_for [user, review] do |f| %>
-  <%= f.label :content %>
-  <%= f.input :content %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.button :submit %>
+<%= simple_form_for [user, review] do |f| %>
+  <%= f.input :content, :input_html => {:rows => 3, placeholder: 'Write your feedback...'} %>
+  <%= f.input :rating, collection: 0..5, prompt: 'Choose number of stars', :input_html => { placeholder: 'Please choose category' } %>
+  <%= f.button :submit, class: 'button-dark' %>
 <% end %>
 
 
