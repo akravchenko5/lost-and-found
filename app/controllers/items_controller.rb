@@ -23,6 +23,14 @@ class ItemsController < ApplicationController
     @items = Item.found
   end
 
+  def new_found
+    @item = Item.new
+  end
+
+  def new_lost
+    @item = Item.new
+  end
+
   def show
     @item = Item.where(id: params[:id])
     set_map(@item);
@@ -34,11 +42,14 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
+    @item.user = current_user
     if @item.save
       flash[:notice] = "Added a new item!"
       redirect_to @item
     else
-      render :new
+      if @item.found?
+        render :new_found
+      end
     end
   end
 
@@ -46,19 +57,17 @@ class ItemsController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
     if @item.update(item_params)
       flash[:notice] = "You've updated your item! "
-      redirect_to dashboard_path
+      redirect_to @item
     else
       render :edit
     end
   end
 
   def destroy
-    redirect_to home_path
+    @item.destroy
+    redirect_to root_path
   end
 
   private

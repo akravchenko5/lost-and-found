@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :items
   has_many :messages
-
+  has_many :reviews_as_reviewed, foreign_key: :reviewed_id, class_name: 'Review'
+  # has_many :reviews_as_reviewer, foreign_key: :reviewer_id, class_name: 'Review'
   # has_many :keeper_relationships, foreign_key: :seeker_id, class_name: 'Conversation'
 
   # has_many :seeker_relationships, foreign_key: :keeper_id, class_name: 'Conversation'

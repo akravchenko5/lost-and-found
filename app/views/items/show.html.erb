@@ -1,32 +1,81 @@
-<div class="show-page-wrap">
-  <script>map.scrollZoom.disable();</script>
-  <div
-    id="map"
-    style="width: 100%;
-    height: 50vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+<% if @item.first.lost? %>
 
-  <div class="show-container">
-    <h3><%= @item.first.title %></h3>
-    <div class="show-item-details">
-      <div class="item-details-user">
-        <i class="fas fa-user"></i>
-        <%= @item.first.user.first_name %>
-      </div>
-      <div class="item-details-time">
-      <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
-      </div>
-    </div>
-    <div class="show-item-description">
-      <%= @item.first.description %>
-    </div>
+  <div class="show-page-wrap-lost">
+    <script>map.scrollZoom.disable();</script>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 50vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
 
-    <div class="button-wrap">
-      <%= link_to 'Send message', '#', class: 'button-dark' %>
-      <div class="button-space"></div>
-      <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+    <div class="show-container lost">
+      <h3><%= @item.first.title %></h3>
+      <div class="show-item-details">
+        <div class="item-details-user">
+          <i class="fas fa-user"></i>
+          <%= @item.first.user.first_name %>
+        </div>
+        <div class="item-details-time-lost">
+        <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
+        </div>
+      </div>
+
+      <% if @item.first.reward %>
+
+        <div class="show-finders-fee">
+          <i class="fas fa-coins"></i>
+          <%= @item.first.reward %> kr finders fee
+        </div>
+
+      <% end %>
+
+      <div class="show-item-description">
+        <%= @item.first.description %>
+      </div>
+
+      <div class="button-wrap">
+        <%= link_to 'Send message', '#', class: 'button-white' %>
+        <div class="button-space"></div>
+        <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+      </div>
     </div>
   </div>
-</div>
+
+<% elsif @item.first.found? %>
+
+  <div class="show-page-wrap">
+    <script>map.scrollZoom.disable();</script>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 50vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+    <div class="show-container">
+      <h3><%= @item.first.title %></h3>
+      <div class="show-item-details">
+        <div class="item-details-user">
+          <i class="fas fa-user"></i>
+          <%= @item.first.user.first_name %>
+        </div>
+        <div class="item-details-time">
+        <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
+        </div>
+      </div>
+      <div class="show-item-description">
+        <%= @item.first.description %>
+      </div>
+
+      <div class="button-wrap">
+        <%= link_to 'Send message', '#', class: 'button-dark' %>
+        <div class="button-space"></div>
+        <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

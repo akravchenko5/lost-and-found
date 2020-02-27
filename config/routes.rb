@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-
-  get 'messages/index'
-  get 'messages/new'
-  get 'conversations/new'
-  get 'conversations/index'
   root to: 'items#home'
   get 'items/map', to: 'items#map', as: :map
   resources :items, except: :home do
     collection do
       get 'lost'
       get 'found'
+      get 'new_lost'
+      get 'new_found'
     end
     resources :conversations, only: [:create]
     #create a nested route for messages
@@ -24,5 +21,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+   resources :users, only: [:show] do
+    resources :reviews, only: [:new, :create, :index]
+    end
+    resources :reviews, only: [:show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

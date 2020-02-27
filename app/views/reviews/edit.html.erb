@@ -1,0 +1,10 @@
+<h1>Reviews#edit</h1>
+<p>Find me in app/views/reviews/edit.html.erb</p>
+
+<%= simple_form_for @review do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :rating %>
+  <%= f.input :age, collection: 0..5 %>
+  <%= f.button :submit %>
+<% end %>

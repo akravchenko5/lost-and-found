@@ -1,11 +1,27 @@
-<% if params[:action] == 'lost' || params[:action] == 'map'  %>
+<% if params[:action] == 'new_found' || params[:action] == 'new_lost' %>
+
+<% elsif params[:action] == 'lost' || params[:action] == 'map' %>
 
   <div class="top-menu-wrap">
     <div class="menu-item">
         <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
     </div>
     <div class="menu-item">
-        <%= link_to image_tag("logo_white.svg", class: "menu-logo"), root_path %>
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
+    </div>
+    <div class="menu-item">
+      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+    </div>
+  </div>
+
+<% elsif params[:action] == 'show' && @item.first.lost? %>
+
+  <div class="top-menu-wrap-dark">
+    <div class="menu-item">
+        <%= image_tag 'settings_white.svg', class: 'menu-settings' %>
+    </div>
+    <div class="menu-item">
+        <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
       <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
@@ -28,44 +44,50 @@
 
 <% end %>
 
-<div class="menu-wrap">
 
-  <div class="menu-item item-left">
-    <%= link_to image_tag("map_black.svg", class: "menu-map"), map_path %>
-  </div>
+<% if params[:action] == 'new_found' %>
 
-  <div class="menu-item">
-    <%= link_to 'LOST', lost_items_path%>
-  </div>
+<% else %>
+  <div class="menu-wrap">
 
-  <div class="menu-item">
-    <div class="menu-button">
-      <%= image_tag 'plus_white.svg', class: 'menu-plus' %>
+    <div class="menu-item item-left">
+      <%= link_to image_tag("map_black.svg", class: "menu-map"), map_path %>
+    </div>
+
+    <div class="menu-item">
+      <%= link_to 'LOST', lost_items_path%>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-button">
+        <%= image_tag 'plus_white.svg', class: 'menu-plus' %>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <%= link_to 'FIND', found_items_path%>
+    </div>
+
+    <div class="menu-item item-right">
+      <%= image_tag 'search_black.svg', class: 'menu-search' %>
     </div>
   </div>
 
-  <div class="menu-item">
-    <%= link_to 'FIND', found_items_path%>
-  </div>
-
-  <div class="menu-item item-right">
-    <%= image_tag 'search_black.svg', class: 'menu-search' %>
-  </div>
-</div>
-
-<div class="menu-background-dark">
-  <div class="menu-title">
-    <h2>Add a new Item</h2>
-  </div>
-</div>
-
-<div class="menu-background-green">
-  <%= link_to 'Lost?', new_item_path(state: :lost), class: 'button-lost-menu' %>
-  <%= link_to 'Found?', new_item_path(state: :found), class: 'button-found-menu' %>
-
-  <div class="menu-wrap-green">
-      <div class="menu-button-back">
-      <%= image_tag 'arrow_green.svg', class: 'menu-plus' %>
+  <div class="menu-background-dark">
+    <div class="menu-title">
+      <h2>Add a new Item</h2>
     </div>
   </div>
-</div>
+
+  <div class="menu-background-green">
+    <%= link_to 'Lost?', new_lost_items_path(state: :lost), class: 'button-lost-menu' %>
+    <%= link_to 'Found?', new_found_items_path(state: :found), class: 'button-found-menu' %>
+
+    <div class="menu-wrap-green">
+        <div class="menu-button-back">
+        <%= image_tag 'arrow_green.svg', class: 'menu-plus' %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
