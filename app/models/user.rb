@@ -10,4 +10,14 @@ class User < ApplicationRecord
   # has_many :keeper_relationships, foreign_key: :seeker_id, class_name: 'Conversation'
 
   # has_many :seeker_relationships, foreign_key: :keeper_id, class_name: 'Conversation'
+
+  def average_rating
+    return 0 unless reviews_as_reviewed.any?
+
+    sum = reviews_as_reviewed.sum(:rating)
+
+    rating = sum / reviews_as_reviewed.count
+
+    (rating * 2.0).round / 2.0
+  end
 end

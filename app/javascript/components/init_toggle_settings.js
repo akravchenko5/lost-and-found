@@ -4,6 +4,7 @@ const toggleSettings = () => {
   const arrowFound = document.querySelector('.settings-arrow-found');
   const listFound = document.querySelector('.settings-item-content-found');
 
+
   if (arrow) {
     arrow.addEventListener('click', (event) => {
       if (list) {

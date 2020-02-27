@@ -1,9 +1,13 @@
+<div class="show-page-wrap">
 
-<div>
-<p> Review for: <%= @reviewed.first_name %> </p>
-<p> Content: <%= @review.content %> </p>
-<p> Author: <%= @reviewer.first_name %> </p>
-<p> Rating: <%= @review.rating %></p>
+  <div class="show-container">
+  <div>
+  <p> Review for: <%= @reviewed.first_name %> </p>
+  <p> Content: <%= @review.content %> </p>
+  <p> Author: <%= @reviewer.first_name %> </p>
+  <p> Rating: <%= @review.rating %></p>
+  </div>
+
+  <%= link_to "View user ratings", user_reviews_path(@reviewed) %>
+  </div>
 </div>
-
-<%= link_to "View user ratings", user_reviews_path(@reviewed) %>
