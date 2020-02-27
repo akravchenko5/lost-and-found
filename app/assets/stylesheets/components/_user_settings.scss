@@ -1,0 +1,208 @@
+.settings-page-wrap {
+  width: 100%;
+  height: 100vh;
+  background-color: $lost-dark;
+  transform: translate(0px, -100vh);
+  margin-bottom: -100vh;
+  transition: transform 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  display: flex;
+  justify-content: center;
+  flex-direction: center;
+  overflow-y: scroll;
+  z-index: 400;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.show-settings {
+    transform: translate(0px, 0px);
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.settings-back {
+  width: 24px;
+  height: 24px;
+  z-index: 500;
+}
+
+.settings-wrap {
+  width: 80%;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.settings-user-wrap {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $lost-green;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.settings-placeholder {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.settings-user-details {
+  margin-left: 30px;
+  color: white;
+
+  h4 {
+    color: $lost-green;
+    margin: 0px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 0px;
+  }
+}
+
+.settings-account {
+    color: $lost-green;
+    border-bottom: 1px solid $lost-green;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+
+  a {
+    color: $lost-green;
+  }
+}
+
+.account-items {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    color: white;
+    line-height: 1rem;
+  }
+}
+
+.account-header {
+  margin-bottom: 15px;
+}
+
+// Settings-items
+
+.settings-items-wrap {
+
+  h4 {
+    color: white;
+    margin-bottom: 0px;
+  }
+
+  p {
+    color: white;
+  }
+
+  .settings-items-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .settings-arrow {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-90deg);
+    transition: transform 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+   .settings-arrow-found {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-90deg);
+    transition: transform 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .settings-item-content {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $lost-green;
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    margin-bottom: 30px;
+  }
+
+   .settings-item-content-found {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $lost-green;
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    margin-bottom: 30px;
+  }
+
+  .show-settings-item-content {
+    height: 200px;
+  }
+
+  .show-button-rotate {
+    transform: rotate(90deg);
+  }
+
+  .settings-item-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+    width: 90%;
+
+
+    p {
+      color: $lost-green;
+      margin-bottom: 0px;
+    }
+
+    a {
+      color: $lost-green;
+    }
+
+    i {
+      color: $lost-green;
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.settings-sign-out {
+  height: 100px;
+  color: $lost-green;
+
+  a {
+    color: $lost-green;
+  }
+}
+
+
+@media screen and (min-width: 780px) {
+
+  .settings-wrap {
+    width: 50%;
+    padding-top: 150px;
+  }
+}
