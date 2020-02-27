@@ -1,20 +1,28 @@
 CONVERSATION
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
 
-<% @conversation.messages.each do |message| %>
-  <%= message.user.email %> | <%= message.content %>
+<div class="container">
+<div>
+  <ul>
+  <% @conversation.messages.each do |message| %>
+  <li>
+     <p><%= message.content %></p>
+     <p><%= message.user.email %></p>
+  </li>
 <% end %>
+</ul>
+
+</div>
 
 
-<%= simple_form_for [@conversation, @message] do |f| %>
+
+
+
+<div>
+  <%= simple_form_for [@conversation, @message] do |f| %>
   <%= f.input :content %>
 <% end %>
+</div>
+
+<!---mark as solved button--->
+
+</div>
