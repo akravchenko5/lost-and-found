@@ -14,17 +14,14 @@ class MessagesController < ApplicationController
     @message.conversation = @conversation
     @message.save
     @conversation.save!
-    #@conversation_id = @conversation.id
     redirect_to conversation_path(@conversation)
-    #needs a conversation to be saved
   end
 
 
   private
 
   def message_params
-  params.require(:message).permit(:content, :user_id)
-  #require conversation_id?
+  params.require(:message).permit(:content)
   end
 
 end
