@@ -8,6 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initMapbox } from '../plugins/init_mapbox';
 import { createItem, foundNew, displaySettings } from '../components/init_create_item';
 import { toggleSettings } from '../components/init_toggle_settings';
+import { toggleForm } from '../components/init_sign_in';
 import { count } from '../plugins/init_counter';
 
 initMapbox();
@@ -16,3 +17,4 @@ foundNew();
 count();
 displaySettings();
 toggleSettings();
+toggleForm();
