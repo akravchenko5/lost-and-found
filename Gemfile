@@ -17,6 +17,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
 gem 'faker'
+gem 'ip-lookup'
+# gem 'pg_search', '~> 2.3.0'
+gem "algoliasearch-rails"
 
 group :development do
   gem 'faker'

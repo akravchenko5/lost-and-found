@@ -7,12 +7,22 @@ class ItemsController < ApplicationController
     set_map(items);
   end
 
+  def search
+  end
+
   def home
     @items = Item.all
   end
 
   def index
-    @items = Item.all
+    if search_terms
+      # json_hits = Item.search.raw_answer.with_indifferent_access[:hits]
+      @items = Item.search(search_terms)
+      ip = Ip::Lookup.server_whatismyipaddress
+      @location = Geocoder.search(ip).first.coordinates
+    else
+      @items = Item.all
+    end
   end
 
   def lost
@@ -73,6 +83,16 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def search_terms
+    search_item = params[:query]
+    [
+      search_item[:title],
+      search_item[:address],
+      search_item[:category],
+      search_item[:state]
+    ].compact
+  end
 
   def set_item
     @item = Item.find(params[:id])

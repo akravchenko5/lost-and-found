@@ -4,8 +4,9 @@
     <h2><span class="green"><%= @items.count %></span> results</h2>
 
     <div class="show-card-wrap">
-
-    <%= render 'shared/show_card', items: @items %>
+      <%# ip = Ip::Lookup.server_whatismyipaddress %>
+      <%# location = Geocoder.search(ip).first.coordinates %>
+    <%= render 'shared/show_card', items: @items, location: @location %>
 
     </div>
   </div>

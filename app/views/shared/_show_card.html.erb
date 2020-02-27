@@ -39,7 +39,7 @@
             <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
             </div>
           <div class="show-distance">
-             2 km
+             <%= item.distance_from(location) %> km
           </div>
         </div>
       </div>
