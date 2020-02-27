@@ -1,2 +1,16 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<h1><%= @user.first_name %></h1>
+
+<% if @reviews %>
+<ul>
+  <% @reviews.each do |r| %>
+  <li>
+    <p>Review:<%= r.content %></p>
+    <p>Rating:  <%= r.rating %> </p>
+  </li>
+<% end  %>
+</ul>
+<% end %>
+
+
+
+<%= link_to 'Create Review', new_user_review_path(@user)  %>
