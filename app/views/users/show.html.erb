@@ -1,0 +1,6 @@
+
+<h1><%= @user.first_name %> </h1>
+
+<%= link_to 'Go to Reviews', user_reviews_path(@user) %>
+<%= link_to 'Create a Review', new_user_review_path(@user)  %>
+

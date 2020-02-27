@@ -1,4 +1,4 @@
-<% if params[:action] == 'new_found' || params[:action] == 'new_lost' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new_lost' || params[:action] == 'new' %>
 
 <% elsif params[:action] == 'lost' || params[:action] == 'map' %>
 
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-<% elsif params[:action] == 'show' && @item.first.lost? %>
+<% elsif params[:action] == 'show' && params[:controller] == 'items' && @item.first.lost? %>
 
   <div class="top-menu-wrap-dark">
     <div class="menu-item">
@@ -45,7 +45,7 @@
 <% end %>
 
 
-<% if params[:action] == 'new_found' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new' %>
 
 <% else %>
   <div class="menu-wrap">

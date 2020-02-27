@@ -198,11 +198,24 @@
   }
 }
 
+.settings-sign-in {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 
 @media screen and (min-width: 780px) {
 
   .settings-wrap {
     width: 50%;
     padding-top: 150px;
+  }
+
+  .settings-sign-in {
+    width: 15%;
   }
 }
