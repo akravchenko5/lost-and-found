@@ -19,12 +19,12 @@
       <%= f.input :title, :input_html => { placeholder: 'What have you lost?' } %>
       <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' } %>
       <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
-      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have found ... '} %>
+      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have lost ... '} %>
       <%= f.input :reward, :input_html => { placeholder: 'Do you want to give a finders fee?' } %>
       <div class="button-wrap">
       <%= f.button :submit, class:"button-green" %>
       <div class="button-space"></div>
-      <%= link_to "Go to Losts", lost_items_path, class:"button-white"  %>
+      <%= link_to "Go to Lost Items", lost_items_path, class:"button-white"  %>
       </div>
     <% end %>
 
