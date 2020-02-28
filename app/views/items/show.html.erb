@@ -1,87 +1,46 @@
-<% if @item.lost? %>
+<div class="<%= @item.lost? ? 'show-page-wrap-lost' : 'show-page-wrap' %>" id="map-show">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 50vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
-  <div class="show-page-wrap-lost" id="map-show">
-    <div
-      id="map"
-      style="width: 100%;
-      height: 50vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-
-    <div class="show-container lost">
-      <h3><%= @item.title %></h3>
-      <div class="show-item-details">
-        <div class="item-details-user">
-          <i class="fas fa-user"></i>
-          <%= link_to "#{@item.user.first_name}", user_path(@item.user.id) %>
-        </div>
-        <div class="item-details-time-lost">
-        <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
-        </div>
+  <div class="show-container <%= @item.lost? ? 'lost' : '' %>">
+    <h3><%= @item.title %></h3>
+    <div class="show-item-details">
+      <div class="item-details-user">
+        <i class="fas fa-user"></i>
+        <%= link_to @item.user.first_name, user_path(@item.user) %>
       </div>
+      <div class="<%= @item.lost? ? 'item-details-time-lost' : 'item-details-time' %>">
+        <%= distance_of_time_in_words(@item.created_at, Time.now) %> ago
+      </div>
+    </div>
 
-      <% if @item.reward %>
+    <% if @item.reward && @item.lost? %>
+      <div class="show-finders-fee">
+        <i class="fas fa-coins"></i>
+        <%= @item.reward %> kr finders fee
+      </div>
+    <% end %>
 
-        <div class="show-finders-fee">
-          <i class="fas fa-coins"></i>
-          <%= @item.reward %> kr finders fee
-        </div>
+    <div class="show-item-description">
+      <%= @item.description %>
+    </div>
 
+    <div class="button-wrap">
+      <% if current_user.conversation_for(@item).present? %>
+        <%= link_to 'Send message', current_user.conversation_for(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
+      <% else %>
+        <%= link_to 'Send message', new_item_conversation_path(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
       <% end %>
-
-      <div class="show-item-description">
-        <%= @item.description %>
-      </div>
-
-      <div class="button-wrap">
-        <% if current_user.conversation_for(@item).present? %>
-          <%= link_to 'Send message', current_user.conversation_for(@item), class: 'button-white' %>
-        <% else %>
-          <%= link_to 'Send message', new_item_conversation_path(@item), class: 'button-white' %>
-        <% end %>
-        <div class="button-space"></div>
-        <%= link_to 'Mark as solved', '#', class: 'button-green' %>
-      </div>
+      <div class="button-space"></div>
+      <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+    </div>
+    <div id="show-back-button">
+      <%= link_to "Back to list", @item.lost? ? lost_items_path : found_items_path %>
     </div>
   </div>
-
-<% elsif @item.found? %>
-
-  <div class="show-page-wrap" id="map-show">
-    <div
-      id="map"
-      style="width: 100%;
-      height: 50vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-
-    <div class="show-container">
-      <h3><%= @item.title %></h3>
-      <div class="show-item-details">
-        <div class="item-details-user">
-          <i class="fas fa-user"></i>
-          <%= link_to "#{@item.user.first_name}", user_path(@item.user.id) %>
-        </div>
-        <div class="item-details-time">
-        <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
-        </div>
-      </div>
-      <div class="show-item-description">
-        <%= @item.description %>
-      </div>
-
-      <div class="button-wrap">
-        <% if current_user.conversation_for(@item).present? %>
-          <%= link_to 'Send message', current_user.conversation_for(@item), class: 'button-dark' %>
-        <% else %>
-          <%= link_to 'Send message', new_item_conversation_path(@item), class: 'button-dark' %>
-        <% end %>
-        <div class="button-space"></div>
-        <%= link_to 'Mark as solved', '#', class: 'button-green' %>
-      </div>
-    </div>
-  </div>
-
-<% end %>
+</div>
