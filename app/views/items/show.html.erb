@@ -8,9 +8,6 @@
   ></div>
 
   <div class="show-container <%= @item.lost? ? 'lost' : '' %>">
-    <div class="button-green">
-      <%= link_to "Back to list", @item.lost? ? lost_items_path : found_items_path %>
-    </div>
     <h3><%= @item.title %></h3>
     <div class="show-item-details">
       <div class="item-details-user">
@@ -41,6 +38,9 @@
       <% end %>
       <div class="button-space"></div>
       <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+    </div>
+    <div id="show-back-button">
+      <%= link_to "Back to list", @item.lost? ? lost_items_path : found_items_path %>
     </div>
   </div>
 </div>
