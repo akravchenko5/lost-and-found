@@ -1,28 +1,22 @@
-CONVERSATION
+<div class="show-page-wrap">
 
-<div class="container">
-<div>
-  <ul>
-  <% @conversation.messages.each do |message| %>
-  <li>
-     <p><%= message.content %></p>
-     <p><%= message.user.email %></p>
-  </li>
-<% end %>
-</ul>
+  <div class="message-container">
 
-</div>
+    <div class="message-window">
+      <% @conversation.messages.each do |message| %>
+        <div class="message.wrap <%= message.user == current_user ? 'message-wrap-user' : '' %>">
+          <div class="messages <%= message.user == current_user ? 'message-user' : '' %>">
+            <%= message.content %>
+          </div>
+          </div>
+      <% end %>
+    </div>
 
+    <div class="message-form">
+      <%= simple_form_for [@conversation, @message] do |f| %>
+        <%= f.input :content, :input_html => { placeholder: 'Write message ...' } %>
+      <% end %>
+    </div>
 
-
-
-
-<div>
-  <%= simple_form_for [@conversation, @message] do |f| %>
-  <%= f.input :content %>
-<% end %>
-</div>
-
-<!---mark as solved button--->
-
+  </div>
 </div>

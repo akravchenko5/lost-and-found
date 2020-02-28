@@ -1,4 +1,4 @@
-<% if params[:action] == 'new_found' || params[:action] == 'new_lost' || params[:action] == 'new' %>
+<% if params[:action] == 'new_found' || params[:action] == 'new_lost' || (params[:action] == 'new' && params[:controller] == 'items') %>
 
 <% elsif params[:action] == 'lost' || params[:action] == 'map' %>
 
@@ -10,7 +10,7 @@
         <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
-      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+      <%= link_to image_tag('chat_white.svg', class: 'menu-chat'), conversations_path %>
     </div>
   </div>
 
@@ -24,7 +24,24 @@
         <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
-      <%= image_tag 'chat_white.svg', class: 'menu-chat' %>
+      <%= link_to image_tag('chat_white.svg', class: 'menu-chat'), conversations_path %>
+    </div>
+  </div>
+
+<% elsif (params[:action] == 'show' || params[:action] == 'new') && params[:controller] == 'conversations' %>
+
+  <div class="top-menu-wrap-white">
+    <div class="menu-item">
+        <%=link_to image_tag('simple_arrow_black.svg', class: 'menu-back'), :back %>
+    </div>
+    <div class="menu-item menu-message-user">
+      <i class="fas fa-user"></i>
+      <% if  params[:action] == 'show' %>
+        <%= current_user == @conversation.keeper ? @conversation.seeker.first_name : @conversation.keeper.first_name %>
+      <% end %>
+    </div>
+    <div class="menu-item">
+        <%= link_to image_tag('chat_black.svg', class: 'menu-chat'), conversations_path%>
     </div>
   </div>
 
@@ -32,20 +49,25 @@
 
   <div class="top-menu-wrap-white">
     <div class="menu-item">
+      <% if params[:controller] == 'users' %>
+        <%=link_to image_tag('simple_arrow_black.svg', class: 'menu-back'), :back %>
+      <% else %>
         <%= image_tag 'settings_black.svg', class: 'menu-settings' %>
+      <% end %>
+
     </div>
     <div class="menu-item">
       <%= link_to image_tag("logo_green.svg", class: "menu-logo"), root_path %>
     </div>
     <div class="menu-item">
-        <%= image_tag 'chat_black.svg', class: 'menu-chat' %>
+        <%= link_to image_tag('chat_black.svg', class: 'menu-chat'), conversations_path %>
     </div>
   </div>
 
 <% end %>
 
 
-<% if params[:action] == 'new_found' || params[:action] == 'new' %>
+<% if params[:action] == 'new_found' || (params[:action] == 'new' && params[:controller] == 'items') %>
 
 <% else %>
   <div class="menu-wrap">

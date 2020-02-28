@@ -1,3 +1,22 @@
-<% @conversations.each do |conversation| %>
-  <%= link_to conversation.item.title, conversation %>
-<% end %>
+<div class="show-page-wrap">
+  <div class="show-container-list">
+    <h2><span class="green">Your messages</span></h2>
+    <% if @conversations.any? %>
+      <% @conversations.each do |conversation| %>
+        <div class="messages-list-card">
+          <h4><%= link_to (current_user == conversation.keeper ? conversation.seeker.first_name : conversation.keeper.first_name), conversation %></h4>
+          <div class="messages-list-details">
+            <div class="messages-list-messages">
+              <%= conversation.messages.last.content %>
+            </div>
+            <div class="messages-list-time">
+              <%= distance_of_time_in_words(conversation.messages.last.created_at, Time.now, options = {}) %> ago
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

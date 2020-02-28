@@ -1,8 +1,20 @@
-<h1>Conversations#new</h1>
-<p>Find me in app/views/conversations/new.html.erb</p>
+<div class="show-page-wrap">
 
-<%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
-  <%= f.input :content %>
-<% end  %>
+  <div class="message-container">
+
+
+    <div class="message-window">
+
+    </div>
+
+    <div class="message-form">
+      <%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
+        <%= f.input :content, :input_html => { placeholder: 'Write message ...' } %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
 
 

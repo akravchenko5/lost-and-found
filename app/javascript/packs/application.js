@@ -11,6 +11,7 @@ import { toggleSettings } from '../components/init_toggle_settings';
 import { toggleForm } from '../components/init_sign_in';
 import { review } from '../components/init_reviews';
 import { count } from '../plugins/init_counter';
+import { scrolledDown } from '../components/init_messages';
 
 initMapbox();
 createItem();
@@ -22,3 +23,4 @@ toggleForm();
 review();
 
  // $('input[type="range"]').rangeslider();
+scrolledDown();
