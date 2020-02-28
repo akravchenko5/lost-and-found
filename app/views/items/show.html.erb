@@ -1,7 +1,6 @@
 <% if @item.lost? %>
 
-  <div class="show-page-wrap-lost">
-    <script>map.scrollZoom.disable();</script>
+  <div class="show-page-wrap-lost" id="map-show">
     <div
       id="map"
       style="width: 100%;
@@ -49,8 +48,7 @@
 
 <% elsif @item.found? %>
 
-  <div class="show-page-wrap">
-    <script>map.scrollZoom.disable();</script>
+  <div class="show-page-wrap" id="map-show">
     <div
       id="map"
       style="width: 100%;

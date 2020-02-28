@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
 
   def set_map(items)
     # Always convert items to array because if can be one item only!
-    @markers = Array(@map_items).map do |item|
+    @markers = Array(items).map do |item|
       if item.state == 'lost'
         pointer = 'pointer_black.svg'
       else
