@@ -1,4 +1,4 @@
-<% if @item.first.lost? %>
+<% if @item.lost? %>
 
   <div class="show-page-wrap-lost">
     <script>map.scrollZoom.disable();</script>
@@ -11,39 +11,43 @@
     ></div>
 
     <div class="show-container lost">
-      <h3><%= @item.first.title %></h3>
+      <h3><%= @item.title %></h3>
       <div class="show-item-details">
         <div class="item-details-user">
           <i class="fas fa-user"></i>
-          <%= link_to user_path(@item.first.user.first_name) %>
+          <%= link_to user_path(@item.user.first_name) %>
         </div>
         <div class="item-details-time-lost">
-        <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
+        <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
         </div>
       </div>
 
-      <% if @item.first.reward %>
+      <% if @item.reward %>
 
         <div class="show-finders-fee">
           <i class="fas fa-coins"></i>
-          <%= @item.first.reward %> kr finders fee
+          <%= @item.reward %> kr finders fee
         </div>
 
       <% end %>
 
       <div class="show-item-description">
-        <%= @item.first.description %>
+        <%= @item.description %>
       </div>
 
       <div class="button-wrap">
-        <%= link_to 'Send message', '#', class: 'button-white' %>
+        <% if current_user.conversation_for(@item).present? %>
+          <%= link_to 'Send message', current_user.conversation_for(@item), class: 'button-white' %>
+        <% else %>
+          <%= link_to 'Send message', new_item_conversation_path(@item), class: 'button-white' %>
+        <% end %>
         <div class="button-space"></div>
         <%= link_to 'Mark as solved', '#', class: 'button-green' %>
       </div>
     </div>
   </div>
 
-<% elsif @item.first.found? %>
+<% elsif @item.found? %>
 
   <div class="show-page-wrap">
     <script>map.scrollZoom.disable();</script>
@@ -56,22 +60,26 @@
     ></div>
 
     <div class="show-container">
-      <h3><%= @item.first.title %></h3>
+      <h3><%= @item.title %></h3>
       <div class="show-item-details">
         <div class="item-details-user">
           <i class="fas fa-user"></i>
-          <%= link_to "#{@item.first.user.first_name}", user_path(@item.first.user.id) %>
+          <%= link_to "#{@item.user.first_name}", user_path(@item.user.id) %>
         </div>
         <div class="item-details-time">
-        <%= distance_of_time_in_words(@item.first.created_at, Time.now, options = {}) %> ago
+        <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
         </div>
       </div>
       <div class="show-item-description">
-        <%= @item.first.description %>
+        <%= @item.description %>
       </div>
 
       <div class="button-wrap">
-        <%= link_to 'Send message', '#', class: 'button-dark' %>
+        <% if current_user.conversation_for(@item).present? %>
+          <%= link_to 'Send message', current_user.conversation_for(@item), class: 'button-dark' %>
+        <% else %>
+          <%= link_to 'Send message', new_item_conversation_path(@item), class: 'button-dark' %>
+        <% end %>
         <div class="button-space"></div>
         <%= link_to 'Mark as solved', '#', class: 'button-green' %>
       </div>
