@@ -3,10 +3,14 @@ import mapboxgl from 'mapbox-gl';
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
+  if (!mapElement) {
+    return;
+  }
+
   const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 16, duration: 0 });
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 16, duration: 0 });
   };
 
   const addMarkersToMap = (map, markers) => {
@@ -28,21 +32,21 @@ const initMapbox = () => {
     });
   };
 
+  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/akravchenko5/ck71u6fia0qsb1ipi7a8rzdqm'
+  });
+  const markers = JSON.parse(mapElement.dataset.markers);
+  addMarkersToMap(map, markers);
+  fitMapToMarkers(map, markers);
 
+  // navigator.geolocation.getCurrentPosition((data) => {
+  //   console.log(data);
+  // });
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
-    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/akravchenko5/ck71u6fia0qsb1ipi7a8rzdqm'
-    });
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-
-    // navigator.geolocation.getCurrentPosition((data) => {
-    //   console.log(data);
-    // });
+  if (document.getElementById('map-show')) {
+    map.scrollZoom.disable();
   }
 };
 
