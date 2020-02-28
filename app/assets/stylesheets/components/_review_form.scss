@@ -1,0 +1,30 @@
+.user-new-review {
+
+label {
+    color: $lost-green;
+    margin-bottom: 5px;
+  }
+
+  #review_content, #review_rating {
+    border: none;
+    border-bottom: 1px solid $lost-green;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-bottom: 1px solid $lost-dark;
+      color: $lost-dark;
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  #review_rating {
+    color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+}

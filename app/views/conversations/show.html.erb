@@ -1,0 +1,28 @@
+CONVERSATION
+
+<div class="container">
+<div>
+  <ul>
+  <% @conversation.messages.each do |message| %>
+  <li>
+     <p><%= message.content %></p>
+     <p><%= message.user.email %></p>
+  </li>
+<% end %>
+</ul>
+
+</div>
+
+
+
+
+
+<div>
+  <%= simple_form_for [@conversation, @message] do |f| %>
+  <%= f.input :content %>
+<% end %>
+</div>
+
+<!---mark as solved button--->
+
+</div>

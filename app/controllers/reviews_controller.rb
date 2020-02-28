@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
     @review.save
      if @review.save
       flash[:notice] = "Added a new review!"
-      redirect_to @review
+      redirect_to user_path(@user)
     else render :new
     end
   end
