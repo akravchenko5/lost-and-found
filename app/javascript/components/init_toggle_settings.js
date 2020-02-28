@@ -3,6 +3,8 @@ const toggleSettings = () => {
   const list = document.querySelector('.settings-item-content');
   const arrowFound = document.querySelector('.settings-arrow-found');
   const listFound = document.querySelector('.settings-item-content-found');
+  const arrowReviews = document.querySelector('.settings-arrow-reviews');
+  const listReviews = document.querySelector('.settings-item-content-reviews');
 
 
   if (arrow) {
@@ -23,6 +25,17 @@ const toggleSettings = () => {
       }
       if (arrowFound) {
         arrowFound.classList.toggle('show-button-rotate');
+      }
+    });
+  }
+
+  if (arrowReviews) {
+    arrowReviews.addEventListener('click', (event) => {
+      if (listReviews) {
+        listReviews.classList.toggle('show-settings-item-content');
+      }
+      if (arrowReviews) {
+        arrowReviews.classList.toggle('show-button-rotate');
       }
     });
   }
