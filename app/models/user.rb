@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   # has_many :keeper_relationships, foreign_key: :seeker_id, class_name: 'Conversation'
   # has_many :seeker_relationships, foreign_key: :keeper_id, class_name: 'Conversation'
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   def conversations
     Conversation.where(seeker: self).or(Conversation.where(keeper: self))
