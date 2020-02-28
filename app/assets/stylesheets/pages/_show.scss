@@ -4,6 +4,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
 }
 
 .show-page-wrap-lost {

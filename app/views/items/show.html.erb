@@ -15,7 +15,7 @@
       <div class="show-item-details">
         <div class="item-details-user">
           <i class="fas fa-user"></i>
-          <%= link_to user_path(@item.user.first_name) %>
+          <%= link_to "#{@item.user.first_name}", user_path(@item.user.id) %>
         </div>
         <div class="item-details-time-lost">
         <%= distance_of_time_in_words(@item.created_at, Time.now, options = {}) %> ago
