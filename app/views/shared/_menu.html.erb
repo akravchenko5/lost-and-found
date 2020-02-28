@@ -36,7 +36,9 @@
     </div>
     <div class="menu-item menu-message-user">
       <i class="fas fa-user"></i>
-      <%= params[:action] == 'show' ? @conversation.keeper.first_name : '' %>
+      <% if  params[:action] == 'show' %>
+        <%= current_user == @conversation.keeper ? @conversation.seeker.first_name : @conversation.keeper.first_name %>
+      <% end %>
     </div>
     <div class="menu-item">
         <%= link_to image_tag('chat_black.svg', class: 'menu-chat'), conversations_path%>
