@@ -37,6 +37,11 @@
   justify-content: space-between;
   margin-top: 30px;
 
+  .form-group {
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+
   input[type="submit"]
   {
     background:url(search_green.svg);
@@ -59,7 +64,7 @@
   }
 }
 
-#home-input {
+#query_title {
   flex-grow: 1;
   border: 1px solid $lost-green;
   border-right: none;
