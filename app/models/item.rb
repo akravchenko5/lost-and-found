@@ -20,12 +20,6 @@ class Item < ApplicationRecord
 
   include AlgoliaSearch
 
-  attr_writer :distance
-
-  def distance
-    @distance || 0
-  end
-
   algoliasearch do
     attribute :title, :address, :state, :created_at, :category
 

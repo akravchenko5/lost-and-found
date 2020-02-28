@@ -17,10 +17,12 @@
             %>
             <%#= submit_tag ' ', id: "home-search-button" %>
           <%# end %>
-      <%= simple_form_for :query, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get', class: "home-form" do |f| %>
-          <%= f.input :title, :input_html => { placeholder: 'Search nearby ...' }, label: false, id: "home-input" %>
-          <%= f.button :submit, "", id: "home-search-button"%>
+    <div id="hompage-simple-fomr">
+      <%= simple_form_for :query, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get' do |f| %>
+          <%= f.input :title, :input_html => { placeholder: 'Search nearby ...' }, label: false, id: "homepage-search" %>
+          <%#= f.button :submit, "", id: "home-search-button"%>
       <% end %>
+    </div>
 
   </div>
 

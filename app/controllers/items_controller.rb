@@ -27,10 +27,14 @@ class ItemsController < ApplicationController
 
   def lost
     @items = Item.lost
+    ip = Ip::Lookup.server_whatismyipaddress
+    @location = Geocoder.search(ip).first.coordinates
   end
 
   def found
     @items = Item.found
+    ip = Ip::Lookup.server_whatismyipaddress
+    @location = Geocoder.search(ip).first.coordinates
   end
 
   def new_found
