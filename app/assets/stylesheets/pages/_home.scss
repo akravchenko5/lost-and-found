@@ -78,6 +78,24 @@
   }
 }
 
+#hompage-simple-fomr > form > div > #query_title {
+  flex-grow: 1;
+  border: 1px solid $lost-green;
+  height: 50px;
+  padding-left: 20px;
+  border-radius: 25px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    color: $lost-dark;
+  }
+
+  &::placeholder {
+    color: $lost-green;
+  }
+}
+
 @media screen and (min-width: 780px) {
   .home-content-wrap {
     width: 50%;
