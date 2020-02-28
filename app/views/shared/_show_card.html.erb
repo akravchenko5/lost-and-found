@@ -15,7 +15,7 @@
             <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
           </div>
           <div class="show-distance">
-            2 km
+            <%= number_to_human(item.distance_from(location)*1000, units: {unit: "m", thousand: "km"}) %>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
             <%= image_tag 'map_green.svg', class: 'show-map-pointer' %>
             </div>
           <div class="show-distance">
-             2 km
+             <%= number_to_human(item.distance_from(location)*1000, units: {unit: "m", thousand: "km"}) %>
           </div>
         </div>
       </div>

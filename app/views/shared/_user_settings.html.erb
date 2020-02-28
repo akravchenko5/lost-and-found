@@ -23,6 +23,9 @@
         <div class="settings-user-details">
           <h4><%= current_user.first_name %></h4>
           <h4> <%= current_user.last_name %></h4>
+          <div class="settings-average-review">
+            <%= render 'reviews/rating_settings', user_rating: current_user.average_rating %>
+          </div>
           <p>Add profile picture</p>
         </div>
       </div>
@@ -92,11 +95,40 @@
 
       <% end %>
 
+      <!-- Display user reviews -->
+
+      <% if current_user.reviews_as_reviewed %>
+
+        <div class="settings-items-wrap">
+          <div class="settings-items-header">
+            <h4>Your reviews</h4>
+            <%= image_tag 'simple_arrow_green.svg', class: 'settings-arrow-reviews' %>
+          </div>
+          <div class="settings-item-content-reviews">
+            <% current_user.reviews_as_reviewed.each do |r| %>
+              <div class="settings-review-wrap">
+                <%= render 'reviews/rating_settings', user_rating: r.rating %>
+                <div class="settings-review-content">
+                  <%= r.content %>
+                </div>
+                <div class="settings-review-author">
+                  <%= User.find(r.reviewer_id).first_name %>
+                </div>
+              </div>
+            <% end  %>
+           </div>
+        </div>
+      <% end %>
+
+      <!-- Sign out -->
+
       <div class="settings-sign-out">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       </div>
 
     </div>
+
+  <!-- If user is not signed in -->
 
   <% else %>
 
