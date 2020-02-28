@@ -39,6 +39,28 @@
   }
 }
 
+ #show-back-button {
+
+  background-color: transparent;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+
+  a {
+    text-decoration: none;
+    color: $lost_green;
+  }
+
+  &:hover {
+    color: $lost-dark;
+    text-decoration: none;
+  }
+}
+
 .show-container-list {
   margin-top: 70px;
   width: 85%;

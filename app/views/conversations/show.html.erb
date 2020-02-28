@@ -2,7 +2,6 @@
 
   <div class="message-container">
 
-
     <div class="message-window">
       <% @conversation.messages.each do |message| %>
         <div class="message.wrap <%= message.user == current_user ? 'message-wrap-user' : '' %>">

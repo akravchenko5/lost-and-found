@@ -18,7 +18,8 @@ class ItemsController < ApplicationController
     if search_terms
       # json_hits = Item.search.raw_answer.with_indifferent_access[:hits]
       @items = Item.search(search_terms)
-      ip = Ip::Lookup.server_whatismyipaddress
+      # ip = Ip::Lookup.server_whatismyipaddress
+      ip = "193.214.55.86" #for development
       @location = Geocoder.search(ip).first.coordinates
     else
       @items = Item.all
@@ -27,13 +28,15 @@ class ItemsController < ApplicationController
 
   def lost
     @items = Item.lost
-    ip = Ip::Lookup.server_whatismyipaddress
+    # ip = Ip::Lookup.server_whatismyipaddress
+    ip = "193.214.55.86" #for development
     @location = Geocoder.search(ip).first.coordinates
   end
 
   def found
     @items = Item.found
-    ip = Ip::Lookup.server_whatismyipaddress
+    # ip = Ip::Lookup.server_whatismyipaddress
+    ip = "193.214.55.86" #for development
     @location = Geocoder.search(ip).first.coordinates
   end
 
