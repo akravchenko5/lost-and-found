@@ -20,6 +20,7 @@ gem 'faker'
 gem 'ip-lookup'
 # gem 'pg_search', '~> 2.3.0'
 gem "algoliasearch-rails"
+gem 'bootstrap_datetimepicker'
 
 group :development do
   gem 'faker'
@@ -34,3 +35,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

@@ -1,27 +1,16 @@
-<div class="search-form d-flex justify-content-center">
-      <%#= form_tag items_path, method: :get, class: "d-flex flex-column col-4" do %>
-        <%#= label_tag(:title, "Title:") %>
-        <%#= text_field_tag :title %>
-        <%#= label_tag(:address, "Address:") %>
-        <%#= text_field_tag :address %>
-        <%#= label_tag :category, "Category" %>
-        <%#= select_tag :category, options_for_select(Item::CATEGORIES), prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
-        <%#= label_tag :state, "Lost/Found" %>
-        <%#= select_tag :state, options_for_select(["lost", "found"])%>
-        <%#= label_tag :start_date, "Start date" %>
-        <%#= date_field_tag :start_date %>
-        <%#= label_tag :end_date, "End date" %>
-        <%#= date_field_tag :end_date %>
-        <%#= submit_tag(value="Search") %>
-      <%# end %>
+<div class="search-form d-flex justify-content-center" id="search-page-form">
     <%= simple_form_for :query, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get' do |f| %>
-      <%= f.input :title, :input_html => { placeholder: 'What you are loockig for?' } %>
-      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' } %>
-      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
-      <%= f.input :state, collection: ['lost', 'found'], prompt: 'Lost or Found?', :input_html => { placeholder: '' } %>
-      <%= f.input :start_date, as: :date, class: "date" %>
+      <%= f.input :title, :input_html => { placeholder: 'What you are loockig for?' }, required: false %>
+      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' }, required: false %>
+      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category'}, required: false %>
+      <%= f.input :state, collection: ['lost', 'found'], prompt: 'Lost or Found?', :input_html => { placeholder: '' }, required: false %>
+      <%= f.input :field, as: :range %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :start_date, as: :date, html5: true, class: "date", label: "from:", required: false %>
+        <%#= f.input :stop_date, as: :date, html5: true, class: "date", label: "to:", required: false %>
+      </div>
       <div class="button-wrap">
-        <%= f.button :submit, class:"button-green" %>
+        <%= f.button :submit, 'Search', class:"button-green"%>
       </div>
     <% end %>
 </div>

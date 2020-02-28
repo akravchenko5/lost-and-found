@@ -6041,6 +6041,11 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
+rangeslider@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rangeslider/-/rangeslider-1.0.0.tgz#c72ea7c6d48feaa6a1ec50f45caf6f0364549497"
+  integrity sha1-xy6nxtSP6qah7FD0XK9vA2RUlJc=
+
 raw-body@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.4.0.tgz#a1ce6fb9c9bc356ca52e89256ab59059e13d0332"

@@ -20,3 +20,5 @@ displaySettings();
 toggleSettings();
 toggleForm();
 review();
+
+ // $('input[type="range"]').rangeslider();
