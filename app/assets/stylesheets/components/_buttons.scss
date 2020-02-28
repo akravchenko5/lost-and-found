@@ -18,6 +18,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+
+   &:hover {
+    text-decoration: none;
+    color: $lost-green;
+
+  }
 }
 
 .button-green {
@@ -45,6 +52,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $lost-dark;
+
+  }
 }
 
 .button-lost-menu {
