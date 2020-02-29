@@ -21,6 +21,7 @@ gem 'ip-lookup'
 # gem 'pg_search', '~> 2.3.0'
 gem "algoliasearch-rails"
 gem 'bootstrap_datetimepicker'
+gem 'execjs'
 
 group :development do
   gem 'faker'

@@ -27,16 +27,16 @@ class Item < ApplicationRecord
 
     geoloc :latitude, :longitude
 
-      ip = "193.214.55.86"
+      # ip = "193.214.55.86"
 
-      client = Algolia::Client.new(
-        application_id: ENV['ALGOLIA_APP_ID'],
-        api_key: ENV['ALGOLIA_SEARCH_KEY']
-      )
+      # client = Algolia::Client.new(
+      #   application_id: ENV['ALGOLIA_APP_ID'],
+      #   api_key: ENV['ALGOLIA_SEARCH_KEY']
+      # )
 
-      client.set_extra_header 'X-Forwarded-For', ip
+      # client.set_extra_header 'X-Forwarded-For', ip
 
-      index = client.init_index 'index_name'
+      # index = client.init_index 'index_name'
 
   end
 
