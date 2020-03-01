@@ -24,26 +24,6 @@ class ItemsController < ApplicationController
       })
 
       date_filter(items)
-
-      # search_item = params[:query]
-      # if !search_item[:start_date].blank? && !search_item[:stop_date].blank?
-      #   @items = items.select { |item|
-      #     item.created_at >  search_item[:start_date].to_date && item.created_at <  search_item[:stop_date].to_date
-      #   }
-      # elsif search_item[:start_date] && search_item[:stop_date].blank?
-      #   raise
-      #   @items = items.select { |item|
-      #     item.created_at >  search_item[:start_date].to_date
-      #   }
-      # elsif search_item[:start_date].blank? && search_item[:stop_date]
-      #   raise
-      #   @items = items.select { |item|
-      #     item.created_at <  search_item[:stop_date].to_date
-      #   }
-      # else
-      #   @items = items
-      # end
-      # ip = Ip::Lookup.server_whatismyipaddress
       ip = "193.214.55.86" #for development
       @location = Geocoder.search(ip).first.coordinates
     else
