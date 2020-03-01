@@ -4,6 +4,7 @@
       <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category'}, required: false %>
       <%= f.input :state, collection: ['lost', 'found'], prompt: 'Lost or Found?', :input_html => { placeholder: '' }, required: false %>
       <%#= f.input :rasius, as: :range %>
+
       <div class="search-dates">
         <%= f.input :start_date, as: :date, html5: true, class: "date", label: "from:", required: false %>
         <%= f.input :stop_date, as: :date, html5: true, class: "date", label: "to:", required: false %>
@@ -22,5 +23,7 @@
       <div class="button-wrap pt-2">
         <%= f.button :submit, 'Search', class:"button-green"%>
       </div>
+       <input type="hidden" id="latitude" name="latitude" value="" method="post">
+       <input type="hidden" id="longitude" name="longitude" value="" method="post">
     <% end %>
 </div>

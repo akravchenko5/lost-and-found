@@ -16,10 +16,7 @@ class ItemsController < ApplicationController
 
   def index
     if search_terms
-      # json_hits = Item.search.raw_answer.with_indifferent_access[:hits]
-      @items = Item.search(search_terms, { aroundLatLngViaIP: true, aroundRadius: @radius})
 
-      # ip = Ip::Lookup.server_whatismyipaddress
       items = Item.search(search_terms, {
         aroundLatLngViaIP: true,
         aroundRadius: @radius,

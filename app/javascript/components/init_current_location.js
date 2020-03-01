@@ -1,12 +1,14 @@
+
+const latitude = document.getElementById('latitude');
+const longitude = document.getElementById('longitude');
+
 const fetchCurrentPosition = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   navigator.geolocation.getCurrentPosition((data) => {
-    console.log(date.coords.latitude + " " + date.coords.longitude);
-    $.ajax({
-        url : "/items/search",
-        type : "post",
-        data : { data_value: JSON.stringify(date.coords.latitude) }
-    });
+    latitude.value = data.coords.latitude
+    longitude.value = data.coords.longitude
+    // description.innerText =
+    console.log(data.coords.latitude + " " + data.coords.longitude);
   });
 };
 
