@@ -14,7 +14,7 @@ import { count } from '../plugins/init_counter';
 import { scrolledDown } from '../components/init_messages';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
-// import { fetchCurrentPositionWeather } from '../components/init_current_location'
+import { fetchCurrentPosition } from '../components/init_current_location'
 
 initMapbox();
 createItem();
@@ -27,7 +27,7 @@ review();
 initAutocomplete();
 initSlider();
 
-// fetchCurrentPositionWeather();
+fetchCurrentPosition();
  // $('input[type="range"]').rangeslider();
 scrolledDown();
 
