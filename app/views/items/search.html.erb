@@ -1,29 +1,34 @@
-<div class="search-form d-flex justify-content-center" id="search-page-form">
-    <%= simple_form_for :query, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get' do |f| %>
-      <%= f.input :title, :input_html => { placeholder: 'What you are loockig for?', autocomplete: 'off' }, required: false %>
-      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category'}, required: false %>
-      <%= f.input :state, collection: ['lost', 'found'], prompt: 'Lost or Found?', :input_html => { placeholder: '' }, required: false %>
-      <%#= f.input :rasius, as: :range %>
 
-      <div class="search-dates">
-        <%= f.input :start_date, as: :date, html5: true, class: "date", label: "from:", required: false %>
-        <%= f.input :stop_date, as: :date, html5: true, class: "date", label: "to:", required: false %>
-      </div>
-      <div class="slidecontainer">
-        <label for="range">Radius</label>
-        <input type="range" min="1" max="30" value="5" class="slider" id="myRange" name="radius">
-        <div class="d-flex justify-content-between">
-          <h5></h5>
-          <div>
-            <h5 class="text-muted"><output id="demo">30</output> km</h5>
+<div class="container" id="search-page-form">
+  <div class="row justify-content-center">
+    <div class="search-form col-sm-12 col-md-6">
+        <%= simple_form_for :query, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get' do |f| %>
+          <%= f.input :title, :input_html => { placeholder: 'What you are loockig for?', autocomplete: 'off' }, required: false %>
+          <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category'}, required: false %>
+          <%= f.input :state, collection: ['lost', 'found'], prompt: 'Lost or Found?', :input_html => { placeholder: '' }, required: false %>
+          <%#= f.input :rasius, as: :range %>
+
+          <div class="search-dates">
+            <%= f.input :start_date, as: :date, html5: true, class: "date", label: "from:", required: false %>
+            <%= f.input :stop_date, as: :date, html5: true, class: "date", label: "to:", required: false %>
           </div>
-        </div>
-      </div>
-      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...', autocomplete: 'off' }, required: false, id: "flat_address" %>
-      <div class="button-wrap pt-2">
-        <%= f.button :submit, 'Search', class:"button-green"%>
-      </div>
-        <input type="hidden" id="latitude" name="latitude" value="">
-        <input type="hidden" id="longitude" name="longitude" value="">
-    <% end %>
+          <div class="slidecontainer">
+            <label for="range">Radius</label>
+            <input type="range" min="1" max="30" value="5" class="slider" id="myRange" name="radius">
+            <div class="d-flex justify-content-between">
+              <h5></h5>
+              <div>
+                <h5 class="text-muted"><output id="demo">30</output> km</h5>
+              </div>
+            </div>
+          </div>
+          <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...', autocomplete: 'off' }, required: false, id: "flat_address" %>
+          <div class="button-wrap pt-2">
+            <%= f.button :submit, 'Search', class:"button-green"%>
+          </div>
+            <input type="hidden" id="latitude" name="latitude" value="">
+            <input type="hidden" id="longitude" name="longitude" value="">
+        <% end %>
+    </div>
+  </div>
 </div>
