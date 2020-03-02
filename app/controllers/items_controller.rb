@@ -113,7 +113,6 @@ class ItemsController < ApplicationController
     search_item = params[:query]
     [
       search_item[:title],
-      search_item[:address],
       search_item[:category],
       search_item[:state]
     ].compact
