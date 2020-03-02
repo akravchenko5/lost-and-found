@@ -1,6 +1,17 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
+  before_action :cached_location
+
+  def cached_location
+    ips = Geocoder.search(request.ip)
+
+    if (ips.try(:first).try(:coordinates).any?)
+      cookies[:cached_location] = ips.first.coordinates.join(',')
+    end
+
+    @coords = cookies[:cached_location]
+  end
 
   def map
     items = Item.all.geocoded
@@ -16,39 +27,31 @@ class ItemsController < ApplicationController
 
   def index
     if search_terms
-      if !params[:latitude].blank?
-        @location = "#{params[:latitude].to_f}, #{params[:longitude].to_f}"
-        items = Item.search(search_terms, {
-          aroundLatLng: @location,
-          aroundRadius: @radius
-        })
-        date_filter(items)
-      else
-        items = Item.search(search_terms, {
-          aroundLatLngViaIP: true,
-          aroundRadius: @radius
-        })
-        date_filter(items)
-        ip = "193.214.55.86" #for development
-        @location = Geocoder.search(ip).first.coordinates
-      end
+      items = Item.search(search_terms, {
+        aroundLatLng: @coords,
+        aroundRadius: @radius
+      })
+
+      date_filter(items)
     else
       @items = Item.all
+      # ip = "193.214.55.86" #for development
+      # @coords = Geocoder.search(ip).first.coordinates.join(',')
     end
   end
 
   def lost
     @items = Item.lost
-    # ip = Ip::Lookup.server_whatismyipaddress
-    ip = "193.214.55.86" #for development
-    @location = Geocoder.search(ip).first.coordinates
+    # # ip = Ip::Lookup.server_whatismyipaddress
+    # ip = "193.214.55.86" #for development
+    # @location = Geocoder.search(ip).first.coordinates
   end
 
   def found
     @items = Item.found
-    # ip = Ip::Lookup.server_whatismyipaddress
-    ip = "193.214.55.86" #for development
-    @location = Geocoder.search(ip).first.coordinates
+    # # ip = Ip::Lookup.server_whatismyipaddress
+    # ip = "193.214.55.86" #for development
+    # @location = Geocoder.search(ip).first.coordinates
   end
 
   def new_found

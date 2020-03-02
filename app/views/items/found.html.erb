@@ -5,7 +5,7 @@
 
     <div class="show-card-wrap">
 
-    <%= render 'shared/show_card', items: @items, location: @location %>
+    <%= render 'shared/show_card', items: @items, location: @coords.split(',').map(&:to_f) %>
 
     </div>
   </div>
