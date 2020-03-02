@@ -79,7 +79,7 @@
   }
 }
 
-#message_content {
+#new_message_content {
   border: 1px solid $lost-green;
   border-radius: 30px;
   height: 50px;
@@ -100,8 +100,8 @@
   padding: 20px 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  h4{
-    margin-bottom: 5px;
+  h5{
+    margin-bottom: 0px;
   }
 
   a {
@@ -115,6 +115,15 @@
   justify-content: space-between;
   align-items: center;
   color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.messages-list-messages {
+  width: 60%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 24px;
 }
 
 .messages-list-time {

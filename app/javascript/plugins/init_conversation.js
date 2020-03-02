@@ -26,7 +26,17 @@ const messageReceived = (conversationId, data) => {
 
     scrolledDown();
   } else {
-    // POPUT
+    const newMessageWrapper = document.getElementById('new_message_wrapper');
+    //const notificationMessage = document.querySelector('.notification-message');
+
+    //notificationMessage.innerText = '';
+
+    newMessageWrapper.innerHTML = data.notification;
+
+    const notificationContainer = document.querySelector('.message-notification-wrap');
+
+    notificationContainer.classList.add('animation');
+    setTimeout(function(){ notificationContainer.classList.remove('animation'); }, 7000);
   }
 }
 

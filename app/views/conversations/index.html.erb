@@ -4,7 +4,7 @@
     <% if @conversations.any? %>
       <% @conversations.each do |conversation| %>
         <div class="messages-list-card">
-          <h4><%= link_to (current_user == conversation.keeper ? conversation.seeker.first_name : conversation.keeper.first_name), conversation %></h4>
+          <h5><%= link_to (current_user == conversation.keeper ? conversation.seeker.first_name : conversation.keeper.first_name), conversation %></h5>
           <div class="messages-list-details">
             <div class="messages-list-messages">
               <%= conversation.messages.last.content %>

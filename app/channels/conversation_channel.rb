@@ -18,7 +18,8 @@ class ConversationChannel < ApplicationCable::Channel
       ActionCable.server.broadcast(
         "conversation_#{params[:conversation_id]}",
         user: current_user.id,
-        message: render(message)
+        message: render(message),
+        notification: render_notification(message)
       )
     end
   end
@@ -30,6 +31,17 @@ class ConversationChannel < ApplicationCable::Channel
 
     renderer.render(
       partial: 'messages/message',
+      locals: {
+        message: message
+      }
+    )
+  end
+
+  def render_notification(message)
+    renderer = ApplicationController.renderer_with_signed_in_user(current_user)
+
+    renderer.render(
+      partial: 'shared/new_message',
       locals: {
         message: message
       }
