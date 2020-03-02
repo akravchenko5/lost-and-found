@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{@item.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @item.description %>
+
 <div class="<%= @item.lost? ? 'show-page-wrap-lost' : 'show-page-wrap' %>" id="map-show">
   <div
     id="map"
