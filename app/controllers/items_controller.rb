@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
 
   def map
-    items = Item.where('address ILIKE?', "%oslo%").geocoded
+    items = Item.all.geocoded
     set_map(items);
   end
 
@@ -15,37 +15,23 @@ class ItemsController < ApplicationController
   end
 
   def index
-    # raise
     if search_terms
-      # json_hits = Item.search.raw_answer.with_indifferent_access[:hits]
-      items = Item.search(search_terms, {
-        aroundLatLngViaIP: true,
-        aroundRadius: @radius,
-      })
-
-      date_filter(items)
-
-      # search_item = params[:query]
-      # if !search_item[:start_date].blank? && !search_item[:stop_date].blank?
-      #   @items = items.select { |item|
-      #     item.created_at >  search_item[:start_date].to_date && item.created_at <  search_item[:stop_date].to_date
-      #   }
-      # elsif search_item[:start_date] && search_item[:stop_date].blank?
-      #   raise
-      #   @items = items.select { |item|
-      #     item.created_at >  search_item[:start_date].to_date
-      #   }
-      # elsif search_item[:start_date].blank? && search_item[:stop_date]
-      #   raise
-      #   @items = items.select { |item|
-      #     item.created_at <  search_item[:stop_date].to_date
-      #   }
-      # else
-      #   @items = items
-      # end
-      # ip = Ip::Lookup.server_whatismyipaddress
-      ip = "193.214.55.86" #for development
-      @location = Geocoder.search(ip).first.coordinates
+      if !params[:latitude].blank?
+        @location = "#{params[:latitude].to_f}, #{params[:longitude].to_f}"
+        items = Item.search(search_terms, {
+          aroundLatLng: @location,
+          aroundRadius: @radius
+        })
+        date_filter(items)
+      else
+        items = Item.search(search_terms, {
+          aroundLatLngViaIP: true,
+          aroundRadius: @radius
+        })
+        date_filter(items)
+        ip = "193.214.55.86" #for development
+        @location = Geocoder.search(ip).first.coordinates
+      end
     else
       @items = Item.all
     end
@@ -134,11 +120,11 @@ class ItemsController < ApplicationController
       @items = items.select { |item|
         item.created_at >  search_item[:start_date].to_date && item.created_at <  search_item[:stop_date].to_date
       }
-    elsif search_item[:start_date] && search_item[:stop_date].blank?
+    elsif !search_item[:start_date].blank? && search_item[:stop_date].blank?
       @items = items.select { |item|
         item.created_at >  search_item[:start_date].to_date
       }
-    elsif search_item[:start_date].blank? && search_item[:stop_date]
+    elsif search_item[:start_date].blank? && !search_item[:stop_date].blank?
       @items = items.select { |item|
         item.created_at <  search_item[:stop_date].to_date
       }

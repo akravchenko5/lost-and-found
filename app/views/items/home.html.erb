@@ -8,21 +8,9 @@
     </div>
     <h1><span class="counter green">3657</span> lost</h1>
     <h1><span class="counter green">2356</span> found</h1>
-
-          <%#= form_tag items_path, method: :get, class: "home-form" do %>
-            <%#= text_field_tag :title,
-              params[:query['title']],
-              id: "home-input",
-              placeholder: "Search nearby ..."
-            %>
-            <%#= submit_tag ' ', id: "home-search-button" %>
-          <%# end %>
       <%= simple_form_for :query, html: { class: "home-form"}, :url => url_for(:action => 'index', :controller => 'items'), :method => 'get' do |f| %>
           <%= f.input :title, :input_html => { placeholder: 'Search nearby ...', autocomplete: 'off' }, label: false, id: "home-input" %>
           <%= f.button :submit, "", id: "home-search-button"%>
       <% end %>
-
   </div>
-
-
 </div>
