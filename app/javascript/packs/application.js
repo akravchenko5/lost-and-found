@@ -13,7 +13,7 @@ import { toggleForm } from '../components/init_sign_in';
 import { review } from '../components/init_reviews';
 import { count } from '../plugins/init_counter';
 import { scrolledDown } from '../components/init_messages';
-import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initAutocomplete, addressAutocompleteFoundLost } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
 import { fetchCurrentPosition } from '../components/init_current_location';
 import { subscribeConversations } from '../plugins/init_conversation';
@@ -28,6 +28,7 @@ toggleSettings();
 toggleForm();
 review();
 initAutocomplete();
+addressAutocompleteFoundLost();
 initSlider();
 subscribeConversations();
 

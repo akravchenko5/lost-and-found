@@ -16,4 +16,11 @@ const initAutocomplete = () => {
   }
 };
 
-export { initAutocomplete };
+const addressAutocompleteFoundLost = () => {
+  const addressInput = document.getElementById('item_address');
+  if (addressInput) {
+    places({ container: addressInput });
+  }
+};
+
+export { initAutocomplete, addressAutocompleteFoundLost };
