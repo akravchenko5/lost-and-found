@@ -1,13 +1,5 @@
 <div class="show-page-wrap-lost">
-
   <div class="show-container-list lost">
-    <h2><span class="green counter"><%= @items.count %></span> results</h2>
-
-    <div class="show-card-wrap">
-
-    <%= render 'shared/show_card', items: @items, location: @coords.split(',').map(&:to_f) %>
-
-    </div>
+    <%= render 'items_list' %>
   </div>
-
 </div>

@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
+
   before_action :cached_location
+  before_action :set_location, only: [:index, :found, :lost]
 
   def cached_location
     ips = Geocoder.search(request.ip)
@@ -11,6 +13,16 @@ class ItemsController < ApplicationController
     end
 
     @coords = cookies[:cached_location]
+  end
+
+  def set_location
+    @location = @coords.split(',').map(&:to_f)
+  end
+
+  def order_items
+    return unless @items.present?
+
+    @items = @items.sort_by { |item| item.distance_from(@location) }
   end
 
   def map
@@ -34,9 +46,11 @@ class ItemsController < ApplicationController
         aroundRadius: @radius
       })
 
-      date_filter(items)
+      @items = date_filter(items)
+      order_items
     else
       @items = Item.all
+      order_items
       # ip = "193.214.55.86" #for development
       # @coords = Geocoder.search(ip).first.coordinates.join(',')
     end
@@ -44,6 +58,7 @@ class ItemsController < ApplicationController
 
   def lost
     @items = Item.lost
+    order_items
     # # ip = Ip::Lookup.server_whatismyipaddress
     # ip = "193.214.55.86" #for development
     # @location = Geocoder.search(ip).first.coordinates
@@ -51,9 +66,11 @@ class ItemsController < ApplicationController
 
   def found
     @items = Item.found
+    order_items
     # # ip = Ip::Lookup.server_whatismyipaddress
     # ip = "193.214.55.86" #for development
     # @location = Geocoder.search(ip).first.coordinates
+    render :index
   end
 
   def new_found
@@ -120,20 +137,21 @@ class ItemsController < ApplicationController
 
   def date_filter(items)
     search_item = params[:query]
+
     if !search_item[:start_date].blank? && !search_item[:stop_date].blank?
-      @items = items.select { |item|
+      items.select { |item|
         item.created_at >  search_item[:start_date].to_date && item.created_at <  search_item[:stop_date].to_date
       }
     elsif !search_item[:start_date].blank? && search_item[:stop_date].blank?
-      @items = items.select { |item|
+      items.select { |item|
         item.created_at >  search_item[:start_date].to_date
       }
     elsif search_item[:start_date].blank? && !search_item[:stop_date].blank?
-      @items = items.select { |item|
+      items.select { |item|
         item.created_at <  search_item[:stop_date].to_date
       }
     else
-      @items = items
+      items
     end
   end
 
