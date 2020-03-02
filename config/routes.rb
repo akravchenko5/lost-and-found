@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'items#home'
   get 'items/map', to: 'items#map', as: :map
   get 'items/search', to: 'items#search', as: :search
+
+  mount ActionCable.server, at: '/cable'
+
   resources :items, except: :home do
     collection do
       get 'lost'

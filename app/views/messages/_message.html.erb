@@ -1,0 +1,5 @@
+ <div class="message-wrap <%= message.user == current_user ? 'self-message' : '' %>">
+  <div class="message">
+    <%= message.content %>
+  </div>
+</div>

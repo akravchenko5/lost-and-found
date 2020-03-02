@@ -1,0 +1,13 @@
+<%= link_to conversation_path(message.conversation) do %>
+  <div class="message-notification-wrap">
+    <%= image_tag 'chat_green.svg', class: 'new_message-image' %>
+    <div class="notification-details">
+      <div class="notification-user">
+        New message from <%= message.user.first_name %>
+      </div>
+      <div class="notification-message">
+        <%= truncate(message.content, length: 100) %>
+      </div>
+    </div>
+  </div>
+<% end %>

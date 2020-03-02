@@ -9,7 +9,7 @@
 
     <div class="message-form">
       <%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
-        <%= f.input :content, :input_html => { placeholder: 'Write message ...' } %>
+        <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off' } %>
       <% end %>
     </div>
 
