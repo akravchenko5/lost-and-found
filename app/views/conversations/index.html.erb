@@ -4,10 +4,14 @@
     <% if @conversations.any? %>
       <% @conversations.each do |conversation| %>
         <div class="messages-list-card">
-          <h4><%= link_to (current_user == conversation.keeper ? conversation.seeker.first_name : conversation.keeper.first_name), conversation %></h4>
+        <% if current_user == conversation.keeper %>
+        <h4> <%= link_to (conversation.seeker.first_name), user_path(conversation.seeker.id)  %> </h4>
+        <% else %>
+        <h4> <%= link_to (conversation.keeper.first_name), user_path(conversation.keper.id)  %>  </h4>
+        <% end %>
           <div class="messages-list-details">
             <div class="messages-list-messages">
-              <%= conversation.messages.last.content %>
+              <%= link_to (current_user == conversation.keeper ? conversation.messages.last.content : conversation.messages.last.content), conversation %>
             </div>
             <div class="messages-list-time">
               <%= distance_of_time_in_words(conversation.messages.last.created_at, Time.now, options = {}) %> ago

@@ -30,6 +30,7 @@
       <%= @item.description %>
     </div>
 
+    <% if current_user %>
     <div class="button-wrap">
       <% if current_user.conversation_for(@item).present? %>
         <%= link_to 'Send message', current_user.conversation_for(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
@@ -39,6 +40,9 @@
       <div class="button-space"></div>
       <%= link_to 'Mark as solved', '#', class: 'button-green' %>
     </div>
+    <% else %>
+    <p><i>Please sign in to send a message</i></p>
+    <% end %>
 
     <div id="show-back-button">
       <%= link_to "Back to list", @item.lost? ? lost_items_path : found_items_path %>
