@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
 
   def index
     if search_terms
+      @coords = "#{params[:latitude]}, #{params[:longitude]}" if params[:latitude].present?
+
       items = Item.search(search_terms, {
         aroundLatLng: @coords,
         aroundRadius: @radius
