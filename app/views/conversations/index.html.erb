@@ -4,8 +4,11 @@
     <% if @conversations.any? %>
       <% @conversations.each do |conversation| %>
         <div class="messages-list-card">
-          <h5><%= link_to (current_user == conversation.keeper ? conversation.seeker.first_name : conversation.keeper.first_name), conversation %></h5>
-
+          <% if current_user == conversation.keeper %>
+          <h5><%= link_to (conversation.seeker.first_name), user_path(conversation.seeker.id) %></h5>
+          <% else %>
+          <h5> <%= link_to (conversation.keeper.first_name), user_path(conversation.keeper.id) %></h5>
+          <% end %>
           <div class="messages-list-details">
             <div class="messages-list-messages">
               <%= link_to (current_user == conversation.keeper ? conversation.messages.last.content : conversation.messages.last.content), conversation %>
