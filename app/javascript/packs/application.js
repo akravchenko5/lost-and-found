@@ -15,6 +15,8 @@ import { scrolledDown } from '../components/init_messages';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
 import { fetchCurrentPosition } from '../components/init_current_location'
+// import { searchAutocomplete } from '../plugins/algolia';
+
 
 initMapbox();
 createItem();
@@ -28,6 +30,8 @@ initAutocomplete();
 initSlider();
 
 fetchCurrentPosition();
- // $('input[type="range"]').rangeslider();
+// searchAutocomplete();
 scrolledDown();
+
+
 

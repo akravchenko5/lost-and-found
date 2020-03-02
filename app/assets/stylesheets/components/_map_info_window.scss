@@ -1,3 +1,16 @@
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-bottom,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-top,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-right,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-left,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-top-left,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-top-right,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-bottom-left,
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-bottom-right
+ {
+  z-index: 2;
+}
+
+
 div.mapboxgl-popup-content {
   display: flex;
   flex-grow: 2;
@@ -14,6 +27,7 @@ div.mapboxgl-popup-content {
   overflow: hidden;
 
   .map-popup-white {
+    position: absolute;
     display: flex;
     align-items: center;
     height: 100%;
