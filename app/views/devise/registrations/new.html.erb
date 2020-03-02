@@ -1,8 +1,8 @@
 <div class="register-page-wrap">
 
   <div class="logo-wrap">
-    <div class="logo-big">
-      <div class="logo-small"></div>
+    <div class="register-logo-big">
+      <div class="register-logo-small"></div>
     </div>
   </div>
 
@@ -13,7 +13,7 @@
   <div class="tag-line">Join our community and find your lost belongings!</div>
 
 
-<h2>Sign up</h2>
+<h2 id='register-header'>Sign up</h2>
 <div class="register-wrapper"></div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -33,10 +33,17 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+
+<div class='register-button-wrap'>
+   <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: 'register-button-white' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+
+
+
+</div>
+
   </div>

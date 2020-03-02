@@ -111,4 +111,70 @@ select:-webkit-autofill:focus {
     color: $lost-dark;
   }
 }
+#register-header {
+  color: $lost-green
+}
+
+ a {
+    color: $lost-green;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+
+.register-logo-small {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: $lost-dark;
+  position: absolute;
+  top: 60px;
+  right: 40px;
+}
+
+.register-logo-big {
+  width: 220px;
+  height: 220px;
+  background-color: $lost-green;
+  border-radius: 50%;
+  position: relative;
+
+}
+
+.register-button-white {
+  color: $lost-green;
+  background-color: white;
+  padding: 11px 14px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 12px;
+
+  &:hover {
+    text-decoration: none;
+    color: $lost-dark;
+
+  }
+
+}
+
+
+.register-button-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    padding-top: 13px;
+  }
+
+}
+
 
