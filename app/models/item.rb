@@ -44,6 +44,7 @@ class Item < ApplicationRecord
 
       # index = client.init_index 'index_name'
 
+
   end
 
   # include PgSearch::Model

@@ -1,6 +1,7 @@
 
-const latitude = document.getElementById('latitude');
-const longitude = document.getElementById('longitude');
+// const latitude = document.getElementById('latitude');
+// const longitude = document.getElementById('longitude');
+
 
 const options = {
   enableHighAccuracy: true,
@@ -8,15 +9,19 @@ const options = {
   maximumAge: 3
 };
 
+const setCookie = (name, value, exdays = 30) => {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
 const fetchCurrentPosition = (event, options) => {
-  if (latitude && longitude) {
-  console.log('fetching location')
-    navigator.geolocation.getCurrentPosition((data) => {
-      latitude.value = data.coords.latitude
-      longitude.value = data.coords.longitude
-      console.log(data.coords.latitude + " " + data.coords.longitude);
-    });
-  }
+  navigator.geolocation.getCurrentPosition((data) => {
+    // console.log(data.coords.latitude + " " + data.coords.longitude);
+    setCookie('cached_location', `${data.coords.latitude}, ${data.coords.longitude}`)
+  });
 };
 
 export { fetchCurrentPosition }
