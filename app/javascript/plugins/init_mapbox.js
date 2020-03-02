@@ -20,10 +20,6 @@ const initMapbox = () => {
     const element = document.createElement('div');
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
-    // element.style.backgroundSize = 'contain';
-    // element.style.backgroundPosition = 'center'
-    // element.style.width = '50px';
-    // element.style.height = '50px';
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
@@ -37,13 +33,19 @@ const initMapbox = () => {
     container: 'map',
     style: 'mapbox://styles/akravchenko5/ck71u6fia0qsb1ipi7a8rzdqm'
   });
+
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+    trackUserLocation: true
+    }), 'bottom-right'
+  );
+
   const markers = JSON.parse(mapElement.dataset.markers);
   addMarkersToMap(map, markers);
   fitMapToMarkers(map, markers);
-
-  // navigator.geolocation.getCurrentPosition((data) => {
-  //   console.log(data);
-  // });
 
   if (document.getElementById('map-show')) {
     map.scrollZoom.disable();
