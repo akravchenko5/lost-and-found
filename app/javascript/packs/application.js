@@ -15,7 +15,8 @@ import { count } from '../plugins/init_counter';
 import { scrolledDown } from '../components/init_messages';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
-import { fetchCurrentPosition } from '../components/init_current_location'
+import { fetchCurrentPosition } from '../components/init_current_location';
+import { subscribeConversations } from '../plugins/init_conversation';
 
 initMapbox();
 createItem();
@@ -27,6 +28,7 @@ toggleForm();
 review();
 initAutocomplete();
 initSlider();
+subscribeConversations();
 
 fetchCurrentPosition();
  // $('input[type="range"]').rangeslider();

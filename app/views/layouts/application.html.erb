@@ -10,6 +10,12 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
+    <% if signed_in? %>
+      <script>
+        window.conversationIds = <%=j current_user.conversations.map(&:id) %>;
+      </script>
+    <% end %>
   </head>
   <body>
 
