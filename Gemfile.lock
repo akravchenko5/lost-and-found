@@ -240,7 +240,6 @@ DEPENDENCIES
   bootstrap_datetimepicker
   devise
   dotenv-rails
-  execjs
   faker
   font-awesome-sass (~> 5.6.1)
   geocoder
