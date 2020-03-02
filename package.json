@@ -10,7 +10,9 @@
     "counterup2": "^1.0.4",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.8.0",
+    "places.js": "^1.18.1",
     "popper.js": "^1.16.1",
+    "rangeslider": "^1.0.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

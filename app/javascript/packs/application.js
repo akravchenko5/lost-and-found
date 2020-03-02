@@ -12,6 +12,9 @@ import { toggleForm } from '../components/init_sign_in';
 import { review } from '../components/init_reviews';
 import { count } from '../plugins/init_counter';
 import { scrolledDown } from '../components/init_messages';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initSlider } from '../plugins/init_slider';
+// import { fetchCurrentPositionWeather } from '../components/init_current_location'
 
 initMapbox();
 createItem();
@@ -21,4 +24,10 @@ displaySettings();
 toggleSettings();
 toggleForm();
 review();
+initAutocomplete();
+initSlider();
+
+// fetchCurrentPositionWeather();
+ // $('input[type="range"]').rangeslider();
 scrolledDown();
+

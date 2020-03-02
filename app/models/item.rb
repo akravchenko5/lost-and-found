@@ -20,12 +20,29 @@ class Item < ApplicationRecord
 
   include AlgoliaSearch
 
-  algoliasearch do
-    attribute :title, :address, :state, :created_at, :category
+  algoliasearch  do
+    attribute :title, :address, :category, :state
 
     attributesForFaceting [:state]
 
+
+
     geoloc :latitude, :longitude
+
+    attribute :created_at_i  do
+      created_at.to_i
+    end
+
+      # ip = "193.214.55.86"
+
+      # client = Algolia::Client.new(
+      #   application_id: ENV['ALGOLIA_APP_ID'],
+      #   api_key: ENV['ALGOLIA_SEARCH_KEY']
+      # )
+
+      # client.set_extra_header 'X-Forwarded-For', ip
+
+      # index = client.init_index 'index_name'
 
   end
 
