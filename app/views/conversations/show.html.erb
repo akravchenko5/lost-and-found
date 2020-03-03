@@ -1,20 +1,14 @@
 <div class="show-page-wrap" id="conversation">
   <div class="message-container">
-    <div class="message-window" data-id="<%= @conversation.id %>">
+    <div class="message-window d-none" data-id="<%= @conversation.id %>">
       <%= render @conversation.messages %>
     </div>
 
     <div class="message-form">
       <%= simple_form_for [@conversation, Message.new], remote: true do |f| %>
-        <div class="file-input"></div>
-        <%= f.input :photo, as: :file %>
-       <!--  <div class="image-upload">
-          <label for="new_message[photo]">
-            <%= image_tag 'camera_green.svg' %>
-          </label>
-          <input type="file"
-                 id="new_message_photo" name="new_message[photo]" >
-        </div> -->
+        <label for="message_photo" class="image-upload"></label>
+        <%= f.input :photo, as: :file, label: false, input_html: { class: 'd-none' } %>
+
         <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off', autofocus: true } %>
         <%= f.button :submit, "", id: "message-new-button" %>

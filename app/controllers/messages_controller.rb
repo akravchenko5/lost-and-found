@@ -35,13 +35,6 @@ class MessagesController < ApplicationController
       message: render_to_string(partial: 'messages/message', locals: { message: @message, current_user: @message.conversation.keeper  }),
       notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
     )
-
-    # ActionCable.server.broadcast(
-    #   "conversation_#{params[:conversation_id]}",
-    #   user: current_user.id,
-    #   message: render_to_string(partial: 'messages/message', locals: { message: @message }),
-    #   notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
-    # )
   end
 
   def message_params

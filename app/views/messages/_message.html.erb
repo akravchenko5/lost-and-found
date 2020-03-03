@@ -1,6 +1,6 @@
  <div class="message-wrap <%= message.user == current_user ? 'self-message' : '' %>">
   <% if message.photo.attached? %>
-    <%= cl_image_tag message.photo.key, class: 'chat-image' %>
+    <%= cl_image_tag message.photo.key, height: 100, crop: :fit, class: 'chat-image' %>
     <% end %>
   <div class="message">
     <%= message.content %>

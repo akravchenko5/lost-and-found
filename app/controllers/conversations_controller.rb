@@ -25,9 +25,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.find(params[:id])
-    @message = Message.new
-    @item_id = @conversation.item_id
+    @conversation = Conversation.includes(messages: [:user, :photo_attachment]).where(id: params[:id]).first
   end
 
 
