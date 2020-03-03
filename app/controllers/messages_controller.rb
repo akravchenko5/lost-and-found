@@ -8,20 +8,43 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @conversation = Conversation.find(params[:conversation_id])
+
     @message = Message.new(message_params)
     @message.user = current_user
-    @conversation = Conversation.find(params[:conversation_id])
     @message.conversation = @conversation
     @message.save
-    @conversation.save!
-    redirect_to conversation_path(@conversation)
+
+    broadcast_message
   end
 
 
   private
 
-  def message_params
-  params.require(:message).permit(:content)
+  def broadcast_message
+    ActionCable.server.broadcast(
+      "user_#{@message.conversation.seeker_id}",
+      conversation: @conversation.id,
+      message: render_to_string(partial: 'messages/message', locals: { message: @message, current_user: @message.conversation.seeker }),
+      notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
+    )
+
+    ActionCable.server.broadcast(
+      "user_#{@message.conversation.keeper_id}",
+      conversation: @conversation.id,
+      message: render_to_string(partial: 'messages/message', locals: { message: @message, current_user: @message.conversation.keeper  }),
+      notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
+    )
+
+    # ActionCable.server.broadcast(
+    #   "conversation_#{params[:conversation_id]}",
+    #   user: current_user.id,
+    #   message: render_to_string(partial: 'messages/message', locals: { message: @message }),
+    #   notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
+    # )
   end
 
+  def message_params
+    params.require(:message).permit(:content, :photo)
+  end
 end

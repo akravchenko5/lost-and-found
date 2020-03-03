@@ -5,9 +5,19 @@
     </div>
 
     <div class="message-form">
-      <%= simple_form_for :new_message do |f| %>
+      <%= simple_form_for [@conversation, Message.new], remote: true do |f| %>
+        <div class="file-input"></div>
+        <%= f.input :photo, as: :file %>
+       <!--  <div class="image-upload">
+          <label for="new_message[photo]">
+            <%= image_tag 'camera_green.svg' %>
+          </label>
+          <input type="file"
+                 id="new_message_photo" name="new_message[photo]" >
+        </div> -->
         <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
-        <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off' } %>
+        <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off', autofocus: true } %>
+        <%= f.button :submit, "", id: "message-new-button" %>
       <% end %>
     </div>
   </div>

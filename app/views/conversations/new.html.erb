@@ -1,14 +1,13 @@
 <div class="show-page-wrap">
-
   <div class="message-container">
-
-
     <div class="message-window">
 
     </div>
 
     <div class="message-form">
       <%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off' } %>
       <% end %>
     </div>

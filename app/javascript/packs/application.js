@@ -16,7 +16,7 @@ import { scrolledDown } from '../components/init_messages';
 import { initAutocomplete, addressAutocompleteFoundLost } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
 import { fetchCurrentPosition } from '../components/init_current_location';
-import { subscribeConversations } from '../plugins/init_conversation';
+import { subscribeUser } from '../plugins/init_conversation';
 // import { searchAutocomplete } from '../plugins/algolia';
 
 initMapbox();
@@ -30,7 +30,7 @@ review();
 initAutocomplete();
 addressAutocompleteFoundLost();
 initSlider();
-subscribeConversations();
+subscribeUser();
 
 fetchCurrentPosition();
 // searchAutocomplete();
