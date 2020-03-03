@@ -126,6 +126,14 @@
   .user-review-author {
     width: 100%;
     color: $lost-green;
+    a {
+
+      &:hover {
+      color: $lost-dark;
+    }
+
+    }
+
   }
 
   .user-arrow-rotate {
