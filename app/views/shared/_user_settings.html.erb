@@ -112,7 +112,7 @@
                   <%= r.content %>
                 </div>
                 <div class="settings-review-author">
-                  <%= link_to (User.find(r.reviewer_id).first_name) %>
+                  <%= link_to (User.find(r.reviewer_id).first_name), user_path(r.reviewer.id) %>
                 </div>
               </div>
             <% end  %>
