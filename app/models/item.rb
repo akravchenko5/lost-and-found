@@ -5,8 +5,9 @@ class Item < ApplicationRecord
     'Animal/Pet',
     'Art',
     'Electronics',
+    'Accessories'
     'Clothes',
-    'Funitures',
+    'Furnitures',
     'Sports',
     'Transportation',
     'Other'
