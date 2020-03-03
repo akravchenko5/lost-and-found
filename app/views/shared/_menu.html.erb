@@ -36,8 +36,12 @@
     </div>
     <div class="menu-item menu-message-user">
       <i class="fas fa-user"></i>
-      <% if  params[:action] == 'show' %>
-        <%= current_user == @conversation.keeper ? @conversation.seeker.first_name : @conversation.keeper.first_name %>
+      <% if params[:action] == 'show' %>
+        <% if current_user == @conversation.keeper %>
+          <%= link_to (@conversation.seeker.first_name), user_path(@conversation.seeker.id)  %>
+        <% else %>
+          <%= link_to (@conversation.keeper.first_name), user_path(@conversation.keeper.id)  %>
+        <% end %>
       <% end %>
     </div>
     <div class="menu-item">
