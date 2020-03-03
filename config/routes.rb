@@ -15,17 +15,10 @@ Rails.application.routes.draw do
       get 'new_lost'
       get 'new_found'
     end
-
     resources :conversations, only: [:create, :new]
-    #create a nested route for messages
-    #do
-    #resources :messages
-    #end
-    #which are absolutely necessary to nest?
-    #displaying conversation can be outside
   end
 
-  resources :conversations, only: [:index, :show] do
+  resources :conversations, only: [:index, :show, :destroy] do
     resources :messages, only: [:index, :new, :create]
   end
 
