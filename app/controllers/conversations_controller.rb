@@ -22,6 +22,18 @@ class ConversationsController < ApplicationController
     redirect_to @conversation
   end
 
+  def destroy
+  @conversation = Conversation.find(params[:id])
+  @conversation.destroy
+    if @conversation.destroy
+      flash[:notice] = "Conversation has been deleted!"
+      redirect_to conversations_path
+    else
+      render :index
+    end
+  end
+
+
   def show
     @conversation = Conversation.find(params[:id])
     @message = Message.new
