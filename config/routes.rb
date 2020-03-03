@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
 
   resources :items, except: :home do
+    member do
+      patch :solved
+    end
     collection do
       get 'lost'
       get 'found'
