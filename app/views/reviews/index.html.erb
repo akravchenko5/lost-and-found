@@ -122,7 +122,7 @@
       <li>
         <p>Review:<%= r.content %></p>
         <p>Rating:  <%= r.rating %> </p>
-        <p>Author: <%= User.find(r.reviewer_id).first_name %></p>
+        <p>Author: <%= link_to (User.find(r.reviewer_id).first_name) %></p>
       </li>
     <% end  %>
     </ul>
