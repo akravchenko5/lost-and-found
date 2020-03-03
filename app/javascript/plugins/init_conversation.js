@@ -3,14 +3,10 @@ import { scrollDown } from '../components/init_messages';
 
 const messageReceived = (userId, data) => {
   const messages = document.querySelector('.message-window');
-  const inputField = document.querySelector('#message_content');
 
-    inputField.innerText = '';
   // Inside a conversation page
   if (messages && data.conversation === parseInt(messages.dataset.id)) {
     messages.insertAdjacentHTML('beforeend', data.message);
-
-    console.log('Does this work?');
 
     scrollDown(true);
   } else {
@@ -27,12 +23,24 @@ const messageReceived = (userId, data) => {
 
 const subscribeUser = () => {
 
+  const inputField = document.querySelector('#message_content');
+  const submitButton = document.querySelector('#message-new-button');
+  const fileButton = document.querySelector('.image-upload');
+  const fileInput = document.getElementById('message_photo');
+
   consumer.subscriptions.create({
     channel: 'UserChannel',
     user_id: window.userId
   }, {
     received(data) { messageReceived(window.userId, data) }
   });
+
+  submitButton.addEventListener('click', (event) => {
+    console.log('Does this work?');
+    inputField.innerText = '';
+    fileButton.classList.remove('selected');
+    fileInput.Filelist = [];
+  })
 }
 
 export { subscribeUser };
