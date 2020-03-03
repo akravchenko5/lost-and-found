@@ -37,23 +37,29 @@ const foundNew = () => {
   const backgroundGreen = document.querySelector('.new-found-background-green');
   const backgroundWhite = document.querySelector('.new-found-background-white');
   const backgroundDark = document.querySelector('.new-lost-background-dark');
+  const reward = document.getElementById('item_reward');
 
   if (page) {
     window.addEventListener('load', (event) => {
       if (backgroundGreen) {
         backgroundGreen.classList.add('show-new-item');
-        console.log('test 1');
       }
       if (backgroundWhite) {
         backgroundWhite.classList.add('show-new-item');
-        console.log('test 2');
       }
       if (backgroundDark) {
         backgroundDark.classList.add('show-new-item');
-        console.log('test 2');
       }
     });
-  }
+  // reward.addEventListener('focus', (event) => {
+  //   this.blur;
+  // });
+    reward.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+      };
+    });
+  };
 };
 
 const displaySettings = () => {
@@ -75,7 +81,6 @@ const displaySettings = () => {
       body.classList.remove('noscroll');
     });
   }
-
 };
 
 export { createItem, foundNew, displaySettings }
