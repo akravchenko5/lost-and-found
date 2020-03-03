@@ -41,7 +41,9 @@
         <%= link_to 'Send message', new_item_conversation_path(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
       <% end %>
       <div class="button-space"></div>
+      <% if current_user == @item.user %>
       <%= link_to 'Mark as solved', '#', class: 'button-green' %>
+      <% end  %>
     </div>
     <% else %>
     <p><i>Please sign in to send a message</i></p>
