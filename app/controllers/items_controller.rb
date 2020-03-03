@@ -51,25 +51,17 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
       order_items
-      # ip = "193.214.55.86" #for development
-      # @coords = Geocoder.search(ip).first.coordinates.join(',')
     end
   end
 
   def lost
     @items = Item.lost
     order_items
-    # # ip = Ip::Lookup.server_whatismyipaddress
-    # ip = "193.214.55.86" #for development
-    # @location = Geocoder.search(ip).first.coordinates
   end
 
   def found
     @items = Item.found
     order_items
-    # # ip = Ip::Lookup.server_whatismyipaddress
-    # ip = "193.214.55.86" #for development
-    # @location = Geocoder.search(ip).first.coordinates
     render :index
   end
 
