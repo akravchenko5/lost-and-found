@@ -10,6 +10,10 @@ class Item < ApplicationRecord
     'Furnitures',
     'Sports',
     'Transportation',
+    'Credit Card',
+    'Phone',
+    'Keys',
+    'Wallet',
     'Other'
   ]
 
