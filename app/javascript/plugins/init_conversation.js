@@ -5,6 +5,7 @@ const messageReceived = (userId, data) => {
   const inputField = document.querySelector('#message_content');
   const messages = document.querySelector('.message-window');
   const fileInput = document.getElementById('message_photo');
+  const fileButton = document.querySelector('.image-upload');
 
 
   // Inside a conversation page
@@ -12,6 +13,8 @@ const messageReceived = (userId, data) => {
     messages.insertAdjacentHTML('beforeend', data.message);
 
     inputField.value = '';
+    fileInput.value = '';
+    fileButton.classList.remove('selected');
 
     scrollDown(true);
   } else {
@@ -28,26 +31,12 @@ const messageReceived = (userId, data) => {
 
 const subscribeUser = () => {
 
-/*  const inputField = document.querySelector('#message_content');
-  const submitButton = document.querySelector('#message-new-button');
-  const fileButton = document.querySelector('.image-upload');
-  const fileInput = document.getElementById('message_photo');*/
-
   consumer.subscriptions.create({
     channel: 'UserChannel',
     user_id: window.userId
   }, {
     received(data) { messageReceived(window.userId, data) }
   });
-
-/*  if (submitButton) {
-    submitButton.addEventListener('click', (event) => {
-    console.log('Does this work?');
-    inputField.value = '';
-    fileButton.classList.remove('selected');
-    fileInput.Filelist = [];
-    })
-  }*/
 }
 
 export { subscribeUser };
