@@ -38,7 +38,8 @@ if (titleField) {
         }
       });
     });
-    window.addEventListener('click', () => {
+    window.addEventListener('click', (event) => {
+      if (event.target.closest('.search-dropdown-results')) return;
       list.innerHTML = "";
     })
 
