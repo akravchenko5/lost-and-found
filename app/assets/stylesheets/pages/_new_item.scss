@@ -4,7 +4,13 @@
   height: 100vh;
   color: white;
   display: fixed;
+
+
 }
+
+  svg {
+    margin-top: -12px;
+  }
 
 .menu-button-back {
   width: 60px;
@@ -113,7 +119,7 @@
     }
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 1);
     }
   }
 
@@ -122,7 +128,7 @@
   }
 
   #item_category {
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 1);
   }
 
 }
@@ -154,8 +160,10 @@
     }
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 1);
     }
+
+
   }
 
   #item_reward {
@@ -163,7 +171,7 @@
   }
 
   #item_category {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
   }
 
 }
