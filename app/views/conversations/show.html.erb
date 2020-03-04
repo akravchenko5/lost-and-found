@@ -13,6 +13,9 @@
 
     <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
     <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off', autofocus: true } %>
+      <div class="loader d-none">
+        <%= render 'shared/loader' %>
+      </div>
     <%= f.button :submit, "", id: "message-new-button" %>
   <% end %>
 </div>
