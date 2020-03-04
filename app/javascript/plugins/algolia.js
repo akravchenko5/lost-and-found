@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch';
 
-const client = algoliasearch('1LWVV3TZRZ', '344b5af8f379dac1979f13b494b4578a');
+const client = algoliasearch('8480CZDJ3N', 'e06419b0b85e2abf607b32847101b6b6');
 const index = client.initIndex('Item');
 
 
