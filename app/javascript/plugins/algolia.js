@@ -46,34 +46,4 @@ if (titleField) {
   }
 }
 
-
-
-// const searchAutocomplete = () => {
-//   const titleField = document.getElementById('q');
-//   const lostOrFound = document.querySelector('.new-item-form-lost') ? 'found' : 'lost';
-//   const list = document.getElementById('search-results');
-
-
-//   titleField.addEventListener('keyup', () => {
-//     index.search([titleField.value, lostOrFound], {
-//       attributesToRetrieve: ['title', 'category', 'description', 'address', 'objectID'],
-//       hitsPerPage: 5,
-//     }).then(({ hits }) => {
-//       console.log(hits);
-//       list.innerHTML = "";
-//       if (hits.length != 0 ) {
-
-//       hits.forEach((hit) => {
-//         list.insertAdjacentHTML('beforeend', `<li><a href="/items/${hit.objectID}">${hit.title}</a></li>`);
-//       });
-//       }
-//     });
-//   });
-
-
-//   window.addEventListener('click', () => {
-//     list.innerHTML = "";
-//   })
-// }
-
 export { searchAutocomplete };
