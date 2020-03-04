@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show, :map, :lost, :found]
 
   before_action :cached_location
-  before_action :set_location, only: [:index, :found, :lost]
+  before_action :set_location, only: [:index, :found, :lost, :home]
 
   def cached_location
     ips = Geocoder.search(request.ip)
