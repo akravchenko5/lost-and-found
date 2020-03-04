@@ -26,6 +26,15 @@ div.mapboxgl-popup-content {
   backdrop-filter: blur(2px);
   overflow: hidden;
 
+  h6:nth-child(1){
+    height: 38px;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .map-popup-white {
     position: absolute;
     display: flex;
@@ -54,11 +63,9 @@ div.mapboxgl-popup-content {
         display: -webkit-box;
         max-width: 100%;
         margin-bottom: 0px auto;
-        // line-height: 1.2;
-        // -webkit-line-clamp: 2;
-        // -webkit-box-orient: vertical;
-        // overflow: hidden;
-        // text-overflow: ellipsis;
+        .reward {
+          min-height: 10px;
+        }
       }
 
       .reward {
@@ -88,19 +95,15 @@ div.mapboxgl-popup-content {
     }
 
 
-      a {
-        color: $lost-dark;
-        transition: 0.3s ease;
-        line-height: 1.2;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    a {
+      color: $lost-dark;
+      transition: 0.3s ease;
+      line-height: 1.2;
+    }
 
-      a:hover {
-        color: $lost-green;
-      }
+    a:hover {
+      color: $lost-green;
+    }
 
   }
 
@@ -109,6 +112,8 @@ div.mapboxgl-popup-content {
     justify-content: between;
     align-items: center;
     height: 100%;
+
+
 
     .map-title {
       padding-top: 10px;
@@ -157,6 +162,8 @@ div.mapboxgl-popup-content {
 
   }
 }
+
+#map > div.mapboxgl-popup.mapboxgl-popup-anchor-bottom > div.mapboxgl-popup-content > div > div >
 
 // #map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right {
 //     padding-bottom: 100px;
