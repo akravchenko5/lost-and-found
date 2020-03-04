@@ -4,6 +4,7 @@ const createItem = () => {
   const buttonBack = document.querySelector('.menu-button-back');
   const backgroundDark = document.querySelector('.menu-background-dark');
   const backgroundGreen = document.querySelector('.menu-background-green');
+  const title = document.querySelector('.menu-title-hidden');
 
   if (button) {
     button.addEventListener('click', (event) => {
@@ -13,6 +14,9 @@ const createItem = () => {
     }
     if (backgroundGreen) {
       backgroundGreen.classList.add('show-menu');
+    }
+    if (title) {
+      title.classList.add('menu-title');
     }
   });
   }
@@ -26,6 +30,9 @@ const createItem = () => {
 
     if (backgroundGreen) {
       backgroundGreen.classList.remove('show-menu');
+    }
+    if (title) {
+      title.classList.remove('menu-title');
     }
   });
   }
