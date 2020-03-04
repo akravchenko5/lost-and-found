@@ -6,6 +6,9 @@ const messageReceived = (userId, data) => {
   const messages = document.querySelector('.message-window');
   const fileInput = document.getElementById('message_photo');
   const fileButton = document.querySelector('.image-upload');
+  const loader = document.querySelector('.loader');
+  const hiddenForm = document.querySelector('.form-group.string.required.message_content')
+
 
 
   // Inside a conversation page
@@ -13,8 +16,12 @@ const messageReceived = (userId, data) => {
     messages.insertAdjacentHTML('beforeend', data.message);
 
     inputField.value = '';
-    fileInput.value
+    fileInput.value = '';
     fileButton.classList.remove('selected');
+    hiddenForm.classList.remove('d-none');
+    fileInput.classList.add('d-none');
+    loader.classList.add('d-none');
+    inputField.classList.remove('d-none');
 
     scrollDown(true);
   } else {
@@ -30,6 +37,10 @@ const messageReceived = (userId, data) => {
 }
 
 const subscribeUser = () => {
+  const inputField = document.querySelector('#message_content');
+  const submitButton = document.querySelector('#message-new-button');
+  const loader = document.querySelector('.loader');
+  const hiddenForm = document.querySelector('.form-group.string.required.message_content')
 
   consumer.subscriptions.create({
     channel: 'UserChannel',
@@ -37,6 +48,23 @@ const subscribeUser = () => {
   }, {
     received(data) { messageReceived(window.userId, data) }
   });
+
+  if (submitButton) {
+    submitButton.addEventListener('click', (event) => {
+
+      if (loader) {
+        loader.classList.remove('d-none');
+      }
+      if (inputField) {
+        inputField.classList.add('d-none');
+      }
+
+      if (hiddenForm) {
+        hiddenForm.classList.add('d-none');
+      }
+
+    });
+  }
 }
 
 export { subscribeUser };
