@@ -19,6 +19,7 @@ import { fetchCurrentPosition } from '../components/init_current_location';
 import { subscribeConversations } from '../plugins/init_conversation';
 import { searchAutocomplete } from '../plugins/algolia';
 import { subscribeUser } from '../plugins/init_conversation';
+import { searchFormToggle } from '../components/search_form_toggle';
 
 
 initMapbox();
@@ -34,6 +35,7 @@ addressAutocompleteFoundLost();
 initSlider();
 subscribeUser();
 uploadButton();
+searchFormToggle();
 
 fetchCurrentPosition();
 searchAutocomplete();
