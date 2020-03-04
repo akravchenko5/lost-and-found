@@ -51,9 +51,9 @@
 }
 
 .message-form {
-  height: 70px;
-  position: absolute;
-  bottom: 80px;
+  height: 150px;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   padding: 0px 5%;
   padding-top: 10px;
@@ -64,8 +64,8 @@
 
 .message-window {
   height: auto;
-  position: absolute;
-  bottom: 130px;
+  position: fixed;
+  bottom: 150px;
   top: 0;
   padding: 60px 5%;
   padding-bottom: 0;
