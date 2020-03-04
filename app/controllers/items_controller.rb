@@ -101,7 +101,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      flash[:notice] = "You've updated your item! "
+      flash[:notice] = "You've updated your item!"
       redirect_to @item
     else
       render :edit
@@ -112,6 +112,17 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to root_path
   end
+
+  def solved
+    @item = Item.find(params[:id])
+    @item.state = 2
+    if @item.save!
+      flash[:notice] = "Item has been marked as solved!"
+      redirect_to @item
+    else render :show
+    end
+  end
+
 
   private
 

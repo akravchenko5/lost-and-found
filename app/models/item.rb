@@ -5,10 +5,15 @@ class Item < ApplicationRecord
     'Animal/Pet',
     'Art',
     'Electronics',
+    'Accessories',
     'Clothes',
-    'Funitures',
+    'Furnitures',
     'Sports',
     'Transportation',
+    'Credit Card',
+    'Phone',
+    'Keys',
+    'Wallet',
     'Other'
   ]
 
