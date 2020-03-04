@@ -71,8 +71,8 @@
 
   #dropdown-image {
     margin-right: 10px;
-    height: 20px;
-    width: 20px;
+    min-height: 20px;
+    min-width: 20px;
     background-image: asset-url('logo_white.svg')
   }
 }
@@ -104,8 +104,8 @@
 
   #dropdown-image {
     margin-right: 10px;
-    height: 20px;
-    width: 20px;
+    min-height: 20px;
+    min-width: 20px;
     background-image: asset-url('logo_green.svg')
   }
 }
