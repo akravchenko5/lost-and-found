@@ -11,7 +11,6 @@ const messageReceived = (userId, data) => {
   if (messages && data.conversation === parseInt(messages.dataset.id)) {
     messages.insertAdjacentHTML('beforeend', data.message);
 
-    console.log(fileInput.files[0]);
     inputField.value = '';
 
     scrollDown(true);

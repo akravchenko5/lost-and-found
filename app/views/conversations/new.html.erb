@@ -4,11 +4,16 @@
 
     </div>
 
+
     <div class="message-form">
       <%= simple_form_for :message, url: item_conversations_path(@item) do |f| %>
-        <%= f.input :photo, as: :file %>
+
+        <label for="message_photo" class="image-upload"></label>
+        <%= f.input :photo, as: :file, label: false, input_html: { class: 'd-none' } %>
+        <%#= f.input :photo, as: :file %>
         <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off' } %>
+        <%= f.button :submit, "", id: "message-new-button" %>
       <% end %>
     </div>
 

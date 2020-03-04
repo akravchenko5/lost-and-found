@@ -119,7 +119,26 @@ label[for=message_photo] {
     &:hover {
       color: $lost-dark;
     }
+  }
 
+  .conversation-delete {
+    display: none;
+  }
+
+  .messages-list-time {
+    display: inline-block;
+  }
+
+  &:hover .conversation-delete {
+    display: inline-block;
+
+    i {
+      color: $lost-green;
+    }
+  }
+
+  &:hover .messages-list-time {
+    display: none;
   }
 }
 
@@ -182,6 +201,11 @@ label[for=message_photo] {
 }
 
 .simple_form.new_message {
+  width: 100%;
+  display: flex;
+}
+
+.simple_form.message {
   width: 100%;
   display: flex;
 }

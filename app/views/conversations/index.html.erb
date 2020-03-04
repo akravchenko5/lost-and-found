@@ -15,7 +15,8 @@
             </div>
             <%= link_to conversation_path(conversation),
               method: :delete,
-              data: { confirm: "Are you sure?" } do %>
+              data: { confirm: "Are you sure?" },
+              class: 'conversation-delete' do %>
               <i class="far fa-trash-alt"></i>
               <% end %>
           </div>
