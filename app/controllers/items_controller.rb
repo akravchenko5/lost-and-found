@@ -84,6 +84,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    raise
     @item = Item.create(item_params)
     @item.user = current_user
     if @item.save
