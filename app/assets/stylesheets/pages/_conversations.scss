@@ -2,6 +2,9 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+
 
   .message {
     background-color: $lost-dark;
@@ -10,11 +13,18 @@
     max-width: 60%;
     display: inline-block;
     color: white;
+    margin-bottom: 20px;
+  }
+
+  .chat-image {
+    //width: 60%;
+    height: 100px;
     margin-bottom: 10px;
   }
 
   &.self-message {
     justify-content: flex-end;
+    align-items: flex-end;
 
     .message {
       background-color: $lost-green;
@@ -45,10 +55,7 @@
   bottom: 0;
   width: 100%;
   padding: 10px 5%;
-
-  label {
-    display: none;
-  }
+  display: flex;
 }
 
 .message-window {
@@ -61,13 +68,14 @@
   overflow: scroll;
 }
 
-#new_message label {
-  display: none;
+label[for=message_content] {
+  display:none;
 }
 
-#message_content label {
-  display: none;
+label[for=message_photo] {
 }
+
+
 
 .menu-message-user {
   color: $lost-green;
@@ -79,11 +87,12 @@
   }
 }
 
-#new_message_content {
+#message_content {
   border: 1px solid $lost-green;
   border-radius: 30px;
   height: 50px;
   padding-left: 20px;
+  flex-grow: 1;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.2);
@@ -134,3 +143,67 @@
   color: $lost-green;
   font-size: 0.8rem;
 }
+
+
+.image-upload {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $lost-green;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+
+}
+.image-upload > input
+{
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image-upload {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-size: 24px 24px;
+  background-image: asset-url('camera_green.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.selected {
+    background-color: $lost-green;
+    background-image: asset-url('success_white.svg');
+  }
+}
+
+.simple_form.new_message {
+  width: 100%;
+  display: flex;
+}
+
+.form-group.string.required.message_content {
+  flex-grow: 1;
+}
+
+#message-new-button {
+  border: 1px solid $lost-green;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: asset-url('simple_arrow_up_green.svg');
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: center;
+  margin-left: 10px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
