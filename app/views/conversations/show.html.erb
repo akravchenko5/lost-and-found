@@ -3,16 +3,16 @@
     <div class="message-window d-none" data-id="<%= @conversation.id %>">
       <%= render @conversation.messages %>
     </div>
-
-    <div class="message-form">
-      <%= simple_form_for [@conversation, Message.new], remote: true do |f| %>
-        <label for="message_photo" class="image-upload"></label>
-        <%= f.input :photo, as: :file, label: false, input_html: { class: 'd-none' } %>
-
-        <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
-        <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off', autofocus: true } %>
-        <%= f.button :submit, "", id: "message-new-button" %>
-      <% end %>
-    </div>
   </div>
+</div>
+
+<div class="message-form">
+  <%= simple_form_for [@conversation, Message.new], remote: true do |f| %>
+    <label for="message_photo" class="image-upload"></label>
+    <%= f.input :photo, as: :file, label: false, input_html: { class: 'd-none' } %>
+
+    <%= f.input :current_user, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.input :content, input_html: { placeholder: 'Write message...', autocomplete: 'off', autofocus: true } %>
+    <%= f.button :submit, "", id: "message-new-button" %>
+  <% end %>
 </div>
