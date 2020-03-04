@@ -36,7 +36,6 @@
 
 .message-container {
   padding-top: 60px;
-  padding-bottom: 70px;
   width: 100%;
   position: fixed;
   height: 100vh;
@@ -53,7 +52,9 @@
 }
 
 .message-form {
-  height: 15%;
+  height: 70px;
+  position: absolute;
+  bottom: 80px;
   width: 100%;
   padding: 0px 5%;
   padding-top: 10px;
@@ -63,7 +64,10 @@
 }
 
 .message-window {
-  height: 85%;
+  height: auto;
+  position: absolute;
+  bottom: 130px;
+  top: 0;
   padding: 0px 5%;
   padding-bottom: 0;
   width: 100%;
