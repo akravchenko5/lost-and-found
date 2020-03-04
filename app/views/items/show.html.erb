@@ -44,7 +44,7 @@
       <% if current_user == @item.user && (@item.lost? || @item.found?) %>
       <%= link_to 'Mark as solved', solved_item_path(@item), method: :patch, class: 'button-green' %>
       <% else %>
-      <%= link_to 'Write Review', new_user_review_path(@item.user), class: 'button-green' %>
+      <%= link_to 'Write Review', user_path(@item.user), class: 'button-green' %>
       <% end  %>
     </div>
     <% else %>

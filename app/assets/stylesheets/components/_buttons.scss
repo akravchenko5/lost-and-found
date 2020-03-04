@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  border: none;
 
    &:hover {
     text-decoration: none;
@@ -36,6 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 
   &:hover {
     color: $lost-dark;
@@ -53,6 +55,7 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  border: none;
 
   &:hover {
     text-decoration: none;
