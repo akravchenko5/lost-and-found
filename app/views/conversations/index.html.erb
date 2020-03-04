@@ -13,12 +13,6 @@
             <div class="messages-list-time">
               <%= distance_of_time_in_words(conversation.messages.last.created_at, Time.now, options = {}) %> ago
             </div>
-            <%= link_to conversation_path(conversation),
-              method: :delete,
-              data: { confirm: "Are you sure?" },
-              class: 'conversation-delete' do %>
-              <i class="far fa-trash-alt"></i>
-              <% end %>
           </div>
         </div>
       <% end %>

@@ -126,25 +126,7 @@ label[for=message_photo] {
     }
   }
 
-  .conversation-delete {
-    display: none;
-  }
 
-  .messages-list-time {
-    display: inline-block;
-  }
-
-  &:hover .conversation-delete {
-    display: inline-block;
-
-    i {
-      color: $lost-green;
-    }
-  }
-
-  &:hover .messages-list-time {
-    display: none;
-  }
 }
 
 .messages-list-details {
@@ -156,7 +138,7 @@ label[for=message_photo] {
 }
 
 .messages-list-messages {
-  width: 60%;
+  width: 50%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

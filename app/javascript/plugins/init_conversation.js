@@ -13,7 +13,7 @@ const messageReceived = (userId, data) => {
     messages.insertAdjacentHTML('beforeend', data.message);
 
     inputField.value = '';
-    fileInput.value = '';
+    fileInput.value
     fileButton.classList.remove('selected');
 
     scrollDown(true);

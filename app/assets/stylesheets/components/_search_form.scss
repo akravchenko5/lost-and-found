@@ -16,7 +16,7 @@
     margin-bottom: 5px;
   }
 
-  #query_title, #query_category, #query_state, #query_start_date, #query_stop_date {
+  #query_title, #query_address, #query_category, #query_state, #query_start_date, #query_stop_date {
     border: none;
     border-bottom: 1px solid $lost-green;
     padding: 5px 0px;
@@ -30,17 +30,14 @@
     }
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 1);
     }
   }
 
   #query_category, #query_state, #query_start_date, #query_stop_date {
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 1);
   }
 
-  #query_address {
-    border-radius: 25px;
-  }
 }
 
 .test-container {
