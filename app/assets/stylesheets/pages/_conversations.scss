@@ -35,10 +35,12 @@
 }
 
 .message-container {
-  margin-top: 0px;
+  padding-top: 60px;
+  padding-bottom: 70px;
   width: 100%;
   position: fixed;
   height: 100vh;
+  overflow: hidden;
 
   h2 {
     margin-bottom: 30px;
@@ -51,20 +53,19 @@
 }
 
 .message-form {
-  height: 25vh;
-  position: fixed;
-  bottom: 0;
+  height: 15%;
   width: 100%;
-  padding: 10px 5%;
+  padding: 0px 5%;
+  padding-top: 10px;
   display: flex;
+  align-items: flex-start;
+  background-color: white;
 }
 
 .message-window {
-  height: 75vh;
-  position: absolute;
-  padding: 80px 5%;
+  height: 85%;
+  padding: 0px 5%;
   padding-bottom: 0;
-  top: 0;
   width: 100%;
   overflow: scroll;
 }
