@@ -19,13 +19,13 @@ class ConversationsController < ApplicationController
     @message.user = current_user
     @message.save
 
+    broadcast_message
+
     redirect_to @conversation
   end
 
   def show
-    @conversation = Conversation.find(params[:id])
-    @message = Message.new
-    @item_id = @conversation.item_id
+    @conversation = Conversation.includes(messages: [:user, :photo_attachment]).where(id: params[:id]).first
   end
 
 
@@ -34,6 +34,15 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+  def broadcast_message
+    ActionCable.server.broadcast(
+      "user_#{@conversation.item.user_id}",
+      user: current_user.id,
+      conversation: @conversation.id,
+      notification: render_to_string(partial: 'shared/new_message', locals: { message: @message })
+    )
+  end
 
   def find_item
     @item = Item.find(params[:item_id])

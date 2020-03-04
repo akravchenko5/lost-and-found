@@ -29,7 +29,7 @@
 
     <% if signed_in? %>
       <script>
-        window.conversationIds = <%=j current_user.conversations.map(&:id) %>;
+        window.userId = <%=j current_user.id %>;
       </script>
     <% end %>
   </head>
