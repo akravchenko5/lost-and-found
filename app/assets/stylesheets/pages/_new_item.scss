@@ -27,7 +27,8 @@
 .menu-title {
   position:fixed;
   top: 0;
-  bottom: 70%;
+  bottom: 75%;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -60,7 +61,7 @@
   height: auto;
   background-color: white;
   position: fixed;
-  top: 30%;
+  top: 25%;
   bottom: 0;
   overflow: scroll;
   z-index: 252;
