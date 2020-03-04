@@ -12,7 +12,7 @@ import { toggleSettings } from '../components/init_toggle_settings';
 import { toggleForm } from '../components/init_sign_in';
 import { review } from '../components/init_reviews';
 import { count } from '../plugins/init_counter';
-import { chatLoadListener, uploadButton } from '../components/init_messages';
+import { chatLoadListener, uploadButton, scrollDown } from '../components/init_messages';
 import { initAutocomplete, addressAutocompleteFoundLost } from '../plugins/init_autocomplete';
 import { initSlider } from '../plugins/init_slider';
 import { fetchCurrentPosition } from '../components/init_current_location';
@@ -37,7 +37,7 @@ uploadButton();
 
 fetchCurrentPosition();
 searchAutocomplete();
-scrolledDown();
+// scrollDown();
 chatLoadListener();
 
 

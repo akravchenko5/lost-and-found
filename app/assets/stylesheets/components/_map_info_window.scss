@@ -71,6 +71,10 @@ div.mapboxgl-popup-content {
         color: rgba(0, 0, 0, 0.3);
       }
 
+      .time-in-words {
+        color: rgba(0, 0, 0, 0.3);
+      }
+
     }
 
     img {
@@ -149,6 +153,9 @@ div.mapboxgl-popup-content {
   }
 }
 
+// #map > div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right {
+//     padding-bottom: 100px;
+// }
 
 .mapboxgl-popup-close-button {
   display: none;

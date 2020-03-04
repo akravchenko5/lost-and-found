@@ -11,14 +11,12 @@
 </div>
 
 <div class="new-lost-background-dark">
-
   <div class="new-item-form-lost">
-
     <%= simple_form_for @item, :url => url_for(:action => 'create', :controller => 'items'), :method => 'post' do |f| %>
       <%= f.input :state, as: :hidden, input_html: { value: params[:state] } %>
       <%= f.input :title, :input_html => { placeholder: 'What have you lost?' } %>
       <div class="search-dropdown">
-        <div class="search-dropdown-results">
+        <div class="search-dropdown-results found-dropdown">
         </div>
       </div>
       <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...' } %>

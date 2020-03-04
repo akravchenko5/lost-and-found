@@ -13,7 +13,8 @@
     <div class="map-title">
       <h6><%= link_to item.title, item, class: "text-decoration-none" %></h6>
       <p><%= item.category %></p>
-      <h6 class="reward">Reward: <%= item.reward %> kr </h6>
+      <!-- <h6 class="reward">Reward: <%= item.reward %> kr </h6> -->
+      <h6 class="time-in-words"> <%= distance_of_time_in_words(item.created_at, Time.now) %> </h6>
     </div >
   </div>
 <% end %>

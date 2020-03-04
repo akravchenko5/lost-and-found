@@ -9,7 +9,6 @@ const searchAutocomplete = () => {
   const titleField = document.getElementById('item_title');
   const lostOrFound = document.querySelector('.new-item-form-lost') ? 'found' : 'lost';
   const list = document.querySelector('.search-dropdown-results');
-  console.log(list);
 
 if (titleField) {
     titleField.addEventListener('keyup', () => {
@@ -22,9 +21,8 @@ if (titleField) {
           let listItems = ""
           hits.forEach((hit) => {
               listItems += `<li>
-              <div>
+              <div id='dropdown-image'></div>
               <a class="title" href="/items/${hit.objectID}">${hit.title}</a>
-              </div>
               <p>${dateHelper(new Date, hit.created_at)}</p>
               </li>
           `});
@@ -50,11 +48,11 @@ if (titleField) {
     var distance_in_minutes = Math.floor(distance_in_seconds / 60);
     var tense = distance_in_seconds < 0 ? " from now" : " ago";
     distance_in_minutes = Math.abs(distance_in_minutes);
-    if (distance_in_minutes == 0) { return 'less than a minute'+tense; }
-    if (distance_in_minutes == 1) { return '1 minute'+tense; }
-    if (distance_in_minutes < 45) { return distance_in_minutes + ' minutes'+tense; }
-    if (distance_in_minutes < 90) { return '1 hour'+tense; }
-    if (distance_in_minutes < 1440) { return Math.floor(distance_in_minutes / 60) + ' hours'+tense; }
+    if (distance_in_minutes == 0) { return 'less than a min'+tense; }
+    if (distance_in_minutes == 1) { return '1/min'+tense; }
+    if (distance_in_minutes < 45) { return distance_in_minutes + '/mins'+tense; }
+    if (distance_in_minutes < 90) { return '1 hr'+tense; }
+    if (distance_in_minutes < 1440) { return Math.floor(distance_in_minutes / 60) + '/hrs'+tense; }
     if (distance_in_minutes < 2880) { return '1 day'+tense; }
     if (distance_in_minutes < 43200) { return Math.floor(distance_in_minutes / 1440) + ' days'+tense; }
     if (distance_in_minutes < 86400) { return '1 month'+tense; }

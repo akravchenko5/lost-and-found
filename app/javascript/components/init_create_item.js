@@ -54,12 +54,14 @@ const foundNew = () => {
   // reward.addEventListener('focus', (event) => {
   //   this.blur;
   // });
-    reward.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      event.preventDefault();
-      };
-    });
-  };
+  if (reward) {
+      reward.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        };
+      });
+    };
+  }
 };
 
 const displaySettings = () => {
