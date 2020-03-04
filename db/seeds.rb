@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+d# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -15,7 +15,7 @@ Item.destroy_all
 User.destroy_all
 
 ADDRESS = [
-  'Schweigaardsgate 34C, Oslo',
+  ,
   'Karl Johans gate 34, Oslo',
   'Paulus Plass 1C, Oslo',
   'Sofies Plass 3b, Oslo',
@@ -36,14 +36,19 @@ ADDRESS = [
 ]
 
 CATEGORIES = [
-  'Animal/Pet',
-  'Art',
-  'Electronics',
-  'Clothes',
-  'Funitures',
-  'Sports',
-  'Transportation',
-  'Other'
+    'Animal/Pet',
+    'Art',
+    'Electronics',
+    'Accessories',
+    'Clothes',
+    'Furnitures',
+    'Sports',
+    'Transportation',
+    'Credit Card',
+    'Phone',
+    'Keys',
+    'Wallet',
+    'Other'
 ]
 
 
@@ -88,27 +93,38 @@ users_attributes = [
 User.create!(users_attributes)
 
 
-puts 'Creating items...'
+puts 'Creating found items...'
+
+items_attributes = [
+  {
+    title: 'Tittel inn her',
+    description: 'Description inn her',
+    state: 1,
+    reward: 0,
+    user: User.all.sample,
+    category: 'Category inn her',
+    address: 'Schweigaardsgate 34C, Oslo'
+  },
+]
+
+Item.create!(items_attributes)
 
 
-  sum = 0
+puts 'Creating lost items...'
 
-  17.times do
+items_attributes = [
+  {
+    title: 'Tittel inn her',
+    description: 'Description inn her',
+    state: 0,
+    reward: 0,
+    user: User.all.sample,
+    category: 'Category inn her',
+    address: 'Schweigaardsgate 34C, Oslo'
+  },
+]
 
-    item = Item.new(
-      title: Faker::Commerce.product_name,
-      description: Faker::Hipster.paragraphs(number: 1).join(" "),
-      state: rand(0..1),
-      reward: rand(50..400),
-      user: User.all.sample,
-      category: CATEGORIES.sample,
-      address: ADDRESS[sum]
-    )
-
-    sum += 1
-
-    item.save!
-  end
+Item.create!(items_attributes)
 
 
 
