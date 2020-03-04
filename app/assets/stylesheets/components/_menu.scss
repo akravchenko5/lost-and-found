@@ -156,16 +156,8 @@
   justify-content: center;
 }
 
-.menu-title {
-  height: 30vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-    h2 {
-    color: white;
-  }
+.menu-title-hidden {
+  display: none;
 }
 
 .menu-background-green {
@@ -175,7 +167,8 @@
   flex-direction: column;
   padding: 0px 25%;
   width: 100%;
-  height: 70vh;
+  height: auto;
+  top: 25%;
   background-color: $lost-green;
   position: fixed;
   bottom: 0;
