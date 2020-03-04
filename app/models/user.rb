@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :capitalize_names
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,6 +12,11 @@ class User < ApplicationRecord
   # has_many :keeper_relationships, foreign_key: :seeker_id, class_name: 'Conversation'
   # has_many :seeker_relationships, foreign_key: :keeper_id, class_name: 'Conversation'
   has_many :messages, dependent: :destroy
+
+  def capitalize_names
+    self.first_name = first_name.capitalize if self.first_name
+    self.last_name = last_name.capitalize if self.last_name
+  end
 
   def conversations
     Conversation.where(seeker: self).or(Conversation.where(keeper: self))
