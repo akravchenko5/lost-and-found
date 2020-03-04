@@ -2,11 +2,17 @@ import consumer from "../channels/consumer";
 import { scrollDown } from '../components/init_messages';
 
 const messageReceived = (userId, data) => {
+  const inputField = document.querySelector('#message_content');
   const messages = document.querySelector('.message-window');
+  const fileInput = document.getElementById('message_photo');
+
 
   // Inside a conversation page
   if (messages && data.conversation === parseInt(messages.dataset.id)) {
     messages.insertAdjacentHTML('beforeend', data.message);
+
+    console.log(fileInput.files[0]);
+    inputField.value = '';
 
     scrollDown(true);
   } else {
@@ -23,10 +29,10 @@ const messageReceived = (userId, data) => {
 
 const subscribeUser = () => {
 
-  const inputField = document.querySelector('#message_content');
+/*  const inputField = document.querySelector('#message_content');
   const submitButton = document.querySelector('#message-new-button');
   const fileButton = document.querySelector('.image-upload');
-  const fileInput = document.getElementById('message_photo');
+  const fileInput = document.getElementById('message_photo');*/
 
   consumer.subscriptions.create({
     channel: 'UserChannel',
@@ -35,12 +41,14 @@ const subscribeUser = () => {
     received(data) { messageReceived(window.userId, data) }
   });
 
-  submitButton.addEventListener('click', (event) => {
+/*  if (submitButton) {
+    submitButton.addEventListener('click', (event) => {
     console.log('Does this work?');
-    inputField.innerText = '';
+    inputField.value = '';
     fileButton.classList.remove('selected');
     fileInput.Filelist = [];
-  })
+    })
+  }*/
 }
 
 export { subscribeUser };
