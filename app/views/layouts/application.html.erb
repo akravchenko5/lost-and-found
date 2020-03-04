@@ -33,6 +33,10 @@
         window.userId = <%=j current_user.id %>;
       </script>
     <% end %>
+
+    <script>
+      window.algoliaCredentials = <%= { appId: ENV['ALGOLIA_APP_ID'], searchKey: ENV['ALGOLIA_SEARCH_KEY'] }.to_json.html_safe %>;
+    </script>
   </head>
   <body>
 
