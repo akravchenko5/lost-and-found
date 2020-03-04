@@ -39,6 +39,9 @@
   }
 }
 
+.sorry-message {
+  margin-bottom: 30px;
+}
  #show-back-button {
   background-color: transparent;
   padding: 15px 20px;
@@ -138,6 +141,7 @@
     text-decoration: none;
       &:hover {
         text-decoration: none;
+        color: $lost-green;
       }
     }
 

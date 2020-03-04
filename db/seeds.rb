@@ -1,15 +1,8 @@
-d# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'open-uri'
 require 'faker'
 
 puts 'Cleaning database...'
+Review.destroy_all
 Conversation.destroy_all
 Item.destroy_all
 User.destroy_all
@@ -374,7 +367,7 @@ items_attributes = [
     state: 1,
     user: User.all.sample,
     category: 'Other',
-    address: 'Skur 39, Akershusstranda 21, 0150 Oslo'
+    address: 'Akershusstranda 21, 0150 Oslo'
   },
   {
     title: 'MacBook charger',
@@ -446,11 +439,11 @@ items_attributes = [
   },
     {
     title: 'Big Bass Earbuds',
-    description: 'Red and black earbuds. Lost on my way to school.'
+    description: 'Red and black earbuds. Lost on my way to school.',
     state: 0,
     reward: 20,
     user: User.all.sample,
-    category: 'Category inn her',
+    category: 'Electronics',
     address: 'Sofies Plass 3b, Oslo'
   },
     {
