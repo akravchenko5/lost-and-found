@@ -21,7 +21,12 @@ class Item < ApplicationRecord
   has_many :conversations, dependent: :destroy
   validates :category, inclusion: { in: CATEGORIES }
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  before_validation :geocode, if: :will_save_change_to_address?
+  validate :address_is_geocoded
+  def address_is_geocoded
+    return if longitude && latitude
+    errors.add(:address, 'could not map this location correctly!')
+  end
 
   include AlgoliaSearch
 
