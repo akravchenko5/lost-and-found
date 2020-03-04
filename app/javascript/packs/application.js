@@ -6,11 +6,6 @@ require("jquery")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
-import algoliasearch from 'algoliasearch/lite';
-import instantsearch from 'instantsearch.js/es'
-import { searchBox, hits } from 'instantsearch.js/es/widgets';
-import { connectAutocomplete } from 'instantsearch.js/es/connectors';
-
 import { initMapbox } from '../plugins/init_mapbox';
 import { createItem, foundNew, displaySettings } from '../components/init_create_item';
 import { toggleSettings } from '../components/init_toggle_settings';

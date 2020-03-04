@@ -21,17 +21,13 @@ class Item < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch  do
-    attribute :title, :address, :category, :state
+    attribute :title, :address, :category, :state, :created_at
 
     attributesForFaceting [:state]
 
 
 
     geoloc :latitude, :longitude
-
-    attribute :created_at_i  do
-      created_at.to_i
-    end
 
       # ip = "193.214.55.86"
 
