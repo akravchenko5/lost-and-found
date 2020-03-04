@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   validate :address_is_geocoded
   def address_is_geocoded
     return if longitude && latitude
-    errors.add(:address, 'could not map this location correctly!')
+    errors.add(:address, 'could not map this address correctly!')
   end
 
   include AlgoliaSearch
