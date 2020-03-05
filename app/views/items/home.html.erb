@@ -4,7 +4,9 @@
 
     <div class="home-loaction-info">
       <%= image_tag 'map_green.svg', class: 'home-map-marker' %>
-      <h3><%= Geocoder.search(@location).first.city %>, <%= Geocoder.search(@location).first.country %></h3>
+      <% if @location %>
+        <h3><%= Geocoder.search(@location).first.city %>, <%= Geocoder.search(@location).first.country %></h3>
+      <% end %>
     </div>
     <h1><span class="counter green">3657</span> lost</h1>
     <h1><span class="counter green">2356</span> found</h1>

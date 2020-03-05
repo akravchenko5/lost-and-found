@@ -16,7 +16,9 @@ class ItemsController < ApplicationController
   end
 
   def set_location
-    @location = @coords.split(',').map(&:to_f)
+    if @coords
+      @location = @coords.split(',').map(&:to_f)
+    end
   end
 
   def order_items
