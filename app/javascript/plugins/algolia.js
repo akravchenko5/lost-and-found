@@ -30,10 +30,9 @@ if (titleField) {
           `});
 
           list.insertAdjacentHTML('beforeend',`
-            <h5>Similar ${lostOrFound} ${hits.length > 1 ? 'items:' : 'item:'}</h5>
-            ${listItems}
+              <h5>Similar ${lostOrFound} ${hits.length > 1 ? 'items:' : 'item:'}</h5>
+              ${listItems}
         `);
-          list.classList.remove('drop-down-hidden');
         }
       });
     });
