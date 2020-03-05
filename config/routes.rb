@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'items#home'
   get 'items/map', to: 'items#map', as: :map
   get 'items/search', to: 'items#search', as: :search
+  get 'items/presentation', to: 'items#presentation', as: :presentation
 
   mount ActionCable.server, at: '/cable'
 

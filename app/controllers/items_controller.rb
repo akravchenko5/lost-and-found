@@ -32,6 +32,9 @@ class ItemsController < ApplicationController
     set_map(items);
   end
 
+  def presentation
+  end
+
   def search
   end
 

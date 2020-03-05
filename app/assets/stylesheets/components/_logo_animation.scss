@@ -159,6 +159,13 @@
 .logo-title {
   font-size: 50px;
   color: white;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
 
 }
 
