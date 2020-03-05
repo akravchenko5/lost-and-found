@@ -42,7 +42,8 @@ class ConversationsController < ApplicationController
 
 
   def index
-    @conversations = current_user.conversations
+      @conversations = Conversation.joins(:messages).order('messages.created_at desc').uniq {|x| x[:id]}
+      # @conversations = Conversation.joins(:messages).merge(Message.order(created_at: :desc)).uniq {|x| x[:id]}
   end
 
   private
