@@ -13,12 +13,13 @@ class ItemsController < ApplicationController
     end
 
     @coords = cookies[:cached_location]
+    if @coords.blank?
+      @coords = "59.8983942, 10.773181"
+    end
   end
 
   def set_location
-    if @coords
-      @location = @coords.split(',').map(&:to_f)
-    end
+    @location = @coords.split(',').map(&:to_f)
   end
 
   def order_items
