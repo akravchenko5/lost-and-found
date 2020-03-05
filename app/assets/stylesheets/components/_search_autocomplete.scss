@@ -1,3 +1,4 @@
+
 .search-dropdown {
   background-color: $lost-green;
   position: relative;
@@ -5,6 +6,7 @@
 }
 
 .drop-down-hidden {
+  display: none!important;
   max-height: 0;
   transition: max-height 1s ease;
 }

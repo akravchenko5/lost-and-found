@@ -25,7 +25,8 @@ class ConversationsController < ApplicationController
   end
 
   def destroy
-  @conversation = Conversation.find(params[:id])
+  @conversation = current_user.conversations.find(params[:id])
+
   @conversation.destroy
     if @conversation.destroy
       flash[:notice] = "Conversation has been deleted!"
@@ -37,13 +38,13 @@ class ConversationsController < ApplicationController
 
 
   def show
-    @conversation = Conversation.includes(messages: [:user, :photo_attachment]).where(id: params[:id]).first
+    @conversation = current_user.conversations.includes(messages: [:user, :photo_attachment]).where(id: params[:id]).first
+    raise ActiveRecord::RecordNotFound unless @conversation.present?
   end
 
 
   def index
-      @conversations = Conversation.joins(:messages).order('messages.created_at desc').uniq {|x| x[:id]}
-      # @conversations = Conversation.joins(:messages).merge(Message.order(created_at: :desc)).uniq {|x| x[:id]}
+    @conversations = current_user.conversations.includes(:messages).order('messages.created_at desc')
   end
 
   private
