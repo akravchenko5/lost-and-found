@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     end
 
     @coords = cookies[:cached_location]
-    if @coords.empty?
+    if @coords.blank?
       @coords = "59.8983942, 10.773181"
     end
   end
