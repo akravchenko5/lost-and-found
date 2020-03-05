@@ -3,7 +3,7 @@ class Message < ApplicationRecord
   belongs_to :conversation
   has_one_attached :photo
 
-  validates_presence_of :content
+
   #, :conversation_id, :user_id
 
 
