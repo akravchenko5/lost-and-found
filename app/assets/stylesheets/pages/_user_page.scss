@@ -129,9 +129,11 @@
     width: 100%;
     color: $lost-green;
     a {
+      color: $lost-green;
 
       &:hover {
       color: $lost-dark;
+      text-decoration: none;
     }
 
     }
