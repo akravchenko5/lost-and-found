@@ -7,9 +7,8 @@ const messageReceived = (userId, data) => {
   const fileInput = document.getElementById('message_photo');
   const fileButton = document.querySelector('.image-upload');
   const loader = document.querySelector('.loader');
-  const hiddenForm = document.querySelector('.form-group.string.required.message_content')
-
-
+  const hiddenForm = document.querySelector('.form-group.string.optional.message_content');
+  const submitButton = document.querySelector('#message-new-button');
 
   // Inside a conversation page
   if (messages && data.conversation === parseInt(messages.dataset.id)) {
@@ -22,6 +21,8 @@ const messageReceived = (userId, data) => {
     fileInput.classList.add('d-none');
     loader.classList.add('d-none');
     inputField.classList.remove('d-none');
+    submitButton.classList.remove('button-show');
+    inputField.focus();
 
     scrollDown(true);
   } else {
@@ -40,7 +41,8 @@ const subscribeUser = () => {
   const inputField = document.querySelector('#message_content');
   const submitButton = document.querySelector('#message-new-button');
   const loader = document.querySelector('.loader');
-  const hiddenForm = document.querySelector('.form-group.string.required.message_content')
+  const hiddenForm = document.querySelector('.form-group.string.required.message_content');
+  const fileInput = document.getElementById('message_photo');
 
   consumer.subscriptions.create({
     channel: 'UserChannel',
@@ -48,6 +50,36 @@ const subscribeUser = () => {
   }, {
     received(data) { messageReceived(window.userId, data) }
   });
+
+  if (inputField) {
+    inputField.addEventListener('keyup', (event) => {
+
+      if (inputField.value.length >= 1 ) {
+        submitButton.classList.add('button-show');
+
+        if(event.keyCode === 13) {
+          event.preventDefault();
+        }
+
+      } else {
+        submitButton.classList.remove('button-show');
+      }
+
+    });
+  }
+
+  if (fileInput) {
+    fileInput.addEventListener('change', () => {
+
+      if (fileInput.files.length > 0) {
+        submitButton.classList.add('button-show');
+
+      } else {
+        submitButton.classList.remove('button-show');
+      }
+
+    });
+  }
 
   if (submitButton) {
     submitButton.addEventListener('click', (event) => {

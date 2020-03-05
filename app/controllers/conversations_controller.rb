@@ -62,6 +62,6 @@ class ConversationsController < ApplicationController
   end
 
   def conversation_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :photo)
   end
 end
