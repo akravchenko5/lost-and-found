@@ -1,53 +1,37 @@
 <div class="register-page-wrap">
 
-  <div class="logo-wrap">
-    <div class="register-logo-big">
-      <div class="register-logo-small"></div>
+  <div class="register-logo">
+    <%= image_tag 'logo_green.svg', class: 'sign-up-logo' %>
+
+  </div>
+
+  <h2 id='register-header'>Sign up</h2>
+  <div class="register-wrapper"></div>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+        <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "first name" }%>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
     </div>
-  </div>
-
-  <div class="logo-title">
-    lost & found
-  </div>
-
-  <div class="tag-line">Join our community and find your lost belongings!</div>
 
 
-<h2 id='register-header'>Sign up</h2>
-<div class="register-wrapper"></div>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-      <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "first name" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-
-
-<div class='register-button-wrap'>
-   <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: 'register-button-white' %>
-  </div>
-<% end %>
-
-  <%= render "devise/shared/links" %>
-
-
-
+    <div class='register-button-wrap'>
+        <%= f.button :submit, "Sign up", class: 'register-button-white' %>
+    </div>
+ <% end %>
 </div>
-
-  </div>

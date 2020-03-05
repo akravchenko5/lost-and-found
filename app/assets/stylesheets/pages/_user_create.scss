@@ -6,7 +6,7 @@
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   overflow-y: scroll;
   top: 0;
@@ -18,32 +18,41 @@
     margin-bottom: 0px;
   }
 
+  #new_user {
+    width: 80%;
+  }
+
   label {
-    color: white;
+    color: $lost-green;
     margin-bottom: 5px;
   }
 
-  #user_email, #user_password {
+  #user_first_name, #user_password_confirmation, #user_email, #user_password {
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $lost-green;
     padding: 5px 0px;
     margin-bottom: 20px;
-    background-color: $lost-green !important;
+    background-color: $lost-dark !important;
     transition: none;
     color: white;
 
     &:focus {
       outline: none;
       box-shadow: none;
-      border-bottom: 1px solid $lost-dark;
-      color: $lost-dark;
-      background-color: $lost-green !important;
+      border-bottom: 1px solid white;
+      color: white;
     }
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.3);
     }
   }
+}
+
+.sign-up-logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 30px;
 }
 
 input:-webkit-autofill,
@@ -58,7 +67,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   background-color: $lost-green !important;
   -webkit-box-shadow: 0 0 0 30px $lost-green inset !important;
-  -webkit-text-fill-color: $lost-dark !important;
+  -webkit-text-fill-color: white !important;
   caret-color: $lost-dark;
 }
 
@@ -111,9 +120,10 @@ select:-webkit-autofill:focus {
     color: $lost-dark;
   }
 }
+
 #register-header {
-  color: $lost-green
-}
+  color: $lost-green;
+  margin-bottom: 30px;
 
  a {
     color: $lost-green;
@@ -124,6 +134,7 @@ select:-webkit-autofill:focus {
       text-decoration: none;
     }
   }
+}
 
 
 .register-logo-small {
@@ -170,6 +181,7 @@ select:-webkit-autofill:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 200px;
 
   a {
     padding-top: 13px;
@@ -177,4 +189,14 @@ select:-webkit-autofill:focus {
 
 }
 
+.register-logo {
+  padding-top: 70px;
+}
 
+@media screen and (min-width: 780px) {
+
+  #new_user {
+    width: 50%;
+  }
+
+}
