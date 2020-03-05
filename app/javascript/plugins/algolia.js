@@ -1,8 +1,7 @@
 import algoliasearch from 'algoliasearch';
 import { timeToWords } from './dateHelper';
 
-const client = algoliasearch(window.algoliaCredentials.appId, window.algoliaCredentials.searchKey); //Julians APIs
-// const client = algoliasearch('1LWVV3TZRZ', '344b5af8f379dac1979f13b494b4578a'); //My APIs
+const client = algoliasearch(window.algoliaCredentials.appId, window.algoliaCredentials.searchKey);
 const index = client.initIndex('Item');
 
 
