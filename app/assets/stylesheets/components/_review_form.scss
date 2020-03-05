@@ -20,13 +20,14 @@ label {
     }
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 1);
     }
   }
 
   #review_rating {
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 1);
     margin-bottom: 20px;
+    -webkit-appearance: none;
   }
 }
 

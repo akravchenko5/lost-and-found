@@ -23,10 +23,7 @@
       <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
       <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have found ... ', autocomplete: 'off'} %>
       <div class="button-wrap">
-      <%= f.button :submit, class:"button-green" %>
-      <div class="button-space"></div>
-      <%= link_to "Found Items", found_items_path, class:"button-dark"  %>
-      </div>
+      <%= f.button :submit, class:"button-green-dark" %>
     <% end %>
 
   </div>

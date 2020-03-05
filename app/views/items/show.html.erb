@@ -36,15 +36,15 @@
     <% if current_user %>
     <div class="button-wrap">
       <% if current_user.conversation_for(@item).present? %>
-        <%= link_to 'Send message', current_user.conversation_for(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
+        <%= link_to 'Send message', current_user.conversation_for(@item), class: @item.lost? ? 'button-green-lost' : 'button-green-dark' %>
       <% else %>
-        <%= link_to 'Send message', new_item_conversation_path(@item), class: @item.lost? ? 'button-white' : 'button-dark' %>
+        <%= link_to 'Send message', new_item_conversation_path(@item), class: @item.lost? ? 'button-green-lost' : 'button-green-dark' %>
       <% end %>
       <div class="button-space"></div>
       <% if current_user == @item.user && (@item.lost? || @item.found?) %>
-      <%= link_to 'Mark as solved', solved_item_path(@item), method: :patch, class: 'button-green' %>
+      <%= link_to 'Mark as solved', solved_item_path(@item), method: :patch, class: 'button-green-dark' %>
       <% else %>
-      <%= link_to 'Write Review', user_path(@item.user), class: 'button-green' %>
+      <%= link_to 'Write Review', user_path(@item.user), class: @item.lost? ? 'button-green-lost' : 'button-green-dark' %>
       <% end  %>
     </div>
     <% else %>

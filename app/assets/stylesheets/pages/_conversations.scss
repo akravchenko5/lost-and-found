@@ -210,6 +210,10 @@ label[for=message_photo] {
   flex-grow: 1;
 }
 
+.form-group.string.required.message_content {
+  flex-grow: 1;
+}
+
 #message-new-button {
   border: 1px solid $lost-green;
   width: 50px;

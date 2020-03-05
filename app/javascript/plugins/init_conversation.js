@@ -9,6 +9,7 @@ const messageReceived = (userId, data) => {
   const loader = document.querySelector('.loader');
   const hiddenForm = document.querySelector('.form-group.string.optional.message_content');
   const submitButton = document.querySelector('#message-new-button');
+  const hiddenForm2 = document.querySelector('.form-group.string.required.message_content');
 
   // Inside a conversation page
   if (messages && data.conversation === parseInt(messages.dataset.id)) {
@@ -17,7 +18,12 @@ const messageReceived = (userId, data) => {
     inputField.value = '';
     fileInput.value = '';
     fileButton.classList.remove('selected');
-    hiddenForm.classList.remove('d-none');
+    if (hiddenForm) {
+      hiddenForm.classList.remove('d-none');
+    }
+    if (hiddenForm2) {
+      hiddenForm.classList.remove('d-none');
+    }
     fileInput.classList.add('d-none');
     loader.classList.add('d-none');
     inputField.classList.remove('d-none');
@@ -41,7 +47,8 @@ const subscribeUser = () => {
   const inputField = document.querySelector('#message_content');
   const submitButton = document.querySelector('#message-new-button');
   const loader = document.querySelector('.loader');
-  const hiddenForm = document.querySelector('.form-group.string.required.message_content');
+  const hiddenForm = document.querySelector('.form-group.string.optional.message_content');
+  const hiddenForm2 = document.querySelector('.form-group.string.required.message_content');
   const fileInput = document.getElementById('message_photo');
 
   consumer.subscriptions.create({
@@ -93,6 +100,10 @@ const subscribeUser = () => {
 
       if (hiddenForm) {
         hiddenForm.classList.add('d-none');
+      }
+
+      if (hiddenForm2) {
+        hiddenForm2.classList.add('d-none');
       }
 
     });

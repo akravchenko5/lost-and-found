@@ -28,6 +28,26 @@
   }
 }
 
+.button-dark-green {
+  color: white;
+  background-color: $lost-dark;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+
+   &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $lost-green;
+
+  }
+}
+
 .button-green {
   color: white;
   background-color: $lost-green;
@@ -41,7 +61,32 @@
   cursor: pointer;
 
   &:hover {
-    color: $lost-dark;
+    color: $lost-green;
+    background-color: white;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: white;
+    color: $lost-green;
+  }
+}
+
+.button-green-dark {
+  color: white;
+  background-color: $lost-green;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $lost-green;
+    background-color: $lost-dark;
     text-decoration: none;
   }
 
@@ -65,7 +110,32 @@
 
   &:hover {
     text-decoration: none;
-    color: $lost-dark;
+    color: white;
+    background-color: $lost-dark;
+  }
+
+  &:active {
+    background-color: $lost-dark;
+    color: $lost-green;
+  }
+}
+
+.button-green-lost {
+  color: white;
+  background-color: $lost-green;
+  padding: 15px 20px;
+  flex-grow: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $lost-green;
+    background-color: $white;
   }
 
   &:active {
