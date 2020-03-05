@@ -1,0 +1,34 @@
+<div class="new-item-page-background">
+
+</div>
+
+<div class="menu-title">
+  <h2>Edit lost item</h2>
+</div>
+
+<div class="new-found-background-green">
+
+</div>
+
+<div class="new-lost-background-dark">
+  <div class="new-item-form-lost">
+    <%= simple_form_for @item do |f| %>
+      <%= f.input :state, as: :hidden, input_html: { value: params[:state] } %>
+      <%= f.input :title, :input_html => { placeholder: 'What have you lost?', autocomplete: 'off' } %>
+      <div class="search-dropdown">
+        <div class="search-dropdown-results found-dropdown">
+        </div>
+      </div>
+      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...', required: true } %>
+      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
+      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have lost ... ', autocomplete: 'off'} %>
+      <%= f.input :reward, :input_html => { placeholder: 'Do you want to give a finders fee?', autocomplete: 'off' } %>
+      <div class="button-wrap">
+      <%= f.button :submit, class:"button-green" %>
+      <div class="button-space"></div>
+      <%= link_to "Lost Items", lost_items_path, class:"button-white"  %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

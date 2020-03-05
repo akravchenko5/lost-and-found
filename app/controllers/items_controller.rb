@@ -104,6 +104,14 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def edit_found
+    @item = Item.find(params[:item_id])
+  end
+
+  def edit_lost
+    @item = Item.find(params[:item_id])
+  end
+
   def update
     if @item.update(item_params)
       flash[:notice] = "You've updated your item!"
@@ -165,7 +173,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
