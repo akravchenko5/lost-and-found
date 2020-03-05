@@ -157,8 +157,8 @@ select:-webkit-autofill:focus {
 }
 
 .register-button-white {
-  color: $lost-green;
-  background-color: white;
+  color: white;
+  background-color: $lost-green;
   padding: 11px 14px;
   flex-grow: 1;
   border-radius: 30px;
@@ -170,7 +170,8 @@ select:-webkit-autofill:focus {
 
   &:hover {
     text-decoration: none;
-    color: $lost-dark;
+    color: $lost-green;
+    background-color: white;
 
   }
 
@@ -194,6 +195,9 @@ select:-webkit-autofill:focus {
 }
 
 @media screen and (min-width: 780px) {
+  #form-inputs{
+    width: 50%;
+  }
 
   #new_user {
     width: 50%;
