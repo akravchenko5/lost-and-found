@@ -10,6 +10,7 @@ label {
     border-bottom: 1px solid $lost-green;
     padding: 5px 0px;
     margin-bottom: 20px;
+    text-decoration: none;
 
     &:focus {
       outline: none;
@@ -26,5 +27,16 @@ label {
   #review_rating {
     color: rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+  }
+}
+
+#review_form_input {
+  text-decoration: none;
+}
+
+label.required {
+  abbr {
+    text-decoration: none;
+
   }
 }
