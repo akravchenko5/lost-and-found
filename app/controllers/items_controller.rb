@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def map
-    items = Item.all.geocoded
+    items = Item.where.not(state: 'solved').geocoded
     set_map(items);
   end
 
@@ -40,27 +40,26 @@ class ItemsController < ApplicationController
   def index
     if search_terms
       @coords = "#{params[:latitude]}, #{params[:longitude]}" if params[:latitude].present?
-
-      items = Item.search(search_terms, {
+      items = Item.where.not(state: 'solved').search(search_terms, {
         aroundLatLng: @coords,
-        aroundRadius: @radius
+        aroundRadius: @radius,
+        hitsPerPage: 100
       })
-
       @items = date_filter(items)
       order_items
     else
-      @items = Item.all
+      @items = Item.where.not(state: 'solved').all
       order_items
     end
   end
 
   def lost
-    @items = Item.lost
+    @items = Item.lost.where.not(state: 'solved')
     order_items
   end
 
   def found
-    @items = Item.found
+    @items = Item.found.where.not(state: 'solved')
     order_items
     render :index
   end
