@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def set_location
-    if @location
+    if @coords
       @location = @coords.split(',').map(&:to_f)
     end
   end
