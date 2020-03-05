@@ -13,7 +13,6 @@
 <div class="new-found-background-white">
   <div class="new-item-form">
     <%= simple_form_for @item do |f| %>
-      <%= f.input :state, as: :hidden, input_html: { value: params[:state] } %>
       <%= f.input :title, :input_html => { placeholder: 'What have you found?', autocomplete: 'off'} %>
       <div class="search-dropdown">
         <div class="search-dropdown-results lost-dropdown drop-down-hidden">
