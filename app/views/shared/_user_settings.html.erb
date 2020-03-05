@@ -35,7 +35,7 @@
       <div class="settings-account">
         <div class="account-items account-header">
           Account settings
-          <%= link_to 'Edit profile', '#', class: 'settings-links' %>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'settings-links' %>
         </div>
         <div class="account-items">
           <p>Email</p>
@@ -60,11 +60,18 @@
             <% current_user.items.lost.each do |item| %>
               <div class="settings-item-details">
                 <p><%= link_to item.title, item_path(item) %></p>
-                <%= link_to item_path(item),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } do %>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
+                <div class="settings-icon-wrap">
+                  <%= link_to item_edit_lost_path(item) do %>
+                 <i class="fas fa-pencil-alt"></i>
+                 <% end %>
+                 <div class="icon-space"></div>
+                  <%= link_to item_path(item),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </div>
+
               </div>
             <% end %>
           </div>
@@ -83,11 +90,17 @@
             <% current_user.items.found.each do |item| %>
               <div class="settings-item-details">
                 <p><%= link_to item.title, item_path(item) %></p>
+                <div class="settings-icon-wrap">
+                <%= link_to item_edit_found_path(item) do %>
+                 <i class="fas fa-pencil-alt"></i>
+                 <% end %>
+                 <div class="icon-space"></div>
                 <%= link_to item_path(item),
                   method: :delete,
                   data: { confirm: "Are you sure?" } do %>
                   <i class="far fa-trash-alt"></i>
                 <% end %>
+                </div>
               </div>
             <% end %>
           </div>

@@ -17,6 +17,17 @@
   left: 0;
 }
 
+.settings-icon-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-space {
+  width: 20px;
+  height: 10%;
+}
+
 .show-settings {
     transform: translate(0px, 0px);
 }

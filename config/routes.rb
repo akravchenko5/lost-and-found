@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
 
   resources :items, except: :home do
+    get 'edit_lost', to: 'items#edit_lost', as: :edit_lost
+    get 'edit_found', to: 'items#edit_found', as: :edit_found
     member do
       patch :solved
     end
