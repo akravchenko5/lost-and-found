@@ -38,10 +38,16 @@
   justify-content: center;
   align-items: center;
   border: none;
+  cursor: pointer;
 
   &:hover {
     color: $lost-dark;
     text-decoration: none;
+  }
+
+  &:active {
+    background-color: white;
+    color: $lost-green;
   }
 }
 
@@ -60,7 +66,11 @@
   &:hover {
     text-decoration: none;
     color: $lost-dark;
+  }
 
+  &:active {
+    background-color: $lost-dark;
+    color: $lost-green;
   }
 }
 
