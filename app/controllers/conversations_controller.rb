@@ -47,6 +47,7 @@ class ConversationsController < ApplicationController
 
   private
 
+
   def broadcast_message
     ActionCable.server.broadcast(
       "user_#{@conversation.item.user_id}",
