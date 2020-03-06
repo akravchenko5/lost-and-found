@@ -26,6 +26,10 @@
     list-style: none;
     display: flex;
     align-items: center;
+
+    p {
+      min-width: 50px;
+    }
     // justify-content: space-between;
   }
 
