@@ -1,9 +1,19 @@
 .home-page-wrap {
-  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  h3 {
+    font-size: 22px;
+  }
 }
 
 .home-content-wrap {
@@ -109,5 +119,9 @@ body > div.home-page-wrap > div > form > div > #query_title {
       font-size: 120px;
       margin-bottom: 0px;
     }
+
+      h3 {
+    font-size: 30px;
+  }
   }
 }

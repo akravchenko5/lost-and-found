@@ -265,11 +265,24 @@
   .settings-review-author {
     width: 100%;
     color: $lost-green;
+
+    a {
+      color: $lost-green;
+
+      &:hover {
+        color: $lost-green;
+        text-decoration: none;
+      }
+    }
   }
 
   .settings-average-review {
     color: rgba(255, 255, 255, 0.2);
     padding: 7px 0px;
+  }
+
+  .settings-sign-out {
+    height: 150px;
   }
 
 @media screen and (min-width: 780px) {
