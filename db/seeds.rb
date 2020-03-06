@@ -585,6 +585,107 @@ items_attributes = [
 
 Item.create!(items_attributes)
 
+puts 'Creating reviews...'
+
+reviews_attributes = [
+  {
+    content: 'Great experience!',
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: 'So helpful. Thank you!',
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: 'Nice person',
+    rating: 4,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Didn't show up, and I never got my item back",
+    rating: 2,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "So happy that you helped me out!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Thanks for finding my wallet!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Claimed to own something he didn't own!",
+    rating: 1,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Very nice, thanks!",
+    rating: 4,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Made my day! Cheers!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Thanks for helping me out!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "You are truly a saint!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "You're a saint!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "The best experience!",
+    rating: 5,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Took some time, but got my scarf back...",
+    rating: 3,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+  {
+    content: "Good experience",
+    rating: 4,
+    reviewer: User.all.sample,
+    reviewed: User.all.sample
+  },
+
+
+]
+
+
+Review.create!(reviews_attributes)
+
+
 
 
 puts 'Finished!'
