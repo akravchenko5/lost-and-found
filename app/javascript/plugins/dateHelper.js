@@ -8,7 +8,7 @@ const timeToWords = (to, from) => {
 
   distance_in_minutes = Math.abs(distance_in_minutes);
 
-  if (distance_in_minutes == 0) { return 'less than a min'+tense; }
+  if (distance_in_minutes == 0) { return 'less a min'+tense; }
   if (distance_in_minutes == 1) { return '1/min'+tense; }
   if (distance_in_minutes < 45) { return distance_in_minutes + '/mins'+tense; }
   if (distance_in_minutes < 90) { return '1 hr'+tense; }
