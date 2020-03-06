@@ -24,6 +24,8 @@
       <%= f.input :address, :input_html => { placeholder: 'Where did you find it?', required: true } %>
       <div class="button-wrap">
       <%= f.button :submit, class:"button-green-dark" %>
+      <div class="button-space"></div>
+      <%= link_to 'Back', :back, class: 'button-green-dark' %>
     <% end %>
 
   </div>
