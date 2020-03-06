@@ -19,9 +19,9 @@
         <div class="search-dropdown-results found-dropdown">
         </div>
       </div>
-      <%= f.input :address, :input_html => { placeholder: 'Please enter your address ...', required: true } %>
-      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select category', :input_html => { placeholder: 'Please choose category' } %>
-      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have lost ... ', autocomplete: 'off'} %>
+      <%= f.input :description, :input_html => {:rows => 3, placeholder: 'Describe the item you have lost', autocomplete: 'off'} %>
+      <%= f.input :category, collection: Item::CATEGORIES, prompt: 'Select a category', :input_html => { placeholder: 'Please choose category' } %>
+      <%= f.input :address, :input_html => { placeholder: 'Where did you lose it?', required: true } %>
       <%= f.input :reward, :input_html => { placeholder: 'Do you want to give a finders fee?', autocomplete: 'off' } %>
       <div class="button-wrap">
       <%= f.button :submit, class:"button-green" %>
